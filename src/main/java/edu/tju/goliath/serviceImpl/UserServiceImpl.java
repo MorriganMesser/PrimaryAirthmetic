@@ -7,12 +7,10 @@ import org.springframework.stereotype.Service;
 
 import edu.tju.goliath.dao.UserMapper;
 import edu.tju.goliath.entity.User;
-import edu.tju.goliath.service.UserService;
+import edu.tju.goliath.service.UserServiceI;
 
-
-
-
-public class UserServiceImpl implements UserService {
+@Service("userService")
+public class UserServiceImpl implements UserServiceI {
 
 	private UserMapper userMapper;
 

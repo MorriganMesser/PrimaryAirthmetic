@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.tju.goliath.entity.User;
-import edu.tju.goliath.service.UserService;
+import edu.tju.goliath.service.UserServiceI;
 
 @Controller
 @RequestMapping("/userController")
 public class UserController {
 
-	private UserService userService;
+	private UserServiceI userService;
 
-	public UserService getUserService() {
+	public UserServiceI getUserService() {
 		return userService;
 	}
 
 	@Autowired
-	public void setUserService(UserService userService) {
+	public void setUserService(UserServiceI userService) {
 		this.userService = userService;
 	}
 
@@ -29,6 +29,7 @@ public class UserController {
 	public String showUser(@PathVariable String id, HttpServletRequest request) {
 		User u = userService.getUserById(id);
 		request.setAttribute("user", u);
+		System.out.println("u");
 		return "showUser";
 	}
 

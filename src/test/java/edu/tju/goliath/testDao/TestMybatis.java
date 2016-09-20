@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.alibaba.fastjson.JSON;
 
 import edu.tju.goliath.entity.User;
-import edu.tju.goliath.service.UserService;
+import edu.tju.goliath.service.UserServiceI;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml", "classpath:spring-mybatis.xml" })
@@ -20,14 +20,14 @@ public class TestMybatis {
 
 	private static final Logger logger = Logger.getLogger(TestMybatis.class);
 
-	private UserService userService;
+	private UserServiceI userService;
 
-	public UserService getUserService() {
+	public UserServiceI getUserService() {
 		return userService;
 	}
 
 	@Autowired
-	public void setUserService(UserService userService) {
+	public void setUserService(UserServiceI userService) {
 		this.userService = userService;
 	}
 
