@@ -26,11 +26,28 @@ public class UserController {
 	}
 
 	@RequestMapping("/{id}/showUser")
-	public String showUser(@PathVariable String id, HttpServletRequest request) {
+	public String showUser(@PathVariable Integer id, HttpServletRequest request) {
 		User u = userService.getUserById(id);
 		request.setAttribute("user", u);
 		System.out.println("u");
 		return "showUser";
 	}
 
+	@RequestMapping("registerUser")
+	public String registerUser(@PathVariable User user, HttpServletRequest request){
+		int result=userService.insertSelective(user);
+		return "register_success";
+	}
+	
+	@RequestMapping("loginUser")
+	public String loginUser(@PathVariable User user, HttpServletRequest request){
+		User user_data=userService.selectByUsername(user.getUsername());
+		if(user.getUsername()==user_data.getUsername()){
+			return "login_success";
+		}else{
+			return "login_error";
+		}
+		
+		
+	}
 }
