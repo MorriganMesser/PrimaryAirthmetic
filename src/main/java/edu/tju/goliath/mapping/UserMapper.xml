@@ -4,29 +4,42 @@
   <resultMap id="BaseResultMap" type="edu.tju.goliath.entity.User" >
     <id column="userid" property="userid" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="usernick" property="usernick" jdbcType="VARCHAR" />
     <result column="userpwd" property="userpwd" jdbcType="VARCHAR" />
+    <result column="useremail" property="useremail" jdbcType="VARCHAR" />
+    <result column="userphone" property="userphone" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    userid, username, userpwd
+    userid, username, usernick, userpwd, useremail, userphone
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from userinfo
+    from t_user
     where userid = #{userid,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectByUsername" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from userinfo
+    delete from t_user
     where userid = #{userid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="edu.tju.goliath.entity.User" >
-    insert into userinfo (userid, username, userpwd
+    insert into t_user (userid, username, usernick, 
+      userpwd, useremail, userphone
       )
-    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{usernick,jdbcType=VARCHAR}, 
+      #{userpwd,jdbcType=VARCHAR}, #{useremail,jdbcType=VARCHAR}, #{userphone,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="edu.tju.goliath.entity.User" >
-    insert into userinfo
+    insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
         userid,
@@ -34,8 +47,17 @@
       <if test="username != null" >
         username,
       </if>
+      <if test="usernick != null" >
+        usernick,
+      </if>
       <if test="userpwd != null" >
         userpwd,
+      </if>
+      <if test="useremail != null" >
+        useremail,
+      </if>
+      <if test="userphone != null" >
+        userphone,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -45,27 +67,48 @@
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
+      <if test="usernick != null" >
+        #{usernick,jdbcType=VARCHAR},
+      </if>
       <if test="userpwd != null" >
         #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null" >
+        #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="userphone != null" >
+        #{userphone,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="edu.tju.goliath.entity.User" >
-    update userinfo
+    update t_user
     <set >
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
+      <if test="usernick != null" >
+        usernick = #{usernick,jdbcType=VARCHAR},
+      </if>
       <if test="userpwd != null" >
         userpwd = #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null" >
+        useremail = #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="userphone != null" >
+        userphone = #{userphone,jdbcType=VARCHAR},
       </if>
     </set>
     where userid = #{userid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="edu.tju.goliath.entity.User" >
-    update userinfo
+    update t_user
     set username = #{username,jdbcType=VARCHAR},
-      userpwd = #{userpwd,jdbcType=VARCHAR}
+      usernick = #{usernick,jdbcType=VARCHAR},
+      userpwd = #{userpwd,jdbcType=VARCHAR},
+      useremail = #{useremail,jdbcType=VARCHAR},
+      userphone = #{userphone,jdbcType=VARCHAR}
     where userid = #{userid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -33,7 +33,7 @@ public class TestMybatis {
 
 	@Test
 	public void test1() {
-		User u = userService.getUserById("2");
+		User u = userService.getUserById(1);
 		logger.info(JSON.toJSONStringWithDateFormat(u, "yyyy-MM-dd HH:mm:ss"));
 	}
 
