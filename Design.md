@@ -15,7 +15,10 @@
 表达式生成&&表达式计算=>题库生成&&答案生成=>结果生成&&记录生成
 
 # 开发环境
+spring + tomcat + mysql
+java + HTML + CSS + javascript
 ## 平台
+JavaWeb
 
 # 代码规范
 
