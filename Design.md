@@ -12,7 +12,8 @@
 
 ## Function Structure
  - 数字类NumberClass
- - 表达式生成&&表达式计算=>题库生成 && 答案生成=>结果生成&&记录生成
+ - 表达式生成&&表达式计算=>题库生成 && 答案生成=>结果生成&&记录生成  
+
 ### 表达式的形式化描述
 ```
 Expression: Expression add Term | Term
