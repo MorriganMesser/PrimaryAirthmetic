@@ -12,7 +12,21 @@
 
 ## Function Structure
  - 数字类NumberClass
- - 表达式生成&&表达式计算=>题库生成 && 答案生成=>结果生成&&记录生成
+ - 表达式生成&&表达式计算=>题库生成 && 答案生成=>结果生成&&记录生成  
+
+### 表达式的形式化描述
+```
+Expression: Expression add Term | Term
+Term:       Term multi Factor | Factor
+Factor:     leftp Expression rightp | Number
+Number:     digits (div digits)?
+add:        '+' | '-'
+multi:      '*'
+digits:     [1-9][0-9]*
+leftp:      '('
+rightp:     ')'
+div:        '/'
+```
 
 # 开发环境
  - spring + tomcat + mysql
