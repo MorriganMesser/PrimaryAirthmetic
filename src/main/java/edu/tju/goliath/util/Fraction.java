@@ -28,12 +28,20 @@ public class Fraction {
     }
 
     public Fraction(int nume, int deno) {
+    	if(deno < 0) {
+    		deno = -deno;
+    		nume = - nume;
+    	}
         this.numerator = nume;
         this.denominator = deno;
+        this.reduce();
     }
 
     public Fraction(int nume) {
         this(nume, 1);
+    }
+    public Fraction(Fraction f) {
+    	this(f.numerator, f.denominator);
     }
 
     public Fraction() {
@@ -59,8 +67,46 @@ public class Fraction {
         return this;
     }
     public Fraction sub(Fraction f) {
-        f.negative();
-        this.add(f);
+    	Fraction fr = new Fraction(f);
+        fr.negative();
+        this.add(fr);
         return this;
+    }
+    public Fraction mul(Fraction f) {
+    	this.numerator *= f.numerator;
+    	this.denominator *= f.denominator;
+    	this.reduce();
+    	return this;
+    }
+    public Fraction div(Fraction f) {
+    	this.numerator *= f.denominator;
+    	this.denominator *= f.numerator;
+    	this.reduce();
+    	return this;
+    }
+    public boolean equal(Fraction f) {
+    	return (this.numerator == f.numerator && this.denominator == f.denominator);
+    }
+    public boolean isZero() {
+    	return this.denominator != 0 && this.numerator == 0;
+    }
+    public boolean isNan() {
+    	return this.denominator == 0;
+    }
+    public boolean isNegative() {
+    	return this.numerator < 0;
+    }
+    public String toString() {
+    	String result = new String();
+    	if(this.denominator == 0) {
+    		result = "NAN";
+    	}
+    	else if(this.denominator == 1) {
+    		result = String.valueOf(this.numerator);
+    	}
+    	else {
+    		result = String.valueOf(this.numerator) + "/" + String.valueOf(this.denominator);
+    	}
+    	return result;
     }
 }
