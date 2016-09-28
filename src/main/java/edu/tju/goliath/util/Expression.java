@@ -12,10 +12,16 @@ public class Expression {
 	private String result;
 	private Random random;
 	
+	/*
+	 * 产生随机数，用于产生随机操作符
+	 */
 	private int randomOperator() {
 		int op = random.nextInt(grade + 1);
 		return op;
 	}
+	/*
+	 * 随机产生整数或分数，分数出现的比率由fractionRatio决定
+	 */
 	private Fraction randomFraction() {
 		int nume = random.nextInt(scale) + 1;
 		int deno = 1;
@@ -25,6 +31,9 @@ public class Expression {
 		return new Fraction(nume, deno);
 	}
 	
+	/*
+	 * 构造函数，初始化构造表达式的规则
+	 */
 	public Expression(int fr, int s, int g) {
 		this.fractionRatio = fr;
 		this.scale = s;
@@ -34,32 +43,56 @@ public class Expression {
 		this.result = new String();
 		this.random = new Random(Calendar.getInstance().get(Calendar.MILLISECOND));
 	}
+	/*
+	 * 构造函数，默认等级为2，即四则运算
+	 */
 	public Expression(int fr, int s) {
 		this(fr, s, 2);
 	}
+	/*
+	 * 构造函数，默认规模为100，即100以内的运算
+	 */
 	public Expression(int fr) {
 		this(fr,  100);
 	}
+	/*
+	 * 构造函数，默认分数出现比率为50%
+	 */
 	public Expression() {
 		this(50);
 	}
 	
+	/*
+	 * 设定分数出现比率
+	 */
 	public void setFractionRatio(int fr) {
 		assert(fr >=0 && fr <= 100);
 		this.fractionRatio = fr;
 	}
+	/*
+	 * 设定计算规模
+	 */
 	public void setScale(int s) {
 		assert(s >= 10 && s <= 10000);
 		this.scale = s;
 	}
+	/*
+	 * 设定表达式等级
+	 */
 	public void setGrade(int g) {
 		assert(g >= 0 && g <= 2);
 		this.grade = g;
 	}
+	/*
+	 * 设定表达式中操作数的个数
+	 */
 	public void setFractionNumber(int fn) {
 		assert(fn > 2 && fn < 10);
 		this.fractionNumber = fn;
 	}
+	/*
+	 * 得到分数比率、规模、表达式等级、操作数个数
+	 */
 	public int getFractionRatio() {
 		return this.fractionRatio;
 	}
@@ -73,6 +106,9 @@ public class Expression {
 		return this.fractionNumber;
 	}
 	
+	/*
+	 * 创建表达式
+	 */
 	public void createExpression() {
 		this.expr = new String();
 		this.result = new String();
@@ -125,11 +161,17 @@ public class Expression {
 				}
 			}
 		}
-		this.result = answer.toString();
+		this.result = answer.toString();  //更新答案
 	}
+	/*
+	 * 得到表达式
+	 */
 	public String getExpression() {
 		return this.expr;
 	}
+	/*
+	 * 得到答案
+	 */
 	public String getResult() {
 		return this.result;
 	}
