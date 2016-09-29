@@ -12,7 +12,6 @@
 <meta name="author" content="">
 
 <title>HOME</title>
-
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <link href="css/freelancer.css" rel="stylesheet">
@@ -47,9 +46,13 @@
 </head>
 
 <body id="page-top" class="index">
-
-<!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
+	<div class="login_top">
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#" data-toggle="modal" data-target="#myModal">登陆</a></li>
+			<li><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+		</ul>
+	</div>
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header page-scroll">
@@ -59,34 +62,40 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+			<a class="navbar-brand" href="#page-top">小学生四则运算</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right ul_top">
 				<li class="hidden">
 					<a href="#page-top"></a>
 				</li>
 				<li class="page-scroll">
-					<a href="#portfolio">Portfolio</a>
+					<a href="#portfolio">主页</a>
 				</li>
 				<li class="page-scroll">
-					<a href="#about">About</a>
+					<a href="#about">个人信息</a>
 				</li>
 				<li class="page-scroll">
-					<a href="#contact">Contact</a>
+					<a href="views/test.jsp">练习模块</a>
 				</li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal">Sign In</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal1">Register</a></li>
+				<li class="page-scroll">
+					<a href="views/exam.jsp">考试模块</a>
+				</li>
+				<li class="page-scroll">
+					<a href="">学习模块</a>
+				</li>
+				<li class="page-scroll">
+					<a href="#contact">关于我们</a>
+				</li>
+				
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container-fluid -->
 </nav>
-
-<!-- Header -->
 <header>
 	<div class="container">
 		<div class="row">
@@ -256,52 +265,6 @@
 	</div>
 </section>
 
-<!-- Footer -->
-<footer class="text-center">
-	<div class="footer-above">
-		<div class="container">
-			<div class="row">
-				<div class="footer-col col-md-4">
-					<h3>Location</h3>
-					<p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
-				</div>
-				<div class="footer-col col-md-4">
-					<h3>Around the Web</h3>
-					<ul class="list-inline">
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-						</li>
-					</ul>
-				</div>
-				<div class="footer-col col-md-4">
-					<h3>About Freelancer</h3>
-					<p>Freelance is a free to use, open source Bootstrap theme created Start Bootstrap.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer-below">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
 
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 <div class="scroll-top page-scroll visible-xs visible-sm">
@@ -533,8 +496,54 @@
 		</div>
 	</div>
 </div>
+<!-- Footer -->
+<footer class="text-center">
+	<div class="footer-above">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col col-md-4">
+					<h3>Location</h3>
+					<p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+				</div>
+				<div class="footer-col col-md-4">
+					<h3>Around the Web</h3>
+					<ul class="list-inline">
+						<li>
+							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+						</li>
+						<li>
+							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+						</li>
+						<li>
+							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+						</li>
+						<li>
+							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+						</li>
+						<li>
+							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-col col-md-4">
+					<h3>About Freelancer</h3>
+					<p>Freelance is a free to use, open source Bootstrap theme created Start Bootstrap.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-below">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
 
-				<!--signin-->
+<!--signin-->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content modal-info">
