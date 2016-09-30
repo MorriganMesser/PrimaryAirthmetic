@@ -70,7 +70,7 @@
 					<a href="../index.jsp">主页</a>
 				</li>
 				<li class="page-scroll">
-					<a href="../index.jsp#about">个人信息</a>
+					<a href="#">个人信息</a>
 				</li>
 				<li class="page-scroll">
 					<a href="test.jsp">练习模块</a>
@@ -79,10 +79,10 @@
 					<a href="exam.jsp">考试模块</a>
 				</li>
 				<li class="page-scroll">
-					<a href="">学习模块</a>
+					<a href="../index.jsp#portfolio">学习模块</a>
 				</li>
 				<li class="page-scroll">
-					<a href="#contact">关于我们</a>
+					<a href="#contact">联系我们</a>
 				</li>
 				
 			</ul>

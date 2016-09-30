@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>考试模块</title>
+<title>练习模块</title>
 <link href="../css/exam.css" rel="stylesheet">
 </head>
 <body id="page-top" class="index">

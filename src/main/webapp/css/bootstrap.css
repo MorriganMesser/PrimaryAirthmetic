@@ -3021,6 +3021,7 @@ select[multiple].input-lg {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-weight: bold;
 }
 .btn:focus,
 .btn:active:focus,
@@ -3035,7 +3036,7 @@ select[multiple].input-lg {
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #ffffff;
+  /*color: #ffffff;*/
   text-decoration: none;
 }
 .btn:active,

@@ -72,10 +72,10 @@
 					<a href="#page-top"></a>
 				</li>
 				<li class="page-scroll">
-					<a href="#portfolio">主页</a>
+					<a href="#page-top">主页</a>
 				</li>
 				<li class="page-scroll">
-					<a href="#about">个人信息</a>
+					<a href="#">个人信息</a>
 				</li>
 				<li class="page-scroll">
 					<a href="views/test.jsp">练习模块</a>
@@ -84,10 +84,10 @@
 					<a href="views/exam.jsp">考试模块</a>
 				</li>
 				<li class="page-scroll">
-					<a href="">学习模块</a>
+					<a href="#portfolio">学习模块</a>
 				</li>
 				<li class="page-scroll">
-					<a href="#contact">关于我们</a>
+					<a href="#contact">联系我们</a>
 				</li>
 				
 			</ul>
@@ -102,9 +102,9 @@
 			<div class="col-lg-12">
 				<img class="img-responsive" src="img/profile.png" alt="">
 				<div class="intro-text">
-					<span class="name">Start Bootstrap</span>
+					<span class="name">小学生四则运算 评测系统</span>
 					<hr class="star-light">
-					<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+					<span class="skills">勿在浮沙筑高台，学好四则再登云。</span>
 				</div>
 			</div>
 		</div>
@@ -116,11 +116,153 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2>Portfolio</h2>
+				<h2>九九乘法表</h2>
 				<hr class="star-primary">
 			</div>
 		</div>
-		<div class="row">
+		
+		<div class="">
+                     <!--    Context Classes  -->
+                    <div class="panel panel-default">
+                       
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>\</th>
+                                            <th>一</th>
+                                            <th>二</th>
+                                            <th>三</th>
+                                            <th>四</th>
+                                            <th>五</th>
+                                            <th>六</th>
+                                            <th>七</th>
+                                            <th>八</th>
+                                            <th>九</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="success">
+                                            <td>1</td>
+                                            <td>1*1=1</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td>2</td>
+                                            <td>1*2=2</td>
+                                            <td>2*2=4</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="warning">
+                                            <td>3</td>
+                                            <td>1*3=3</td>
+                                            <td>2*3=6</td>
+                                            <td>3*3=9</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="danger">
+                                            <td>4</td>
+                                            <td>1*4=4</td>
+                                            <td>2*4=8</td>
+                                            <td>3*4=12</td>
+                                            <td>4*4=16</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>5</td>
+                                            <td>1*5=5</td>
+                                            <td>2*5=10</td>
+                                            <td>3*5=15</td>
+                                            <td>4*5=20</td>
+                                            <td>5*5=25</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td>6</td>
+                                            <td>1*6=6</td>
+                                            <td>2*6=12</td>
+                                            <td>3*6=18</td>
+                                            <td>4*6=24</td>
+                                            <td>5*6=30</td>
+                                            <td>6*6=36</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="warning">
+                                            <td>7</td>
+                                            <td>1*7=7</td>
+                                            <td>2*7=14</td>
+                                            <td>3*7=21</td>
+                                            <td>4*7=28</td>
+                                            <td>5*7=35</td>
+                                            <td>6*7=42</td>
+                                            <td>7*7=49</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="danger">
+                                            <td>8</td>
+                                            <td>1*8=8</td>
+                                            <td>2*8=16</td>
+                                            <td>3*8=24</td>
+                                            <td>4*8=32</td>
+                                            <td>5*8=40</td>
+                                            <td>6*8=48</td>
+                                            <td>7*8=56</td>
+                                            <td>8*8=64</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>9</td>
+                                            <td>1*9=9</td>
+                                            <td>2*9=18</td>
+                                            <td>3*9=27</td>
+                                            <td>4*9=36</td>
+                                            <td>5*9=45</td>
+                                            <td>6*9=54</td>
+                                            <td>7*9=63</td>
+                                            <td>8*9=72</td>
+                                            <td>9*9=81</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  end  Context Classes  -->
+          <br><br>         
+           <div class="row">
+			<div class="col-lg-12 text-center">
+				<h2>小学生算术技巧篇</h2>
+				<hr class="star-primary">
+			</div>
 			<div class="col-sm-4 portfolio-item">
 				<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
 					<div class="caption">
@@ -190,21 +332,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2>About</h2>
+				<h2>四则混合运算儿歌</h2>
 				<hr class="star-light">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-lg-offset-2">
-				<p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+				<p>通览全题定方案，细看是否能简便；</p>
 			</div>
 			<div class="col-lg-4">
-				<p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+				<p>从左到右脱式算，先乘除来后加减；</p>
 			</div>
-			<div class="col-lg-8 col-lg-offset-2 text-center">
-				<a href="#" class="btn btn-lg btn-outline">
-					<i class="fa fa-download"></i> Download Theme
-				</a>
+			<div class="col-lg-4 col-lg-offset-2">
+				<p>括号依次小中大，先算里面后外面；</p>
+			</div>
+			<div class="col-lg-4">
+				<p>横式计算竖检验，一步一查是关键。</p>
 			</div>
 		</div>
 	</div>
@@ -215,7 +358,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2>Contact Me</h2>
+				<h2>联系我们</h2>
 				<hr class="star-primary">
 			</div>
 		</div>
@@ -226,29 +369,29 @@
 				<form name="sentMessage" id="contactForm" novalidate>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Name</label>
-							<input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+							<label>姓名</label>
+							<input type="text" class="form-control" placeholder="姓名" id="name" required data-validation-required-message="Please enter your name.">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Email Address</label>
-							<input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+							<label>电子邮箱</label>
+							<input type="email" class="form-control" placeholder="电子邮箱" id="email" required data-validation-required-message="Please enter your email address.">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Phone Number</label>
-							<input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+							<label>电话号码</label>
+							<input type="tel" class="form-control" placeholder="电话号码" id="phone" required data-validation-required-message="Please enter your phone number.">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Message</label>
-							<textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+							<label>信息</label>
+							<textarea rows="5" class="form-control" placeholder="信息" id="message" required data-validation-required-message="Please enter a message."></textarea>
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
@@ -256,7 +399,7 @@
 					<div id="success"></div>
 					<div class="row">
 						<div class="form-group col-xs-12">
-							<button type="submit" class="btn btn-success btn-lg">Send</button>
+							<button type="submit" class="btn btn-success btn-lg">发送</button>
 						</div>
 					</div>
 				</form>
@@ -498,45 +641,11 @@
 </div>
 <!-- Footer -->
 <footer class="text-center">
-	<div class="footer-above">
-		<div class="container">
-			<div class="row">
-				<div class="footer-col col-md-4">
-					<h3>Location</h3>
-					<p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
-				</div>
-				<div class="footer-col col-md-4">
-					<h3>Around the Web</h3>
-					<ul class="list-inline">
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-						</li>
-					</ul>
-				</div>
-				<div class="footer-col col-md-4">
-					<h3>About Freelancer</h3>
-					<p>Freelance is a free to use, open source Bootstrap theme created Start Bootstrap.</p>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="footer-below">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+					Copyright &copy; 2016.Goliath All rights reserved.
 				</div>
 			</div>
 		</div>
