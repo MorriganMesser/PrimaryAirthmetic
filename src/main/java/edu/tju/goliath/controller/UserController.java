@@ -45,6 +45,7 @@ public class UserController {
 		return "register_success";
 	}
 	
+	//登陆测试
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request,
 			@RequestParam("username") String username,
