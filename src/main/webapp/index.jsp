@@ -749,7 +749,7 @@
 					<div class="login-grids">
 						<div class="login">
 							<div class="login-right">
-								<form action="userController/register.do" method="post">
+								<form action="register.do" method="post">
 									<h3>用户注册 </h3>
 											<input type="text" name="nick" placeholder="昵称">
 											<input type="text" name="name" placeholder="用户名">

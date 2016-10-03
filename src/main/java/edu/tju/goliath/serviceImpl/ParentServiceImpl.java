@@ -16,6 +16,7 @@ public class ParentServiceImpl implements ParentServiceI {
 		return parentMapper;
 	}
 
+	@Autowired
 	public void setParentMapper(ParentMapper parentMapper) {
 		this.parentMapper = parentMapper;
 	}

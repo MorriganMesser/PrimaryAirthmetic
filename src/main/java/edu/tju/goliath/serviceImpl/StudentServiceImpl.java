@@ -23,20 +23,17 @@ public class StudentServiceImpl implements StudentServiceI {
 
 	@Override
 	public int deleteStuById(Integer stuid) {
-		// TODO Auto-generated method stub
-		return 0;
+		return stuMapper.deleteByPrimaryKey(stuid);
 	}
 
 	@Override
 	public int addStu(Student record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return stuMapper.insert(record);
 	}
 
 	@Override
 	public int addStuSelective(Student record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return stuMapper.insertSelective(record);
 	}
 
 	@Override
@@ -46,14 +43,12 @@ public class StudentServiceImpl implements StudentServiceI {
 
 	@Override
 	public int updateStuByIdSelective(Student record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return stuMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
 	public int updateStuById(Student record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return stuMapper.updateByPrimaryKey(record);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.code.kaptcha.Constants;
 
@@ -21,7 +22,6 @@ import edu.tju.goliath.service.StudentServiceI;
 import edu.tju.goliath.service.TeacherServiceI;
 
 @Controller
-@RequestMapping("/userController")
 public class UserController {
 
 	// private UserServiceI userService;
@@ -75,7 +75,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(HttpServletRequest request,
+	public ModelAndView registerUser(HttpServletRequest request,
 			@RequestParam("nick") String nick,
 			@RequestParam("name") String name,
 			@RequestParam("email") String email,
@@ -92,7 +92,6 @@ public class UserController {
 			parent.setParentpwd(password);
 			int result = parentservice.addParentSelective(parent);
 			 msg="";
-			 System.out.println(msg);
 			session.setAttribute("msg", msg);
 		} else if ("教师".equals(type)) {
 			Teacher teacher = new Teacher();
@@ -101,15 +100,18 @@ public class UserController {
 			teacher.setTeachernick(nick);
 			teacher.setTeacherpwd(password);
 			int result = teacherservice.addTeacherSelective(teacher);
-		} else {
+		} else if("学生".equals(type)){
 			Student stu = new Student();
 			stu.setStuemail(email);
 			stu.setStuname(name);
 			stu.setStunick(nick);
 			stu.setStupwd(password);
+			System.out.println(stu);
 			int result = stuservice.addStuSelective(stu);
+		}else{
+			System.out.println("type failed");
 		}
-		return "register_success";
+		return new ModelAndView("index");
 	}
 
 //	@RequestMapping(value = "/login", method = RequestMethod.POST)
