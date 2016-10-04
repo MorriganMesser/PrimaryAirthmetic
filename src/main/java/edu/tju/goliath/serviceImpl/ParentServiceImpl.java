@@ -51,4 +51,14 @@ public class ParentServiceImpl implements ParentServiceI {
 		return parentMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public Parent getParentByName(String parentname) {
+		return parentMapper.selectByParentName(parentname);
+	}
+
+	@Override
+	public Parent getParentByEmail(String parentemail) {
+		return parentMapper.selectByParentEmail(parentemail);
+	}
+
 }

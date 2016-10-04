@@ -52,4 +52,14 @@ public class TeacherServiceImpl implements TeacherServiceI {
 		return teacherMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public Teacher getTeacherByName(String teachername) {
+		return teacherMapper.selectByTeacherName(teachername);
+	}
+
+	@Override
+	public Teacher getTeacherByEmail(String teacheremail) {
+		return teacherMapper.selectByTeacherEmail(teacheremail);
+	}
+
 }

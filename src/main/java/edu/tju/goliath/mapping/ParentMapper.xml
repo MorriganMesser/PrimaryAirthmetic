@@ -17,6 +17,18 @@
     from t_parent
     where parentid = #{parentid,jdbcType=INTEGER}
   </select>
+   <select id="selectByParentName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_parent
+    where parentname = #{parentname,jdbcType=VARCHAR}
+  </select>
+   <select id="selectByParentEmail" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_parent
+    where parentemail = #{parentemail,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_parent
     where parentid = #{parentid,jdbcType=INTEGER}

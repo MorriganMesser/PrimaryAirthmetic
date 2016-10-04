@@ -249,8 +249,7 @@
 					</div>
 				</div>
 				<!--  end  Context Classes  -->
-				<br>
-				<br>
+				<br> <br>
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2>小学生算术技巧篇</h2>
@@ -708,15 +707,16 @@
 					<div class="login-grids">
 						<div class="login">
 							<div class="login-right">
-								<form action="#" method="post">
+								<form action="login.do" method="post">
 									<h3>用户登录</h3>
-									<input type="text" name="Email" value="请输入用户名或邮箱"
-										onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = '请输入用户名或邮箱';}"
-										required=""> <input type="password" name="Password"
-										value="Password" onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Password';}"
-										required="">
+									<input type="text" name="nameoremail" placeholder="请输入用户名或邮箱">
+									<input type="password" name="password" placeholder="密码">
+									<div class="row"></div>
+									<br /> <select class="form-control" name="type">
+										<option value="学生">学生</option>
+										<option value="教师">教师</option>
+										<option value="家长">家长</option>
+									</select>
 									<h4>
 										<a href="#">忘记密码</a> / <a href="#">创建新密码</a>
 									</h4>
@@ -750,22 +750,18 @@
 						<div class="login">
 							<div class="login-right">
 								<form action="register.do" method="post">
-									<h3>用户注册 </h3>
-											<input type="text" name="nick" placeholder="昵称">
-											<input type="text" name="name" placeholder="用户名">
-											<input type="text" name="email" placeholder="邮箱">	
-											<input type="password" name="password" placeholder="密码">	
-						
-											<div class="row"></div>
-											<br/>
-											
-											<select class="form-control" name="type">
-											  <option value="学生">学生</option>
-											  <option value="教师">教师</option>
-											  <option value="家长">家长</option>
-											</select>
-										
-											<input type="submit" value="注册" >
+									<h3>用户注册</h3>
+									<input type="text" name="nick" placeholder="昵称"> <input
+										type="text" name="name" placeholder="用户名"> <input
+										type="text" name="email" placeholder="邮箱"> <input
+										type="password" name="password" placeholder="密码">
+
+									<div class="row"></div>
+									<br /> <select class="form-control" name="type">
+										<option value="学生">学生</option>
+										<option value="教师">教师</option>
+										<option value="家长">家长</option>
+									</select> <input type="submit" value="注册">
 								</form>
 							</div>
 							<div class="clearfix"></div>

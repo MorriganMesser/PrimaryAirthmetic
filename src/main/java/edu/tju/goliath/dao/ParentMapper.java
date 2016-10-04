@@ -10,6 +10,10 @@ public interface ParentMapper {
     int insertSelective(Parent record);
 
     Parent selectByPrimaryKey(Integer parentid);
+    
+    Parent selectByParentName(String parentname);
+    
+    Parent selectByParentEmail(String parentemail);
 
     int updateByPrimaryKeySelective(Parent record);
 

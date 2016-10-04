@@ -15,5 +15,9 @@ public interface StudentServiceI {
     int updateStuByIdSelective(Student record);
 
     int updateStuById(Student record);
+    
+    Student getStuByName(String stuname);
+    
+    Student getStuByEmail(String stuemail);
 
 }

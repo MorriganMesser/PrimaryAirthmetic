@@ -17,6 +17,18 @@
     from t_teacher
     where teacherid = #{teacherid,jdbcType=INTEGER}
   </select>
+  <select id="selectByTeacherName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_teacher
+    where teachername = #{teachername,jdbcType=VARCHAR}
+  </select>
+    <select id="selectByTeacherEmail" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_teacher
+    where teacheremail = #{teacheremail,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_teacher
     where teacherid = #{teacherid,jdbcType=INTEGER}

@@ -50,5 +50,13 @@ public class StudentServiceImpl implements StudentServiceI {
 	public int updateStuById(Student record) {
 		return stuMapper.updateByPrimaryKey(record);
 	}
+	@Override
+	public Student getStuByName(String stuname) {
+		return stuMapper.selectByStuName(stuname);
+	}
+	@Override
+	public Student getStuByEmail(String stuemail) {
+		return stuMapper.selectByStuEmail(stuemail);
+	}
 
 }

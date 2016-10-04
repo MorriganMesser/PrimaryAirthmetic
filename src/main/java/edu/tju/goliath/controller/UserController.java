@@ -157,19 +157,82 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request,
-			@RequestParam("name") String name,
-			@RequestParam("email") String email,
+			@RequestParam("nameoremail") String nameoremail,
 			@RequestParam("password") String password,
 			@RequestParam("type") String type) {
 		HttpSession session = request.getSession();
-		
+		System.out.println("用户名或邮箱："+nameoremail+"密码："+password+"类型："+type);
+//		System.out.println(parentservice.getParentByEmail(nameoremail));
+//		System.out.println(parentservice.getParentByName(nameoremail));
+//		System.out.println(null==parentservice.getParentByEmail(nameoremail));
+//		System.out.println(!((null==parentservice.getParentByEmail(nameoremail))&&(null==parentservice.getParentByName(nameoremail))));
 		if ("家长".equals(type)) {
-		
+			if(!((null==parentservice.getParentByEmail(nameoremail))&&(null==parentservice.getParentByName(nameoremail)))){
+				if(!(null==parentservice.getParentByEmail(nameoremail))){
+					Parent parent=parentservice.getParentByEmail(nameoremail);
+					if(password.equals(parent.getParentpwd())){
+						System.out.println("家长"+parent.getParentname()+"登陆成功");
+					}else{
+						System.out.println("家长"+parent.getParentname()+"密码错误");
+					}
+				}else {
+					Parent parent=parentservice.getParentByName(nameoremail);
+					if(password.equals(parent.getParentpwd())){
+						System.out.println("家长"+parent.getParentname()+"登陆成功");
+					}else{
+						System.out.println("家长"+parent.getParentname()+"密码错误");
+					}
+				}
+			}else{
+				System.out.println("用户名或密码错误");
+			}
+			
 		} else if ("教师".equals(type)) {
-		
+				if(!((null==teacherservice.getTeacherByEmail(nameoremail))&&(null==teacherservice.getTeacherByName(nameoremail)))){
+					if(!(null==teacherservice.getTeacherByEmail(nameoremail))){
+						Teacher teacher=teacherservice.getTeacherByEmail(nameoremail);
+						if(password.equals(teacher.getTeacherpwd())){
+							System.out.println("教师"+teacher.getTeachername()+"登陆成功");
+						}else{
+							System.out.println("教师"+teacher.getTeachername()+"密码错误");
+						}
+					}else {
+						Teacher teacher=teacherservice.getTeacherByName(nameoremail);
+						if(password.equals(teacher.getTeacherpwd())){
+							System.out.println("教师"+teacher.getTeachername()+"登陆成功");
+						}else{
+							System.out.println("教师"+teacher.getTeachername()+"密码错误");
+						}
+					}
+				}else{
+					System.out.println("用户名或密码错误");
+				}
+				
 		} else {
-		
+			if(!((null==stuservice.getStuByEmail(nameoremail))&&(null==stuservice.getStuByName(nameoremail)))){
+				if(!(null==stuservice.getStuByEmail(nameoremail))){
+					Student stu=stuservice.getStuByEmail(nameoremail);
+					System.out.println("密码1："+password+"密码2："+stu.getStupwd());
+					if(password.equals(stu.getStupwd())){
+						System.out.println("学生"+stu.getStuname()+"登陆成功");
+					}else{
+						System.out.println("学生"+stu.getStuname()+"密码错误");
+					}
+				}else {
+					Student stu=stuservice.getStuByName(nameoremail);
+					System.out.println(stu);
+					System.out.println("密码1："+password);
+					System.out.println("密码2："+stu.getStupwd());
+					if(password.equals(stu.getStupwd())){
+						System.out.println("学生"+stu.getStuname()+"登陆成功");
+					}else{
+						System.out.println("学生"+stu.getStuname()+"密码错误");
+					}
+				}
+			}else{
+				System.out.println("用户名或密码错误");
+			}
 		}
-		return "login_success";
+		return "index";
 	}
 }

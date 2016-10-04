@@ -10,6 +10,10 @@ public interface ParentServiceI {
     int addParentSelective(Parent record);
 
     Parent getParentById(Integer parentid);
+    
+    Parent getParentByName(String parentname);
+    
+    Parent getParentByEmail(String parentemail);
 
     int updateParentByIdSelective(Parent record);
 

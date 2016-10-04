@@ -10,6 +10,10 @@ public interface StudentMapper {
     int insertSelective(Student record);
 
     Student selectByPrimaryKey(Integer stuid);
+    
+    Student selectByStuName(String stuname);
+    
+    Student selectByStuEmail(String stuemail);
 
     int updateByPrimaryKeySelective(Student record);
 

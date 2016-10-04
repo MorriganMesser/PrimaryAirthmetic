@@ -10,6 +10,10 @@ public interface TeacherMapper {
     int insertSelective(Teacher record);
 
     Teacher selectByPrimaryKey(Integer teacherid);
+    
+    Teacher selectByTeacherName(String teachername);
+    
+    Teacher selectByTeacherEmail(String teacheremail);
 
     int updateByPrimaryKeySelective(Teacher record);
 
