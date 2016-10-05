@@ -23,6 +23,23 @@ import edu.tju.goliath.service.TeacherServiceI;
 
 @Controller
 public class UserController {
+	
+	/*
+	 * 注册：
+	 * 1.判断邮箱格式是否正确
+	 * 2.判断邮箱是否已经被注册
+	 * 3.判断用户名是否格式正确
+	 * 4.判断用户名是否已经存在
+	 * 5.判断密码格式是否正确
+	 * 
+	 * 登陆：
+	 * 1.输入为用户名或者邮箱
+	 * 2.判断输入是否为空
+	 * 
+	 * 修改密码：
+	 * 1.从前台传入用户类型和用户对象
+	 * 2.调用修改密码方法
+	 */
 
 	// private UserServiceI userService;
 	//
