@@ -28,6 +28,12 @@ rightp:     ')'
 div:        '/'
 ```
 
+### 生成题目接口
+ - 题目类：Expression
+ - 生成题目：createExpression()
+ - 获取题目：getExpression()
+ - 获取结果：getResult()
+
 # 开发环境
  - spring + tomcat + mysql
  - java + HTML + CSS + javascript
