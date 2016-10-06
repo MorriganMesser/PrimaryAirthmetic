@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,8 +55,16 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="login_top">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" data-toggle="modal" data-target="#myModal">登陆</a></li>
+			<c:if test="${student==null}"> 
+  				<li><a href="#" data-toggle="modal" data-target="#myModal">登陆</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#myModal1">${student.stuname }</a></li>
+			</c:if> 
+			<c:if test="${student!=null}"> 
+    			<li><a href="#" data-toggle="modal" data-target="#myModal">欢迎！</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#myModal1">学生：</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#myModal1">${student.stuname }</a></li>
+			</c:if> 
 			</ul>
 		</div>
 		<div class="container">
@@ -749,12 +758,12 @@
 					<div class="login-grids">
 						<div class="login">
 							<div class="login-right">
-								<form action="register.do" method="post">
+								<form action="register.do" id="loginForm" method="post">
 									<h3>用户注册</h3>
-									<input type="text" name="nick" placeholder="昵称"> <input
-										type="text" name="name" placeholder="用户名"> <input
-										type="text" name="email" placeholder="邮箱"> <input
-										type="password" name="password" placeholder="密码">
+									<input type="text" id="nick" name="nick" placeholder="昵称"> <input
+										type="text" id="name" name="name" placeholder="用户名"> <input
+										type="text" id="email" name="email" placeholder="邮箱"> <input
+										type="password" id="password" name="password" placeholder="密码">
 
 									<div class="row"></div>
 									<br /> <select class="form-control" name="type">
@@ -776,6 +785,59 @@
 		</div>
 	</div>
 	<!--Register-->
+	
+	
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script>
+$.validator.setDefaults({
+    submitHandler: function() {
+      alert("提交事件!");
+    }
+});
+$().ready(function() {
+	// 在键盘按下并释放及提交后验证提交表单
+	  $("#loginForm").validate({
+	    rules: {
+	      nick: {
+	        required: true,
+	        minlength: 2
+	      },
+	      name: {
+		    required: true,
+		    minlength: 2
+		  },
+	      password: {
+	        required: true,
+	        minlength: 5
+	      },
+	      email: {
+	        required: true,
+	        email: true
+	      }
+	    },
+	    messages: {
+	      nick: {
+	        required: "请输入昵称",
+	        minlength: "昵称必需由两个字母组成"
+	      },
+	      name: {
+		        required: "请输入用户名",
+		        minlength: "用户名必需由两个字母组成"
+		      },
+	      password: {
+	        required: "请输入密码",
+	        minlength: "密码长度不能小于 5 个字母"
+	      },
+	      email: "请输入一个正确的邮箱",
+	    }
+	});
+});
+</script>
+	
+	
 </body>
 
 </html>
+

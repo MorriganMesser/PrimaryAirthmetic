@@ -231,6 +231,10 @@ public class UserController {
 					Student stu=stuservice.getStuByEmail(nameoremail);
 					System.out.println("密码1："+password+"密码2："+stu.getStupwd());
 					if(password.equals(stu.getStupwd())){
+//						request.setAttribute("student", stu);
+						session.setAttribute("student", stu);
+						
+						System.out.println("session="+session.getAttribute("student"));
 						System.out.println("学生"+stu.getStuname()+"登陆成功");
 					}else{
 						System.out.println("学生"+stu.getStuname()+"密码错误");
@@ -241,7 +245,11 @@ public class UserController {
 					System.out.println("密码1："+password);
 					System.out.println("密码2："+stu.getStupwd());
 					if(password.equals(stu.getStupwd())){
+//						request.setAttribute("student", stu);
+						session.setAttribute("student", stu);
+						System.out.println("session="+session.getAttribute("student"));
 						System.out.println("学生"+stu.getStuname()+"登陆成功");
+						
 					}else{
 						System.out.println("学生"+stu.getStuname()+"密码错误");
 					}
