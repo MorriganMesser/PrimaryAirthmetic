@@ -5,54 +5,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dream</title>
-<!-- Bootstrap Styles-->
-<link href="../css/bootstrap.css" rel="stylesheet" />
-<!-- FontAwesome Styles-->
-<link href="../css/font-awesome.css" rel="stylesheet" />
-<!-- Custom Styles-->
-<link href="../css/custom-styles.css" rel="stylesheet" />
-<!-- Google Fonts-->
-<link href='http://fonts.useso.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css' />
+<title>用户</title>
 </head>
 <body>
-	<div id="wrapper">
-		<nav class="navbar navbar-default top-navbar" role="navigation">
+<%@ include file="systemplateheader.jsp"%> 
 
-		</nav>
-		<!--/. NAV TOP  -->
-		<nav class="navbar-default navbar-side" role="navigation">
-			<div class="sidebar-collapse">
-				<ul class="nav" id="main-menu">
-
-					<li><a href="../index.jsp" class=""><i class="fa fa-table"></i>返回主页</a>
-					</li>
-					<li><a href="#"><i class="fa fa-edit"></i>练习系统</a></li>
-
-
-					<li><a href="exam.jsp" class=""><i class="fa fa-sitemap"></i>考试系统</a>
-					</li>
-					<li><a href="#"><i class="fa fa-fw fa-file"></i>学习系统</a></li>
-					<li><a href="#"><i class="fa fa-dashboard"></i>提交试卷</a></li>
-					<li><a href="#"><i class="fa fa-desktop"></i>成绩查询</a></li>
-					<li><a href="chart.html"><i class="fa fa-bar-chart-o"></i>统计分析</a>
-					</li>
-
-
-
-					<li><a href="#"><i class="fa fa-sitemap"></i>用户 <span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="#" class="active-menu">个人信息</a></li>
-							<li><a href="password.jsp">修改密码</a></li>
-							<li><a href="#">Second Level Link</a></li>
-						</ul></li>
-
-				</ul>
-			</div>
-
-		</nav>
 		<!-- /. NAV SIDE  -->
 		<div id="page-wrapper">
 			<div id="page-inner">
@@ -147,7 +104,7 @@
 			<!-- /. PAGE INNER  -->
 		</div>
 		<!-- /. PAGE WRAPPER  -->
-	</div>
+
 	<!-- /. WRAPPER  -->
 	<!-- JS Scripts-->
 	<!-- jQuery Js -->
