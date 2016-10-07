@@ -8,102 +8,126 @@
 <title>用户</title>
 </head>
 <body>
-<%@ include file="systemplateheader.jsp"%> 
+	<%@ include file="systemplateheader.jsp"%>
 
-		<!-- /. NAV SIDE  -->
-		<div id="page-wrapper">
-			<div id="page-inner">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 class="page-header">
-							用户信息 <small>这里是你的账户信息</small>
-						</h1>
-					</div>
+	<!-- /. NAV SIDE  -->
+	<div id="page-wrapper">
+		<div id="page-inner">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="page-header">
+						个人中心 <small>这里是你的个人空间</small>
+					</h1>
 				</div>
-				<!-- /. ROW  -->
+			</div>
+			<!-- /. ROW  -->
 
 
-				<div class="row">
+			<div class="row">
 
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-heading">用户信息</div>
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">用户信息</div>
 
-							<div class="panel-body">
-								<table class="table">
-									<tr>
-										<td>用户名</td>
-										<td>200</td>
-									</tr>
-									<tr>
-										<td>账户年龄</td>
-										<td>400</td>
-									</tr>
-								</table>
+						<div class="panel-body">
 
-								<div class="panel panel-primary">
-									<div class="panel-heading">
-										<h3 class="panel-title">用户名</h3>
-									</div>
-									<div class="panel-body">aa</div>
+							<div class="panel panel-success">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<span class="glyphicon glyphicon-user"></span> 用户
+									</h3>
 								</div>
+								<div class="panel-body">
 
-								<div class="panel panel-primary">
-									<div class="panel-heading">
-										<h3 class="panel-title">练习记录</h3>
-									</div>
-									<div class="panel-body">
-										<table class="table">
-											<tr>
-												<td>答题总数</td>
-												<td>0</td>
-											</tr>
-											<tr>
-												<td>正确总数</td>
-												<td>0</td>
-											</tr>
-											<tr>
-												<td>正确率</td>
-												<td>0</td>
-											</tr>
-										</table>
-									</div>
+									<table class="table">
+										<tr>
+											<td>用户名</td>
+											<td>xx</td>
+										</tr>
+										<tr>
+											<td>账户年龄</td>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>等级</td>
+											<td>1v0</td>
+										</tr>
+										<tr>
+											<td>成就</td>
+											<td>(>▽<)</td>
+										</tr>
+										<tr>
+											<td>我的勋章</td>
+											<td>≡ω≡</td>
+										</tr>
+										<tr>
+											<td>在线时长</td>
+											<td>0</td>
+										</tr>
+									</table>
 								</div>
-								<div class="panel panel-primary">
-									<div class="panel-heading">
-										<h3 class="panel-title">综合</h3>
-									</div>
-									<div class="panel-body">
-										<table class="table">
-											<tr>
-												<td>擅长题型</td>
-												<td>0</td>
-											</tr>
-											<tr>
-												<td>不擅长题型</td>
-												<td>0</td>
-											</tr>
-
-										</table>
-									</div>
-								</div>
-
-
 							</div>
+
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<span class="glyphicon glyphicon-list-alt"></span> 练习记录
+									</h3>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover">
+										<tr>
+											<td>答题总数</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>正确总数</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>正确率</td>
+											<td>0</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<span class="glyphicon glyphicon-heart"></span> 综合
+									</h3>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover">
+										<tr>
+											<td>擅长题型</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>不擅长题型</td>
+											<td>0</td>
+										</tr>
+
+									</table>
+								</div>
+							</div>
+
+
 						</div>
 					</div>
 				</div>
-				<!-- /. ROW  -->
-				<footer>
-					<p>
-						Copyright &copy; 2016.Company name All rights reserved.<a
-							target="_blank" href="">xxx</a>
-					</p>
-				</footer>
 			</div>
-			<!-- /. PAGE INNER  -->
+			<!-- /. ROW  -->
+			<footer>
+				<p>
+					Copyright &copy; 2016.Company name All rights reserved.<a
+						target="_blank" href="">xxx</a>
+				</p>
+			</footer>
 		</div>
-		<!-- /. PAGE WRAPPER  -->
+		<!-- /. PAGE INNER  -->
+	</div>
+	<!-- /. PAGE WRAPPER  -->
 
 	<!-- /. WRAPPER  -->
 	<!-- JS Scripts-->

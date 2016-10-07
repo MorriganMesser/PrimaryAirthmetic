@@ -43,9 +43,9 @@
 					
 					<li><a href="info.jsp"><i class="fa fa-qrcode"></i>用户<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="info.jsp">用户信息</a></li>
+							<li><a href="info.jsp">个人中心</a></li>
 							<li><a href="password.jsp">修改密码</a></li>
-							<li><a href="#">Link</a></li>
+							<li><a href="#">任务</a></li>
 						</ul></li>
 
 				</ul>
