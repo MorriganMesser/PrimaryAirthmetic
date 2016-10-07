@@ -64,6 +64,37 @@
 
 			</div>
 			<!-- /. ROW  -->
+
+			<!-- /. 练习记录  -->
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">练习记录</div>
+					<div class="panel-body">
+						<div id="line-chart-test"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- /. 考试记录  -->
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">考试记录</div>
+					<div class="panel-body">
+						<div id="line-chart-exam"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- /. 考试记录  -->
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">正确题型比例</div>
+					<div class="panel-body">
+						<div id="donut-chart-type-percent"></div>
+					</div>
+				</div>
+			</div>
+
 			<footer>
 				<p>
 					Copyright &copy; 2016.Company name All rights reserved.<a
@@ -90,5 +121,106 @@
 	<!-- Custom Js -->
 	<script src="../js/custom-scripts.js"></script>
 
+	<script>
+		new Morris.Line({
+			// ID of the element in which to draw the chart.
+			element : 'line-chart-test',
+			// Chart data records -- each entry in this array corresponds to a point on
+			// the chart.
+			data : [ {
+				year : '2008-01-01',
+				sum : 10,
+				right : 8
+			}, {
+				year : '2009-01-01',
+				sum : 12,
+				right : 8
+			}, {
+				year : '2010-01-01',
+				sum : 22,
+				right : 15
+			}, {
+				year : '2011-01-01',
+				sum : 25,
+				right : 18
+			}, {
+				year : '2012-01-01',
+				sum : 32,
+				right : 29
+			} ],
+			// The name of the data record attribute that contains x-values.
+			xkey : 'year',
+			// A list of names of data record attributes that contain y-values.
+			ykeys : [ 'sum', 'right' ],
+			// Labels for the ykeys -- will be displayed when you hover over the
+			// chart.
+			labels : [ '题目总数', '正确数量' ],
+
+			xLabels : "month",
+
+			resize : true,
+		});
+	</script>
+	<script>
+		new Morris.Line({
+			// ID of the element in which to draw the chart.
+			element : 'line-chart-exam',
+			// Chart data records -- each entry in this array corresponds to a point on
+			// the chart.
+			data : [ {
+				year : '2008-01-01',
+				sum : 100,
+				right : 80
+			}, {
+				year : '2009-01-01',
+				sum : 120,
+				right : 80
+			}, {
+				year : '2010-01-01',
+				sum : 202,
+				right : 150
+			}, {
+				year : '2011-01-01',
+				sum : 205,
+				right : 108
+			}, {
+				year : '2012-01-01',
+				sum : 320,
+				right : 290
+			} ],
+			// The name of the data record attribute that contains x-values.
+			xkey : 'year',
+			// A list of names of data record attributes that contain y-values.
+			ykeys : [ 'sum', 'right' ],
+			// Labels for the ykeys -- will be displayed when you hover over the
+			// chart.
+			labels : [ '题量', '正确' ],
+
+			xLabels : "month",
+		});
+	</script>
+	<script>
+		/*
+		 * Play with this code and it'll update in the panel opposite.
+		 *
+		 * Why not try some of the options above?
+		 */
+		Morris.Donut({
+			element : 'donut-chart-type-percent',
+			data : [ {
+				label : "加法",
+				value : 30.5
+			}, {
+				label : "减法",
+				value : 25.5
+			}, {
+				label : "乘法",
+				value : 20
+			}, {
+				label : "除法",
+				value : 20
+			} ]
+		});
+	</script>
 </body>
 </html>
