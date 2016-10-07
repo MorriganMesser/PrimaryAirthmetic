@@ -1,5 +1,7 @@
 package edu.tju.goliath.dao;
 
+import java.util.List;
+
 import edu.tju.goliath.entity.Grade;
 
 public interface GradeMapper {
@@ -14,4 +16,6 @@ public interface GradeMapper {
     int updateByPrimaryKeySelective(Grade record);
 
     int updateByPrimaryKey(Grade record);
+    
+    List<Grade> getGradesByStuid(Integer stuid);
 }

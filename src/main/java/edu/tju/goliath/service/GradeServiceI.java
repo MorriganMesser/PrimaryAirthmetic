@@ -1,5 +1,7 @@
 package edu.tju.goliath.service;
 
+import java.util.List;
+
 import edu.tju.goliath.entity.Grade;
 
 public interface GradeServiceI {
@@ -14,5 +16,7 @@ public interface GradeServiceI {
     int updateGradeByIdSelective(Grade record);
 
     int updateGradeById(Grade record);
+    
+    List<Grade> getGradesByStuid(Integer stuid);
 
 }
