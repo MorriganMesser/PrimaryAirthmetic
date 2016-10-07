@@ -122,6 +122,7 @@
 	<script src="../js/custom-scripts.js"></script>
 
 	<script>
+		//折线图，练习记录
 		new Morris.Line({
 			// ID of the element in which to draw the chart.
 			element : 'line-chart-test',
@@ -162,6 +163,7 @@
 		});
 	</script>
 	<script>
+		//折线图，考试记录
 		new Morris.Line({
 			// ID of the element in which to draw the chart.
 			element : 'line-chart-exam',
@@ -201,23 +203,21 @@
 	</script>
 	<script>
 		/*
-		 * Play with this code and it'll update in the panel opposite.
-		 *
-		 * Why not try some of the options above?
+		 *题型比例，饼图
 		 */
 		Morris.Donut({
 			element : 'donut-chart-type-percent',
 			data : [ {
-				label : "加法",
+				label : "加法数量",
 				value : 30.5
 			}, {
-				label : "减法",
+				label : "减法数量",
 				value : 25.5
 			}, {
-				label : "乘法",
+				label : "乘法数量",
 				value : 20
 			}, {
-				label : "除法",
+				label : "除法数量",
 				value : 20
 			} ]
 		});
