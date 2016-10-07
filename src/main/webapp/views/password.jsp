@@ -66,7 +66,7 @@
 			<footer>
 				<p>
 					Copyright &copy; 2016.Company name All rights reserved.<a
-						target="_blank" href=""></a>
+						target="_blank" href="">xxx</a>
 				</p>
 			</footer>
 		</div>
