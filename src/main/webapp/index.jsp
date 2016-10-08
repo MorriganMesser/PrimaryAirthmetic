@@ -58,12 +58,15 @@
 			<c:if test="${student==null}"> 
   				<li><a href="#" data-toggle="modal" data-target="#myModal">登陆</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal1">${student.stuname }</a></li>
+				<li><a href="#">&nbsp;</a></li>
 			</c:if> 
 			<c:if test="${student!=null}"> 
-    			<li><a href="#" data-toggle="modal" data-target="#myModal">欢迎！</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal1">学生：</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal1">${student.stuname }</a></li>
+    			<li><a href="#" >aaa欢迎！</a></li>
+				<li><a href="#" >学生：</a></li>
+				<li><a href="#" >${student.stunick}</a></li>
+				<li><a href="signup.do" >退出</a></li>
+				<li><a href="#" >&nbsp; </a></li>
+				
 			</c:if> 
 			</ul>
 		</div>

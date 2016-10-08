@@ -260,4 +260,12 @@ public class UserController {
 		}
 		return "index";
 	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signup(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.removeAttribute("student");
+		return "index";
+	}
+
 }
