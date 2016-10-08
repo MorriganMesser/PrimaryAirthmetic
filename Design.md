@@ -30,9 +30,9 @@ div:        '/'
 
 ### 生成题目接口
  - 题目类：Expression
- - 生成题目：createExpression()
- - 获取题目：getExpression()
- - 获取结果：getResult()
+ - 生成题目：void createExpression(), 每次调用产生一个表达式，使用以下接口获取题目和答案
+ - 获取题目：String getExpression()
+ - 获取结果：String getResult()
 
 # 开发环境
  - spring + tomcat + mysql
