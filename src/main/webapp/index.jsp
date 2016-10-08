@@ -88,7 +88,7 @@
 				<ul class="nav navbar-nav navbar-right ul_top">
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li class="page-scroll"><a href="#page-top">主页</a></li>
-					<li class="page-scroll"><a href="#">个人信息</a></li>
+					<li class="page-scroll"><a href="getStuMsg.do">个人信息</a></li>
 					<li class="page-scroll"><a href="views/test.jsp">练习模块</a></li>
 					<li class="page-scroll"><a href="views/exam.jsp">考试模块</a></li>
 					<li class="page-scroll"><a href="#portfolio">学习模块</a></li>
@@ -794,11 +794,11 @@
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
 <script>
-$.validator.setDefaults({
-    submitHandler: function() {
-      alert("提交事件!");
-    }
-});
+/* $.validator.setDefaults({
+    //submitHandler: function() {
+     // alert("提交事件!");
+    //}
+}); */
 $().ready(function() {
 	// 在键盘按下并释放及提交后验证提交表单
 	  $("#loginForm").validate({

@@ -125,6 +125,7 @@ public class UserController {
 			stu.setStupwd(password);
 			System.out.println(stu);
 			int result = stuservice.addStuSelective(stu);
+			session.setAttribute("student", stu);
 		}else{
 			System.out.println("type failed");
 		}

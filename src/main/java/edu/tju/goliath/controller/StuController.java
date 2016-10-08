@@ -32,12 +32,22 @@ public class StuController {
 	}
 	
 	@RequestMapping(value = "/getStuGrade", method = RequestMethod.POST)
-	public String registerUser(HttpServletRequest request) {
+	public String getStuGrade(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
 		Student stu = (Student)session.getAttribute("student");
 		gradeservice.getGradesByStuid(stu.getStuid());
 		return "";
 	}
+	//getStuMsg.do
+	@RequestMapping(value = "/getStuMsg", method = RequestMethod.GET)
+	public String getStuMsg(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		System.out.println(stu);
+		session.setAttribute("student", stu);
+		return "views/info";
+	}
+	
 
 }
