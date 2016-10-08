@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -54,11 +55,11 @@
                                     <tbody>
                                         <tr class="odd gradeX">
                                             <td>1</td>
-                                            <td>4+3-2/1=</td>
+                                            <td>${expression}=</td>
                                             <td><input type="text"></td>
                                         </tr>
                                         <tr class="even gradeC">
-                                            <td>2</td>
+                                            <td>000</td>
                                             <td>12-3+5-2=</td>
                                             <td><input type="text"></td>
                                         </tr>
@@ -359,21 +360,21 @@
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="../js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
       <!-- Bootstrap Js -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="../js/jquery.metisMenu.js"></script>
+    <script src="js/jquery.metisMenu.js"></script>
      <!-- DATA TABLE SCRIPTS -->
-    <script src="../js/jquery.dataTables.js"></script>
-    <script src="../js/dataTables.bootstrap.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
         <script>
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();
             });
     </script>
          <!-- Custom Js -->
-    <script src="../js/custom-scripts.js"></script>
+    <script src="js/custom-scripts.js"></script>
     <script type="text/javascript">
     $(document).ready( function() {
 		 *      $('#example').dataTable( {
