@@ -5,15 +5,16 @@ import java.util.ArrayList;
 
 public class Expression {
 	private int fractionRatio; // 分数出现的比率，取值范围[0, 100]
-	private int scale; // 问题的规模（表达式中的数字不超过scale）
-	private int grade; // 表达式等级，取值范围[0, 2]，0级只有加法，2级包含四则运算
+	private int scale; // 问题的规模（表达式中的数字不超过scale），取值范围[5, 10000]
+	private int fractionScale; // 针对分数的规模，取值范围[5, 100]，若设置为0则为min(100,max(5, scale/5))
+	private int grade; // 表达式等级，取值范围[0, 3]，0级只有加法，3级包含四则运算
 	private int fractionNumber; // 表达式中数字出现的次数，取值范围[2, 10]
 	private String expr;
 	private String result;
 	private Random random;
 	
 	/*
-	 * 产生随机数，用于产生随机操作符
+	 * 产生随机操作符，范围由grade指定。
 	 */
 	private int randomOperator() {
 		int op = random.nextInt(grade + 1);
@@ -32,31 +33,47 @@ public class Expression {
 	}
 	
 	/*
-	 * 构造函数，初始化构造表达式的规则
+	 * 构造函数。
 	 */
-	public Expression(int fr, int s, int g) {
-		this.fractionRatio = fr;
-		this.scale = s;
-		this.grade = g;
-		this.fractionNumber = 2;
+	public Expression(int fractionRatio, int scale, int grade, int fractionScale, int fractionNumber) {
+		this.fractionRatio = fractionRatio;
+		this.scale = scale;
+		this.grade = grade;
+		this.fractionNumber = fractionNumber;
 		this.expr = new String();
 		this.result = new String();
 		this.random = new Random(Calendar.getInstance().get(Calendar.MILLISECOND));
 	}
 	/*
-	 * 构造函数，默认等级为2，即四则运算
+	 * 构造函数，默认数字个数fractionNumber=2
 	 */
-	public Expression(int fr, int s) {
-		this(fr, s, 2);
+	public Expression(int fractionRatio, int scale, int grade, int fractionScale) {
+		this(fractionRatio, scale, grade, fractionScale, 2);
 	}
+	
 	/*
-	 * 构造函数，默认规模为100，即100以内的运算
+	 * 构造函数，默认分数规模fractionScale=10
 	 */
-	public Expression(int fr) {
-		this(fr,  100);
+	public Expression(int fractionRatio, int scale, int grade) {
+		this(fractionRatio, scale, grade, 10);
 	}
+	
 	/*
-	 * 构造函数，默认分数出现比率为50%
+	 * 构造函数，默认等级grade=1
+	 */
+	public Expression(int fractionRatio, int scale) {
+		this(fractionRatio, scale, 1);
+	}
+	
+	/*
+	 * 构造函数，默认规模scale=20
+	 */
+	public Expression(int fractionRatio) {
+		this(fractionRatio, 20);
+	}
+	
+	/*
+	 * 构造函数，默认分数比率fractionRatio=50
 	 */
 	public Expression() {
 		this(50);
@@ -65,30 +82,46 @@ public class Expression {
 	/*
 	 * 设定分数出现比率
 	 */
-	public void setFractionRatio(int fr) {
-		assert(fr >=0 && fr <= 100);
-		this.fractionRatio = fr;
+	public void setFractionRatio(int fractionRatio) {
+		assert(fractionRatio >=0 && fractionRatio <= 100);
+		this.fractionRatio = fractionRatio;
 	}
 	/*
 	 * 设定计算规模
 	 */
-	public void setScale(int s) {
-		assert(s >= 10 && s <= 10000);
-		this.scale = s;
+	public void setScale(int scale) {
+		assert(scale >= 10 && scale <= 10000);
+		this.scale = scale;
+	}
+	public void setFractionScale(int fractionScale) {
+		if(fractionScale < 5 || fractionScale > 100) {
+			fractionScale = Math.min(100, Math.max(5, scale/5));
+		}
+		this.fractionScale = fractionScale;
 	}
 	/*
 	 * 设定表达式等级
 	 */
-	public void setGrade(int g) {
-		assert(g >= 0 && g <= 2);
-		this.grade = g;
+	public void setGrade(int grade) {
+		if(grade < 0) {
+			grade = 0;
+		}
+		else if(grade > 3) {
+			grade = 3;
+		}
+		this.grade = grade;
 	}
 	/*
 	 * 设定表达式中操作数的个数
 	 */
-	public void setFractionNumber(int fn) {
-		assert(fn > 2 && fn < 10);
-		this.fractionNumber = fn;
+	public void setFractionNumber(int fractionNumber) {
+		if(fractionNumber < 2) {
+			fractionNumber = 2;
+		}
+		else if(fractionNumber > 10) {
+			fractionNumber = 10;
+		}
+		this.fractionNumber = fractionNumber;
 	}
 	/*
 	 * 得到分数比率、规模、表达式等级、操作数个数
@@ -98,6 +131,9 @@ public class Expression {
 	}
 	public int getScale() {
 		return this.scale;
+	}
+	public int getFractionScale() {
+		return this.fractionScale;
 	}
 	public int getGrade() {
 		return this.grade;

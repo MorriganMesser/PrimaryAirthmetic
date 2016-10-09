@@ -172,7 +172,7 @@ public class Fraction {
     			result = String.valueOf(this.numerator);
     		}
     		else {
-    			result = "\frac{" + String.valueOf(this.numerator) +
+    			result = "\\frac{" + String.valueOf(this.numerator) +
     					"}{" + String.valueOf(this.denominator) + "}";
     		}
     	}
