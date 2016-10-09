@@ -51,7 +51,7 @@ div:        '/'
    - getFractionNumber()
  - 生成题目：void createExpression(String type)
    - 每次调用产生一个表达式
-   - type $\in$ {"mathjax", "linear"}，表示渲染方式，默认为"mathjax"
+   - type in {"mathjax", "linear"}，表示渲染方式，默认为"mathjax"
  - 获取题目：String getExpression()
  - 获取结果：String getResult()
    - 注：结果不会随type变化，均为“a/b”的形式（若b为1则不显示“/b”）
