@@ -12,6 +12,31 @@ public class Expression {
 	private String expr;
 	private String result;
 	private Random random;
+	/*
+	 * 数字转操作符。
+	 */
+	private static String[] intToOp = {" + ", " - ", " × ", " ÷ "};
+	
+	/*
+	 * [i][j]表示若当前操作符为i，位于其前面的子表达式e1的lastop为j，那e1是否需要括号。
+	 */
+	private static boolean[][] needParFront =
+		{
+				{false, false, false, false, false},
+				{false, false, false, false, false},
+				{true , true , false, false, false},
+				{true , true , false, false, false},
+		};
+	/*
+	 * [i][j]表示若当前操作符为i，位于其后面的子表达式e2的lastop为j，那e2是否需要括号。
+	 */
+	private static boolean[][] needParBack =
+		{
+				{false, false, false, false, false},
+				{true , true , false, false, false},
+				{true , true , false, false, false},
+				{true , true , true , true , false},
+		};
 	
 	/*
 	 * 产生随机操作符，范围由grade指定。
@@ -146,59 +171,106 @@ public class Expression {
 	 * 创建表达式
 	 */
 	public void createExpression() {
+		createExpression("mathjax");
+	}
+	public void createExpression(String type) {
+		/*
+		 * 设定表达式渲染方式。
+		 */
+		int exprType = 0;
+		if(type.equals(new String("mathjax"))) {
+			exprType = 0;
+		}
+		else if(type.equals(new String("linear"))) {
+			exprType = 1;
+		}
+		else {
+			type = "mathjax";
+		}
+		/*
+		 * 初始化。
+		 */
 		this.expr = new String();
 		this.result = new String();
-		ArrayList<Fraction> list = new ArrayList<Fraction>();
+		ArrayList<Subexp> list = new ArrayList<Subexp>();
 		
-		Fraction answer = randomFraction();
-		expr += answer.toString();
-		int curFracNum = 1, curOpNum = 0;
-		int lastOp = 2;
-		while(curFracNum < fractionNumber || curOpNum < fractionNumber - 1) {
+		int curFracNum = 0, curOpNum = 0;
+		Fraction answer = new Fraction();
+		/*
+		 * 使用后缀表达式生成方式，循环生成操作数和操作符。
+		 */
+		while(curOpNum < fractionNumber - 1) {
+			// 若操作数少，则此时必产生操作数。
 			if(curFracNum <= curOpNum + 1) {
-				list.add(randomFraction());
+				Fraction frac = randomFraction();
+				list.add(new Subexp(frac.toString(type), frac, 4));
 				curFracNum += 1;
+				continue; // 本次循环结束
 			}
-			else{
-				boolean flag = random.nextBoolean(); // 若为真，则本次生成数字，否则生成操作符，除非数字已经生成完
-				if(flag && curFracNum < fractionNumber) {
-					list.add(randomFraction()); // 生成数字，不用多说
-					curFracNum += 1;
-				}
-				else {
-					int curOp = randomOperator(); // 本次产生的操作符
-					
-					// 判断是否需要加括号
-					if(curOp > lastOp || (curOp == 1 && lastOp == 1)) {
-						expr = "(" + expr + ")";
-					}
-					lastOp = curOp;
-					String op = new String();
-					
-					// 更新表达式和运算结果
-					Fraction tmp = list.remove(list.size() - 1);
-					if(curOp == 0) {
-						op = " + ";
-						answer = new Fraction(tmp).add(answer);
-					}
-					else if(curOp == 1) {
-						op = " - ";
-						answer = new Fraction(tmp).sub(answer);
-					}
-					else if(curOp == 2) {
-						op = " * ";
-						answer = new Fraction(tmp).mul(answer);
-					}
-					else {
-						assert(false);
-					}
-					expr = tmp.toString() + op + expr;
-					curOpNum += 1;
+			boolean flag = random.nextBoolean(); // 若为真，则本次生成数字，否则生成操作符，除非数字已经生成完
+			if(flag && curFracNum < fractionNumber) {
+				Fraction frac = randomFraction();
+				list.add(new Subexp(frac.toString(type), frac, 4));
+				curFracNum += 1;
+				continue; // 本次循环结束
+			}
+			// 生成操作符。
+			int curOp = randomOperator(); // 随机生成操作符
+			// 取出两个操作数
+			Subexp e1 = list.remove(list.size() - 1);
+			Subexp e2 = list.remove(list.size() - 1);
+			
+			// XXX 防止出现负数
+			if(curOp == 1) {
+				answer = new Fraction(e1.getResult());
+				answer.sub(e2.getResult());
+				if(answer.isNegative()) {
+					Subexp e = e1;
+					e1 = e2;
+					e2 = e;
 				}
 			}
+			
+			// 判断是否需要加括号，并构造新表达式
+			String curExp = new String();
+			if(needParFront[curOp][e1.getLastOp()]) {
+				if(exprType == 0) {
+					curExp += "\\left(" + e1.getExpr() + "\\right)";
+				}
+				else if(exprType == 1) {
+					curExp += "(" + e1.getExpr() + ")";
+				}
+			}
+			else {
+				curExp += e1.getExpr();
+			}
+			curExp += intToOp[curOp];
+			if(needParBack[curOp][e2.getLastOp()]) {
+				if(exprType == 0) {
+					curExp += "\\left(" + e2.getExpr() + "\\right)";
+				}
+				else if(exprType == 1) {
+					curExp += "(" + e2.getExpr() + ")";
+				}
+			}
+			else {
+				curExp += e2.getExpr();
+			}
+			curOpNum += 1;
+			answer = new Fraction(e1.getResult());
+			switch (curOp) {
+			case 0: answer.add(e2.getResult());break;
+			case 1: answer.sub(e2.getResult());break;
+			case 2: answer.mul(e2.getResult());break;
+			case 3: answer.div(e2.getResult());break;
+			}
+			list.add(new Subexp(curExp, answer, curOp));
 		}
-		this.result = answer.toString();  //更新答案
+		Subexp se = list.get(0);
+		this.expr = se.getExpr();
+		this.result = se.getResult().toString("linear");
 	}
+	
 	/*
 	 * 得到表达式
 	 */

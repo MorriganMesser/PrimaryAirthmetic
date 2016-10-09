@@ -160,8 +160,8 @@ public class Fraction {
         		result = String.valueOf(this.numerator);
         	}
         	else {
-        		result = "(" + String.valueOf(this.numerator) +
-        				"/" + String.valueOf(this.denominator) + ")";
+        		result = String.valueOf(this.numerator) +
+        				"/" + String.valueOf(this.denominator);
         	}
     	}
     	else if(type.equals(new String("mathjax"))) {
