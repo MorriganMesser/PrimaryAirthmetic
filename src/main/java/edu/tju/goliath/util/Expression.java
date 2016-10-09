@@ -15,7 +15,10 @@ public class Expression {
 	/*
 	 * 数字转操作符。
 	 */
-	private static String[] intToOp = {" + ", " - ", " × ", " ÷ "};
+	private static String[][] intToOp = {
+			{" + ", " - ", " \\times ", " \\div "},
+			{" + ", " - ", " × ", " ÷ "}
+	};
 	
 	/*
 	 * [i][j]表示若当前操作符为i，位于其前面的子表达式e1的lastop为j，那e1是否需要括号。
@@ -52,7 +55,8 @@ public class Expression {
 		int nume = random.nextInt(scale) + 1;
 		int deno = 1;
 		if(random.nextInt(100) < fractionRatio) {
-			deno = random.nextInt(scale - 1) + 2;
+			nume = random.nextInt(fractionScale - 1) + 2;
+			deno = random.nextInt(fractionScale - 1) + 2;
 		}
 		return new Fraction(nume, deno);
 	}
@@ -244,7 +248,7 @@ public class Expression {
 			else {
 				curExp += e1.getExpr();
 			}
-			curExp += intToOp[curOp];
+			curExp += intToOp[exprType][curOp];
 			if(needParBack[curOp][e2.getLastOp()]) {
 				if(exprType == 0) {
 					curExp += "\\left(" + e2.getExpr() + "\\right)";
@@ -257,6 +261,7 @@ public class Expression {
 				curExp += e2.getExpr();
 			}
 			curOpNum += 1;
+			// 计算新表达式结果
 			answer = new Fraction(e1.getResult());
 			switch (curOp) {
 			case 0: answer.add(e2.getResult());break;
@@ -268,6 +273,10 @@ public class Expression {
 		}
 		Subexp se = list.get(0);
 		this.expr = se.getExpr();
+		if(exprType == 0) {
+			// mathjax
+			this.expr = "\\[ " + this.expr + " \\]";
+		}
 		this.result = se.getResult().toString("linear");
 	}
 	
