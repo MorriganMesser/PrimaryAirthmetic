@@ -1,5 +1,7 @@
 package edu.tju.goliath.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.tju.goliath.entity.Grade;
 import edu.tju.goliath.entity.Student;
 import edu.tju.goliath.service.GradeServiceI;
 
@@ -31,13 +34,15 @@ public class StuController {
 		this.gradeservice = gradeservice;
 	}
 	
-	@RequestMapping(value = "/getStuGrade", method = RequestMethod.POST)
+	@RequestMapping(value = "/getStuGrade", method = RequestMethod.GET)
 	public String getStuGrade(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
 		Student stu = (Student)session.getAttribute("student");
-		gradeservice.getGradesByStuid(stu.getStuid());
-		return "";
+		System.out.println(stu);
+		List<Grade> gradelist = gradeservice.getGradesByStuid(stu.getStuid());
+		session.setAttribute("gradelist", gradelist);
+		return "views/historyscore";
 	}
 	//getStuMsg.do
 	@RequestMapping(value = "/getStuMsg", method = RequestMethod.GET)

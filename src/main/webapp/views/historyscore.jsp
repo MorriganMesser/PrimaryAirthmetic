@@ -1,12 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<base href="<%=basePath%>"></base>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>考试答题模式</title>
-	<script src="../js/date.js"></script>
+	<script src="js/date.js"></script>
 </head>
 <body>
 <%@ include file="systemplateheader.jsp"%>       
@@ -76,16 +84,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    
+                                    <c:forEach var="grade" items="${gradelist}" varStatus="stat">
                                         <tr class="odd gradeX">
                                             <td>1</td>
-                                            <th>考试</th>
-                                            <td>一级-青铜</td>
-                                            <td>50</td>
-                                            <td>50</td>
-                                            <td>50%</td>
-                                            <td>20min</td>
-                                            <td>2016-02-18</td>
+                                            <th>${grade.gradename}</th>
+                                            <td>${grade.graderank}</td>
+                                            <td>${grade.grade}</td>
                                         </tr>
+                                    </c:forEach>
+                                        
                                         <tr class="even gradeC">
                                             <td>1</td>
                                             <th>考试</th>
@@ -666,21 +674,21 @@
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="../js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
       <!-- Bootstrap Js -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="../js/jquery.metisMenu.js"></script>
+    <script src="js/jquery.metisMenu.js"></script>
      <!-- DATA TABLE SCRIPTS -->
-    <script src="../js/jquery.dataTables.js"></script>
-    <script src="../js/dataTables.bootstrap.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
         <script>
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();
             });
     </script>
          <!-- Custom Js -->
-    <script src="../js/custom-scripts.js"></script>
+    <script src="js/custom-scripts.js"></script>
     <script type="text/javascript">
     $(document).ready( function() {
 		 *      $('#example').dataTable( {

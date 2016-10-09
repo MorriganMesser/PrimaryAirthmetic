@@ -12,7 +12,7 @@
 <base href="<%=basePath%>"></base>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>考试模块</title>
-<link href="../css/exam.css" rel="stylesheet">
+<link href="css/exam.css" rel="stylesheet">
 </head>
 <body id="page-top" class="index">
 <%@ include file="indextemplateheader.jsp"%>
@@ -20,7 +20,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<img class="img-responsive" src="../img/profile.png" alt="">
+				<img class="img-responsive" src="img/profile.png" alt="">
 				<div class="intro-text">
 					<span class="name">小学生四则运算 考试系统</span>
 					<hr class="star-light">

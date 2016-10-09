@@ -1,9 +1,16 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+<base href="<%=basePath%>"></base>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>用户</title>
@@ -133,13 +140,13 @@
 	<!-- /. WRAPPER  -->
 	<!-- JS Scripts-->
 	<!-- jQuery Js -->
-	<script src="../js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-1.10.2.js"></script>
 	<!-- Bootstrap Js -->
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!-- Metis Menu Js -->
-	<script src="../js/jquery.metisMenu.js"></script>
+	<script src="js/jquery.metisMenu.js"></script>
 	<!-- Custom Js -->
-	<script src="../js/custom-scripts.js"></script>
+	<script src="js/custom-scripts.js"></script>
 
 </body>
 </html>

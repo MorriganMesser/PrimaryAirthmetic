@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<base href="<%=basePath%>"></base>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>练习模块</title>
-<link href="../css/exam.css" rel="stylesheet">
+<link href="css/exam.css" rel="stylesheet">
 </head>
 <body id="page-top" class="index">
 <%@ include file="indextemplateheader.jsp"%>
@@ -13,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<img class="img-responsive" src="../img/profile.png" alt="">
+				<img class="img-responsive" src="img/profile.png" alt="">
 				<div class="intro-text">
 					<span class="name">小学生四则运算 练习系统</span>
 					<hr class="star-light">
