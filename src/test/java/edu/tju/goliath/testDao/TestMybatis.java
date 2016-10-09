@@ -11,7 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
 
+import edu.tju.goliath.entity.Parent;
+import edu.tju.goliath.entity.Student;
 import edu.tju.goliath.entity.User;
+import edu.tju.goliath.service.ParentServiceI;
+import edu.tju.goliath.service.StudentServiceI;
 import edu.tju.goliath.service.UserServiceI;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,10 +35,41 @@ public class TestMybatis {
 		this.userService = userService;
 	}
 
+	private StudentServiceI stuService;
+	
+	public StudentServiceI getStuService() {
+		return stuService;
+	}
+
+	@Autowired
+	public void setStuService(StudentServiceI stuService) {
+		this.stuService = stuService;
+	}
+	
+	private ParentServiceI parentService;
+	
+	public ParentServiceI getParentService() {
+		return parentService;
+	}
+
+	@Autowired
+	public void setParentService(ParentServiceI parentService) {
+		this.parentService = parentService;
+	}
+//	@Test
+//	public void test1() {
+//		User u = userService.getUserById(1);
+//		logger.info(JSON.toJSONStringWithDateFormat(u, "yyyy-MM-dd HH:mm:ss"));
+//	}
+
+
 	@Test
-	public void test1() {
-		User u = userService.getUserById(1);
-		logger.info(JSON.toJSONStringWithDateFormat(u, "yyyy-MM-dd HH:mm:ss"));
+	public void test2() {
+//		Student stu=stuService.getStuById(8);
+		Student stu= stuService.getStuByName("tianhongce2");
+//		Parent par= parentService.getParentByEmail("1196585084@qq.com");
+		
+		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
 	}
 
 }

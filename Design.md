@@ -28,12 +28,22 @@ rightp:     ')'
 div:        '/'
 ```
 
+### 生成题目接口
+ - 题目类：Expression
+ - 生成题目：void createExpression(), 每次调用产生一个表达式，使用以下接口获取题目和答案
+ - 获取题目：String getExpression()
+ - 获取结果：String getResult()
+
 # 开发环境
  - spring + tomcat + mysql
  - java + HTML + CSS + javascript
+
 ## 平台
  - JavaWeb
 
+## 前端
+ - bootstrap
+ 
 # 代码规范
 
 ## 命名规范
