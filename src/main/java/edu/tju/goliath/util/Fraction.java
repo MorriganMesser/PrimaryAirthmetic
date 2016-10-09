@@ -128,17 +128,21 @@ public class Fraction {
     public boolean isZero() {
     	return this.denominator != 0 && this.numerator == 0;
     }
+    
+    public boolean isInf() {
+    	return this.denominator == 0 && this.numerator != 0;
+    }
     /*
      * 判断是否为无效分数
      */
     public boolean isNan() {
-    	return this.denominator == 0;
+    	return this.denominator == 0 && this.numerator == 0;
     }
     /*
      * 判断是否为负数
      */
     public boolean isNegative() {
-    	return this.numerator < 0;
+    	return this.denominator != 0 && this.numerator < 0;
     }
     /*
      * 将数字转换为字符串型
