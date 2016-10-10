@@ -1,5 +1,7 @@
 package edu.tju.goliath.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.tju.goliath.dto.ExpResult;
 import edu.tju.goliath.entity.Student;
 import edu.tju.goliath.util.Expression;
 
@@ -22,11 +25,18 @@ public class ExpressionController {
 		
 		Expression expression = new Expression(10, 10);
 		expression.setFractionNumber(3);
-		expression.createExpression();
 		
-		session.setAttribute("expression", expression.getExpression());
-		System.out.println(expression.getExpression());
-		System.out.println(expression.getResult());
+		ArrayList<ExpResult> explist = new ArrayList<ExpResult>();
+		
+		for(int i = 0; i < 10; ++i) {
+			expression.createExpression();
+			ExpResult expresult =new ExpResult();
+			expresult.setExpvalue(expression.getExpression());
+			expresult.setExpresult(expression.getResult());
+		}
+		
+		
+		session.setAttribute("explist", explist);
 		
 		return "views/examcontent";
 	}
