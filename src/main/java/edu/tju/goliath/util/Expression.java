@@ -69,6 +69,7 @@ public class Expression {
 		this.scale = scale;
 		this.grade = grade;
 		this.fractionNumber = fractionNumber;
+		this.fractionScale = fractionScale;
 		this.expr = new String();
 		this.result = new String();
 		this.random = new Random(Calendar.getInstance().get(Calendar.MILLISECOND));
