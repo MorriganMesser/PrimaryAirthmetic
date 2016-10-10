@@ -16,8 +16,9 @@
 <!-- Custom Styles-->
 <link href="css/custom-styles.css" rel="stylesheet" />
 <!-- Google Fonts-->
-<link href='http://fonts.useso.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css' />
+<!--谷歌字体加载-->
+<!-- <link href='http://fonts.useso.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css' /> -->
 <!-- TABLE STYLES-->
 <link href="css/dataTables.bootstrap.css" rel="stylesheet" />
 </head>

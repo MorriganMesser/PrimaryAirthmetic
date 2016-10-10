@@ -27,18 +27,20 @@ public class TestExpression {
 	public void testExpression2(){
 		
 		Expression expression = new Expression(10, 10);
-//		expression.setFractionNumber(3);
+		expression.setFractionNumber(9);
 		ArrayList<ExpResult> explist = new ArrayList<ExpResult>();
 		
 		for(int i = 0; i < 10; ++i) {
-			System.out.println(expression.getFractionScale());
-			expression.createExpression();
+//			System.out.println(expression.getFractionScale());
+			expression.createExpression("linear");
 			ExpResult expresult =new ExpResult();
 			expresult.setExpvalue(expression.getExpression());
 			expresult.setExpresult(expression.getResult());
+			
+			explist.add(expresult);
 		}
 		
-		System.out.println(explist);
+		System.out.println(explist.get(2));
 	}
 
 }

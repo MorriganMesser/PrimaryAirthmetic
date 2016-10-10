@@ -54,5 +54,29 @@ public class StuController {
 		return "views/info";
 	}
 	
+	@RequestMapping(value = "/addParent", method = RequestMethod.GET)
+	public String addParent(HttpServletRequest request,
+			@RequestParam("parentid") String parentid) {
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		int stuparentid = Integer.parseInt(parentid);
+		stu.setStuparentid(stuparentid);
+		System.out.println(stu);
+		session.setAttribute("student", stu);
+		return "views/info";
+	}
+	
+	@RequestMapping(value = "/addTeacher", method = RequestMethod.GET)
+	public String addTeacher(HttpServletRequest request,
+			@RequestParam("teacherid") String teacherid) {
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		int stuteacherid = Integer.parseInt(teacherid);
+		stu.setStuteacherid(stuteacherid);
+		System.out.println(stu);
+		session.setAttribute("student", stu);
+		return "views/info";
+	}
+	
 
 }

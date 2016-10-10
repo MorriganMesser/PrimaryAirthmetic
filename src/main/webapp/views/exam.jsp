@@ -33,9 +33,9 @@
                     <div class="container_type text-center">
                         <h3 class="title">答题入口</h3>
                         <p class="summary">考试说明：考试难度分别为初级、中级、高级。请选择考试级别后进入考试答题系统。</p>
-                        <form class="signup-form" action = "../getExpressions.do">
+                        <form class="signup-form" action = "getExpressions.do">
                             <div class="form-group">
-	                            <select class="sel">
+	                            <select class="sel" name="graderank">
 									<option value="">请选择考试级别</option>
 									<option value="">一级-青铜</option>
 									<option value="">二级-白银</option>
