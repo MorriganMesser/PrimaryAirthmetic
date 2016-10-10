@@ -30,9 +30,31 @@ div:        '/'
 
 ### 生成题目接口
  - 题目类：Expression
- - 生成题目：void createExpression(), 每次调用产生一个表达式，使用以下接口获取题目和答案
+ - 构造函数：Expression(fractionRatio, scale, grade, fractionScale, fractionNumber)
+   - 默认参数分别为50，20，1，10，2
+   - fractionRatio: 分数出现的比率，取值范围为[0, 100]
+   - scale: 表达式中出现的数字最大值，取值范围[5, 10000]
+   - grade: 表达式等级，取值范围[0, 3]，0代表只有加法，3代表包含加减乘除
+   - fractionScale: 分数中出现的数字最大值，取值范围[5, 100]
+   - fractionNumber: 表达式包含的操作数个数，取值范围[2, 10]
+ - 设置参数：
+   - setFractionRatio(fractionRatio)
+   - setScale(scale)
+   - setGrade(grade)
+   - setFractionScale(fractionScale)
+   - setFractionNumber(fractionNumber)
+ - 获取当前参数：
+   - getFractionRatio()
+   - getScale()
+   - getGrade()
+   - getFractionScale()
+   - getFractionNumber()
+ - 生成题目：void createExpression(String type)
+   - 每次调用产生一个表达式
+   - type in {"mathjax", "linear"}，表示渲染方式，默认为"mathjax"
  - 获取题目：String getExpression()
  - 获取结果：String getResult()
+   - 注：结果不会随type变化，均为“a/b”的形式（若b为1则不显示“/b”）
 
 # 开发环境
  - spring + tomcat + mysql

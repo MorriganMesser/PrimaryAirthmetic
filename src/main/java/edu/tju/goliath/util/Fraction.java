@@ -128,31 +128,56 @@ public class Fraction {
     public boolean isZero() {
     	return this.denominator != 0 && this.numerator == 0;
     }
+    
+    public boolean isInf() {
+    	return this.denominator == 0 && this.numerator != 0;
+    }
     /*
      * 判断是否为无效分数
      */
     public boolean isNan() {
-    	return this.denominator == 0;
+    	return this.denominator == 0 && this.numerator == 0;
     }
     /*
      * 判断是否为负数
      */
     public boolean isNegative() {
-    	return this.numerator < 0;
+    	return this.denominator != 0 && this.numerator < 0;
     }
     /*
-     * 将数字转换为字符串型
+     * 将数字转换为字符串型，默认采用mathjax渲染
      */
     public String toString() {
+    	return toString("mathjax");
+    }
+    public String toString(String type) {
     	String result = new String();
-    	if(this.denominator == 0) {
-    		result = "NAN";
+    	if(type.equals(new String("linear"))) {
+    		if(this.denominator == 0) {
+        		result = "NAN";
+        	}
+        	else if(this.denominator == 1) {
+        		result = String.valueOf(this.numerator);
+        	}
+        	else {
+        		result = String.valueOf(this.numerator) +
+        				"/" + String.valueOf(this.denominator);
+        	}
     	}
-    	else if(this.denominator == 1) {
-    		result = String.valueOf(this.numerator);
+    	else if(type.equals(new String("mathjax"))) {
+    		if(this.denominator == 0) {
+    			result = "NAN";
+    		}
+    		else if(this.denominator == 1) {
+    			result = String.valueOf(this.numerator);
+    		}
+    		else {
+    			result = "\\frac{" + String.valueOf(this.numerator) +
+    					"}{" + String.valueOf(this.denominator) + "}";
+    		}
     	}
     	else {
-    		result = String.valueOf(this.numerator) + "/" + String.valueOf(this.denominator);
+    		return toString("mathjax");
     	}
     	return result;
     }
