@@ -13,7 +13,7 @@
 <base href="<%=basePath%>"></base>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>用户</title>
+<title>用户信息</title>
 </head>
 <body>
 	<%@ include file="teacherheader.jsp"%>

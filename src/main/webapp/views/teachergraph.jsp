@@ -12,7 +12,7 @@
 <base href="<%=basePath%>"></base>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>历史记录</title>
+<title>学生成绩统计</title>
 </head>
 <body>
 	<%@ include file="teacherheader.jsp"%>
