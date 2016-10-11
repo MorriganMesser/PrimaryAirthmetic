@@ -25,14 +25,23 @@
 <body>
 	<div id="wrapper">
 		<nav class="navbar navbar-default top-navbar" role="navigation">
+				<div class="login_top">
+			<ul class="nav navbar-nav navbar-right">
+			<c:if test="${student==null}"> 
+  				<li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span>  甜某某</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#myModal1">退出</a></li>
+				<li><a href="#">&nbsp;</a></li>
+			</c:if>
+			</ul>
+		</div>
 		</nav>
 		<!--/. NAV TOP  -->
 		<nav class="navbar-default navbar-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav" id="main-menu">
 
-					<li><a href="index.jsp" class="active-menu"><i
-							class="fa fa-table"></i>返回主页</a></li>
+					<li><a href="#" class="active-menu"><i
+							class="fa fa-table"></i>待定..</a></li>
 					<li><a href="teacherstudent.jsp"><i class="fa fa-desktop"></i>学生查询</a>
 					<li><a href="teacherscore.jsp"><i class="fa fa-desktop"></i>成绩查询</a>
 					</li>
