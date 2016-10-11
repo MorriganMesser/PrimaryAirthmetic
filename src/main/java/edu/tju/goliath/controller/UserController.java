@@ -125,6 +125,7 @@ public class UserController {
 			stu.setStupwd(password);
 			System.out.println(stu);
 			int result = stuservice.addStuSelective(stu);
+			session.setAttribute("student", stu);
 		}else{
 			System.out.println("type failed");
 		}
@@ -260,4 +261,12 @@ public class UserController {
 		}
 		return "index";
 	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signup(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.removeAttribute("student");
+		return "index";
+	}
+
 }

@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+<base href="<%=basePath%>"></base>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +24,13 @@
 
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
-<link href="http://fonts.useso.com/css?family=Montserrat:400,700"
+	
+	
+<!-- <link href="http://fonts.useso.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css">
 <link
 	href="http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+	rel="stylesheet" type="text/css"> -->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,12 +65,15 @@
 			<c:if test="${student==null}"> 
   				<li><a href="#" data-toggle="modal" data-target="#myModal">登陆</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal1">${student.stuname }</a></li>
+				<li><a href="#">&nbsp;</a></li>
 			</c:if> 
 			<c:if test="${student!=null}"> 
-    			<li><a href="#" data-toggle="modal" data-target="#myModal">欢迎！</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal1">学生：</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#myModal1">${student.stuname }</a></li>
+    			<li><a href="#" >aaa欢迎！</a></li>
+				<li><a href="#" >学生：</a></li>
+				<li><a href="#" >${student.stunick}</a></li>
+				<li><a href="signup.do" >退出</a></li>
+				<li><a href="#" >&nbsp; </a></li>
+				
 			</c:if> 
 			</ul>
 		</div>
@@ -791,11 +801,11 @@
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
 <script>
-$.validator.setDefaults({
-    submitHandler: function() {
-      alert("提交事件!");
-    }
-});
+/* $.validator.setDefaults({
+    //submitHandler: function() {
+     // alert("提交事件!");
+    //}
+}); */
 $().ready(function() {
 	// 在键盘按下并释放及提交后验证提交表单
 	  $("#loginForm").validate({

@@ -11,9 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
 
+import edu.tju.goliath.entity.Grade;
 import edu.tju.goliath.entity.Parent;
 import edu.tju.goliath.entity.Student;
 import edu.tju.goliath.entity.User;
+import edu.tju.goliath.service.GradeServiceI;
 import edu.tju.goliath.service.ParentServiceI;
 import edu.tju.goliath.service.StudentServiceI;
 import edu.tju.goliath.service.UserServiceI;
@@ -56,6 +58,18 @@ public class TestMybatis {
 	public void setParentService(ParentServiceI parentService) {
 		this.parentService = parentService;
 	}
+	
+	private GradeServiceI gradeService;
+
+	public GradeServiceI getGradeService() {
+		return gradeService;
+	}
+
+	@Autowired
+	public void setGradeService(GradeServiceI gradeService) {
+		this.gradeService = gradeService;
+	}
+
 //	@Test
 //	public void test1() {
 //		User u = userService.getUserById(1);
@@ -63,13 +77,23 @@ public class TestMybatis {
 //	}
 
 
+//	@Test
+//	public void test2() {
+////		Student stu=stuService.getStuById(8);
+//		Student stu= stuService.getStuByName("tianhongce2");
+////		Parent par= parentService.getParentByEmail("1196585084@qq.com");
+//		
+//		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
+//	}
+	
 	@Test
-	public void test2() {
-//		Student stu=stuService.getStuById(8);
+	public void test3() {
 		Student stu= stuService.getStuByName("tianhongce2");
-//		Parent par= parentService.getParentByEmail("1196585084@qq.com");
+		List<Grade> gradelist = gradeService.getGradesByStuid(1);
 		
-		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
+		logger.info(JSON.toJSONStringWithDateFormat(gradelist, "yyyy-MM-dd HH:mm:ss"));
 	}
 
 }
+
+

@@ -17,39 +17,31 @@
 	
 </head>
 <body>
-    <%@ include file="systemplateheader.jsp"%> 
+   <%@ include file="systemplateheader.jsp"%> 
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            小学生四则运算 <small>在线练习系统 V1.0</small>
+                            小学生四则运算 <small>在线考试系统 V1.0</small>
                         </h1>
+                        
                     </div>
                 </div> 
                  <!-- /. ROW  -->
-                  
+               
             <div class="row" >
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             	 当前级别：一级-青铜
-                            	 <!-- 根据点击提交的级别，进行相应的修改 -->
-                            	 <div class="time">
-							        <span id="t_d">倒计时：</span>
-							        <span id="t_h">00时</span>
-							        <span id="t_m">00分</span>
-							        <span id="t_s">00秒</span>
-							        &nbsp;&nbsp;&nbsp;
-							    </div>
+                            	 你的成绩：${grade}
                         </div>
                         
-                         
                         <div class="panel-body">
                             <div class="table-responsive" style="overflow-x:hidden;">
-                            <form action="judgeTestExp.do">
                             
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
@@ -57,7 +49,8 @@
                                             <th>题号</th>
                                             <th>题目</th>
                                             <th>答案</th>
-                                            <th></th>
+                                            <th>你的答案</th>
+                                            <th>&nbsp;&nbsp;&nbsp;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -66,19 +59,20 @@
                                         <tr class="odd gradeX">
                                             <td>${explist.expid}</td>
                                             <td>${explist.expvalue}</td>
-                                            <td><input type="text" name="result"></td>
+                                            <td>${explist.expresult}</td>
+                                            <td>${explist.userresult}</td>
+                                            <td>${explist.expuserresult}</td>
                                         </tr>
                                      </c:forEach>
                                     </tbody>
                                 </table>
-                                <input type="submit" value="提交试卷">
-                                </form>
                             </div>
                             
                         </div>
                     </div>
                     <!--End Advanced Tables -->
                 </div>
+            </div>
                 <!-- /. ROW  -->
             
         </div>
@@ -130,6 +124,7 @@
    }
    setInterval(GetRTime,0);
 </script>
-   
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script> 
 </body>
 </html>

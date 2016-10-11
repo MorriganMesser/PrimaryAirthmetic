@@ -1,5 +1,7 @@
 package edu.tju.goliath.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +52,11 @@ public class GradeServiceImpl implements GradeServiceI {
 	@Override
 	public int updateGradeById(Grade record) {
 		return gradeMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Grade> getGradesByStuid(Integer stuid) {
+		return gradeMapper.getGradesByStuid(stuid);
 	}
 
 }
