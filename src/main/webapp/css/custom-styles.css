@@ -235,7 +235,7 @@ text-align: left;
 height: 60px;
 font-size: 30px;
 font-weight: 700;
-text-transform: uppercase;
+text-transform: none;
 line-height: 30px;
 }
 .top-navbar .nav > li {

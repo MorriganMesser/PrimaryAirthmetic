@@ -54,7 +54,7 @@ a.btn-cta-primary,
   background: #6dbd63;
   border: 2px solid #6dbd63;
   color: #fff;
-  text-transform: uppercase;
+  text-transform: none;
 }
 a.btn-cta-primary:hover,
 .btn-cta-primary:hover {
