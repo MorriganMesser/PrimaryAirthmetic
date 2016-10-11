@@ -61,14 +61,6 @@
 											<td>1v0</td>
 										</tr>
 										<tr>
-											<td>成就</td>
-											<td>(>▽<)</td>
-										</tr>
-										<tr>
-											<td>我的勋章</td>
-											<td>≡ω≡</td>
-										</tr>
-										<tr>
 											<td>在线时长</td>
 											<td>0</td>
 										</tr>
@@ -76,6 +68,30 @@
 								</div>
 							</div>
 
+							<div class="panel panel-warning">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<span class="glyphicon glyphicon-screenshot"></span> 成就
+									</h3>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover">
+										<tr>
+											<td><img style="width:64px;height:64px" src="img/medal/med1.png" class="img-circle" alt="1"></td>
+											<td style="vertical-align: middle">算术达人。简单的算术题对你来说不成问题了！</td>
+										</tr>
+											<tr>
+											<td><img style="width:64px;height:64px" src="img/medal/med2.png" class="img-circle" alt="2"></td>
+											<td style="vertical-align: middle">初窥门径。你已经初步领略了算术的魅力！</td>
+										</tr>
+											<tr>
+											<td><img style="width:64px;height:64px" src="img/medal/med3.png" class="img-circle" alt="3"></td>
+											<td style="vertical-align: middle">勤奋努力。你花了很多的时间练习算术题，勤奋的你终将取得成功！</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							
 							<div class="panel panel-info">
 								<div class="panel-heading">
 									<h3 class="panel-title">
@@ -99,6 +115,7 @@
 									</table>
 								</div>
 							</div>
+							
 							<div class="panel panel-info">
 								<div class="panel-heading">
 									<h3 class="panel-title">
