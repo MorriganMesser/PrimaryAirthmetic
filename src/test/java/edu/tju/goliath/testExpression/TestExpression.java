@@ -26,7 +26,7 @@ public class TestExpression {
 	@Test
 	public void testExpression2(){
 		
-		Expression expression = new Expression(10, 10);
+		Expression expression = new Expression(5, 5);
 		expression.setFractionNumber(9);
 		ArrayList<ExpResult> explist = new ArrayList<ExpResult>();
 		

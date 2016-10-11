@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +13,9 @@
 <link href="css/freelancer.css" rel="stylesheet">
 
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="http://fonts.useso.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<!-- <link href="http://fonts.useso.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
+ -->
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -43,11 +44,22 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="login_top">
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#" data-toggle="modal" data-target="#myModal">登陆</a></li>
-			<li><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
-		</ul>
-	</div>
+			<ul class="nav navbar-nav navbar-right">
+			<c:if test="${student==null}"> 
+  				<li><a href="#" data-toggle="modal" data-target="#myModal">登陆</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+				<li><a href="#">&nbsp;</a></li>
+			</c:if> 
+			<c:if test="${student!=null}"> 
+    			<li><a href="#" >aaa欢迎！</a></li>
+				<li><a href="#" >学生：</a></li>
+				<li><a href="#" >${student.stunick}</a></li>
+				<li><a href="signup.do" >退出</a></li>
+				<li><a href="#" >&nbsp; </a></li>
+				
+			</c:if> 
+			</ul>
+		</div>
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header page-scroll">

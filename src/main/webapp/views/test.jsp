@@ -34,9 +34,9 @@
                     <div class="container_type text-center">
                         <h3 class="title">答题入口</h3>
                         <p class="summary">说明：请选择练习难度、模式后进入练习系统。</p>
-                        <form class="signup-form">
+                        <form class="signup-form" action="testExp.do">
                             <div class="form-group">
-	                            <select class="sel">
+	                            <select class="sel" name="rank">
 									<option value="">请选择练习级别</option>
 									<option value="">一级-青铜</option>
 									<option value="">二级-白银</option>
@@ -44,7 +44,7 @@
 								</select>
                             </div>
                             <div class="form-group">
-	                            <select class="sel">
+	                            <select class="sel" name="rankmethod">
 									<option value="">请选择练习模式</option>
 									<option value="">加法</option>
 									<option value="">减法</option>
@@ -55,7 +55,7 @@
 									<option value="">加减乘除混合运算</option>
 								</select>
                             </div>
-                            <a href="testcontent.jsp"><input type="button" class="btn btn-cta btn-cta-primary" value="开始练习"></a>
+                            <input type="submit" class="btn btn-cta btn-cta-primary" value="开始练习">
                         </form><!--//signup-form-->
                     </div><!--//contianer-->
                 </div><!--//signup-->

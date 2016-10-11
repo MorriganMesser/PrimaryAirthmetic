@@ -32,16 +32,75 @@ public class ExpressionController {
 	}
 
 	@RequestMapping(value = "/getExpressions", method = RequestMethod.GET)
-	public String getExpressions(HttpServletRequest request){
-		
-		//设置考试难度等级
+	public String getExpressions(HttpServletRequest request,
+			@RequestParam("graderank") String graderank){
 		
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
-		
+		int graderankINT = Integer.parseInt(graderank);
+		//设置考试难度等级
 		Expression expression = new Expression(10, 10);
-		expression.setFractionNumber(2);
-		expression.setGrade(2);
+		switch (graderankINT) {
+		case 1:
+		{
+			System.out.println("考试等级1");
+			expression.setFractionNumber(2);
+			expression.setGrade(3);
+		}
+			
+			break;
+		case 2:
+		{
+			System.out.println("考试等级2");
+			expression.setFractionNumber(4);
+			expression.setGrade(1);
+		}
+			break;
+		case 3:
+		{
+			System.out.println("考试等级3");
+			expression.setFractionNumber(4);
+			expression.setGrade(3);
+		}
+			break;
+		case 4:
+		{
+			System.out.println("考试等级4");
+			expression.setFractionNumber(6);
+			expression.setGrade(0);
+		}
+			break;
+		case 5:
+		{
+			System.out.println("考试等级5");
+			expression.setFractionNumber(6);
+			expression.setGrade(3);
+		}
+			break;
+		case 6:
+		{
+			System.out.println("考试等级6");
+			expression.setFractionNumber(9);
+			expression.setGrade(1);
+		}
+			break;
+		case 7:
+		{
+			System.out.println("考试等级7");
+			expression.setFractionNumber(9);
+			expression.setGrade(3);
+		}
+			break;
+
+		default:
+		{
+			System.out.println("考试等级默认");
+			expression.setFractionNumber(2);
+			expression.setGrade(2);
+		}
+			break;
+		}
+		
 		ArrayList<ExpResult> explist = new ArrayList<ExpResult>();
 		
 		for(int i = 0; i < 10; ++i) {
@@ -50,14 +109,10 @@ public class ExpressionController {
 			expresult.setExpid(i+1);
 			expresult.setExpvalue(expression.getExpression());
 			expresult.setExpresult(expression.getResult());
-			
 			explist.add(expresult);
-			
 		}
 		
-		
 		session.setAttribute("explist", explist);
-		
 		return "views/examcontent";
 	}
 	

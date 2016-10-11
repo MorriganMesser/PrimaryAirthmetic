@@ -36,13 +36,17 @@
                         <form class="signup-form" action = "getExpressions.do">
                             <div class="form-group">
 	                            <select class="sel" name="graderank">
-									<option value="">请选择考试级别</option>
-									<option value="">一级-青铜</option>
-									<option value="">二级-白银</option>
-									<option value="">三级-黄金</option>
+									<option value="0">请选择考试级别</option>
+									<option value="1">一级-青铜</option>
+									<option value="2">二级-白银</option>
+									<option value="3">三级-黄金</option>
+									<option value="4">四级-白金</option>
+									<option value="5">五级-钻石</option>
+									<option value="6">六级-最强王者</option>
+									<option value="7">七级-超凡大师</option>
 								</select>
                             </div>
-                            <input type="submit" class="btn btn-cta btn-cta-primary" value="开始考试"></a>
+                            <input type="submit" class="btn btn-cta btn-cta-primary" value="开始考试">
                         </form><!--//signup-form-->
                     </div><!--//contianer-->
                 </div><!--//signup-->
