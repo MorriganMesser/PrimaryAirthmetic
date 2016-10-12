@@ -82,10 +82,10 @@
 					<a href="index.jsp">主页</a>
 				</li>
 				<li class="page-scroll">
-					<a href="views/test.jsp">练习模块</a>
+					<a href="views/test.jsp#test-anchor">练习模块</a>
 				</li>
 				<li class="page-scroll">
-					<a href="views/exam.jsp">考试模块</a>
+					<a href="views/exam.jsp#exam-anchor">考试模块</a>
 				</li>
 				<li class="page-scroll">
 					<a href="views/index.jsp#portfolio">学习模块</a>

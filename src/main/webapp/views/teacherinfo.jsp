@@ -13,10 +13,10 @@
 <base href="<%=basePath%>"></base>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>用户</title>
+<title>用户信息</title>
 </head>
 <body>
-	<%@ include file="systemplateheader.jsp"%>
+	<%@ include file="teacherheader.jsp"%>
 
 	<!-- /. NAV SIDE  -->
 	<div id="page-wrapper">
@@ -56,65 +56,10 @@
 											<td>账户年龄</td>
 											<td>1</td>
 										</tr>
-										<tr>
-											<td>等级</td>
-											<td>1v0</td>
-										</tr>
-										<tr>
-											<td>在线时长</td>
-											<td>0</td>
-										</tr>
 									</table>
 								</div>
 							</div>
 
-							<div class="panel panel-warning">
-								<div class="panel-heading">
-									<h3 class="panel-title">
-										<span class="glyphicon glyphicon-screenshot"></span> 成就
-									</h3>
-								</div>
-								<div class="panel-body">
-									<table class="table table-hover">
-										<tr>
-											<td><img style="width:64px;height:64px" src="img/medal/med1.png" class="img-circle" alt="1"></td>
-											<td style="vertical-align: middle">算术达人。简单的算术题对你来说不成问题了！</td>
-										</tr>
-											<tr>
-											<td><img style="width:64px;height:64px" src="img/medal/med2.png" class="img-circle" alt="2"></td>
-											<td style="vertical-align: middle">初窥门径。你已经初步领略了算术的魅力！</td>
-										</tr>
-											<tr>
-											<td><img style="width:64px;height:64px" src="img/medal/med3.png" class="img-circle" alt="3"></td>
-											<td style="vertical-align: middle">勤奋努力。你花了很多的时间练习算术题，勤奋的你终将取得成功！</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-							
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<h3 class="panel-title">
-										<span class="glyphicon glyphicon-list-alt"></span> 练习记录
-									</h3>
-								</div>
-								<div class="panel-body">
-									<table class="table table-hover">
-										<tr>
-											<td>答题总数</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>正确总数</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>正确率</td>
-											<td>0</td>
-										</tr>
-									</table>
-								</div>
-							</div>
 							
 							<div class="panel panel-info">
 								<div class="panel-heading">
@@ -125,14 +70,9 @@
 								<div class="panel-body">
 									<table class="table table-hover">
 										<tr>
-											<td>擅长题型</td>
+											<td>學生人數</td>
 											<td>0</td>
 										</tr>
-										<tr>
-											<td>不擅长题型</td>
-											<td>0</td>
-										</tr>
-
 									</table>
 								</div>
 							</div>
