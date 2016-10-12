@@ -32,6 +32,7 @@
 	<div class="fixed-container">
                 <div class="signup">
                     <div class="container_type text-center">
+                    <a name="test-anchor" id="test-anchor" > </a>
                         <h3 class="title">答题入口</h3>
                         <p class="summary">说明：请选择练习难度、模式后进入练习系统。</p>
                         <form class="signup-form" action="testExp.do">

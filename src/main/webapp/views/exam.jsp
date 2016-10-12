@@ -31,6 +31,7 @@
 	<div class="fixed-container">
                 <div class="signup">
                     <div class="container_type text-center">
+                    <a name="exam-anchor" id="exam-anchor" > </a>
                         <h3 class="title">答题入口</h3>
                         <p class="summary">考试说明：考试难度分别为初级、中级、高级。请选择考试级别后进入考试答题系统。</p>
                         <form class="signup-form" action = "getExpressions.do">
