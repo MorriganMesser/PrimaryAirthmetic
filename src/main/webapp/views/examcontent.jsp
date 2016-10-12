@@ -50,7 +50,7 @@
                          
                         <div class="panel-body">
                             <div class="table-responsive" style="overflow-x:hidden;">
-                            <form action="judgeExpressions.do">
+                            <form id="expresultForm" action="judgeExpressions.do">
                             
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
@@ -67,7 +67,7 @@
                                         <tr class="odd gradeX">
                                             <td>${explist.expid}</td>
                                             <td>${explist.expvalue}</td>
-                                            <td><input type="text" name="result"></td>
+                                            <td><input id="result" type="text" name="result"></td>
                                         </tr>
                                      </c:forEach>
                                     </tbody>
@@ -134,5 +134,30 @@
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 </script> 
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script>
+/* $.validator.setDefaults({
+    //submitHandler: function() {
+     // alert("提交事件!");
+    //}
+}); */
+$().ready(function() {
+	// 在键盘按下并释放及提交后验证提交表单
+	  $("#expresultForm").validate({
+	    rules: {
+	      result: {
+	        required: true,
+	      }
+	    },
+	    messages: {
+	      result: {
+	        required: "请输入答案",
+	      }
+	    }
+	});
+});
+</script>
 </body>
 </html>

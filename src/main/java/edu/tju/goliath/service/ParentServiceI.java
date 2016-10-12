@@ -1,5 +1,7 @@
 package edu.tju.goliath.service;
 
+import java.util.List;
+
 import edu.tju.goliath.entity.Parent;
 
 public interface ParentServiceI {
@@ -18,5 +20,7 @@ public interface ParentServiceI {
     int updateParentByIdSelective(Parent record);
 
     int updateParentById(Parent record);
+    
+    List<Parent> getAllParent();
 
 }

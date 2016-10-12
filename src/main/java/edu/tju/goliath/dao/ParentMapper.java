@@ -1,5 +1,7 @@
 package edu.tju.goliath.dao;
 
+import java.util.List;
+
 import edu.tju.goliath.entity.Parent;
 
 public interface ParentMapper {
@@ -18,4 +20,6 @@ public interface ParentMapper {
     int updateByPrimaryKeySelective(Parent record);
 
     int updateByPrimaryKey(Parent record);
+    
+    List<Parent> getAllParent();
 }

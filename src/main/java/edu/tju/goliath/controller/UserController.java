@@ -222,13 +222,27 @@ public class UserController {
 	public void validateName(HttpServletRequest request,HttpServletResponse response,
 			@RequestParam("loginName") String loginName) throws IOException{
 		System.out.println(loginName);
-		
-		String q = "qqq";
-		if(q.equals(loginName)){
-			System.out.println("true");
+		System.out.println(stuservice.getStuByName(loginName));
+		System.out.println(null==stuservice.getStuByName(loginName));
+		if(null==stuservice.getStuByName(loginName)){
+			System.out.println("用户名可以注册");
 			 response.getWriter().write("true");//此值jquery可以接收到  
 		}else{
-			System.out.println("eee");
+			System.out.println("用户名已经存在");
+			 response.getWriter().write("false");//此值jquery可以接收到  
+		}
+	}
+	
+	@RequestMapping(value = "/validateEmail", method = RequestMethod.POST)
+	public void validateEmail(HttpServletRequest request,HttpServletResponse response,
+			@RequestParam("loginEmail") String loginEmail) throws IOException{
+		System.out.println(loginEmail);
+		System.out.println(stuservice.getStuByEmail(loginEmail));
+		if(null==(stuservice.getStuByEmail(loginEmail))){
+			System.out.println("邮箱可以注册");
+			 response.getWriter().write("true");//此值jquery可以接收到  
+		}else{
+			System.out.println("邮箱已经被注册");
 			 response.getWriter().write("false");//此值jquery可以接收到  
 		}
 	}

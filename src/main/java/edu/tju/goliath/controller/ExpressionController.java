@@ -47,11 +47,14 @@ public class ExpressionController {
 
 	@RequestMapping(value = "/getExpressions", method = RequestMethod.GET)
 	public String getExpressions(HttpServletRequest request,
-			@RequestParam("graderank") String graderank){
+			@RequestParam("graderank") String graderank,
+			@RequestParam("gradename") String gradename,
+			@RequestParam("expnum") String expnum){
 		
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
 		int graderankINT = Integer.parseInt(graderank);
+		int expnumINT = Integer.parseInt(expnum);
 		//设置考试难度等级
 		Expression expression = new Expression(10, 10);
 		switch (graderankINT) {
@@ -117,7 +120,7 @@ public class ExpressionController {
 		
 		ArrayList<ExpResult> explist = new ArrayList<ExpResult>();
 		
-		for(int i = 0; i < 10; ++i) {
+		for(int i = 0; i < expnumINT; ++i) {
 			expression.createExpression();
 			ExpResult expresult =new ExpResult();
 			expresult.setExpid(i+1);

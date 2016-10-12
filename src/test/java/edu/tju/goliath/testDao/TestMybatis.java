@@ -97,13 +97,20 @@ public class TestMybatis {
 	//		stu.setStupwd(stupwd);
 	//		stuservice.updateStuByIdSelective(stu);
 	
+//	@Test
+//	public void test4() {
+//		Student stu= stuService.getStuByName("qq9999999");
+////		stu.setStupwd("qq");
+////		stuService.updateStuByIdSelective(stu);
+//		System.out.println(null==stu);
+//		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
+//	}
+	
 	@Test
-	public void test4() {
-		Student stu= stuService.getStuByName("qq");
-		stu.setStupwd("qq");
-		stuService.updateStuByIdSelective(stu);
-		
-		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
+	public void test5() {
+		List<Parent> parentlist = parentService.getAllParent();
+//		System.out.println(null==stu);
+		logger.info(JSON.toJSONStringWithDateFormat(parentlist, "yyyy-MM-dd HH:mm:ss"));
 	}
 }
 

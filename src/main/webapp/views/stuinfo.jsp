@@ -68,6 +68,43 @@
 									</table>
 								</div>
 							</div>
+							
+							<div class="panel panel-success">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<span class="glyphicon glyphicon-user"></span> 相关
+									</h3>
+								</div>
+								<div class="panel-body">
+
+									<table class="table">
+										<tr>
+											<td>家长</td>
+											<td>
+												<select id="parent_select" name="dept.deptnum">
+															<option ></option>
+												</select>
+												
+												<select class="form-control" name="parent">
+												<option value="学生">家长1</option>
+												<option value="家长">家长2</option>
+												<option value="家长3">家长3</option>
+												</select> 
+											</td>
+										</tr>
+										<tr>
+											<td>教师</td>
+											<td>
+												<select class="form-control" name="parent">
+												<option value="学生">教师1</option>
+												<option value="家长">教师2</option>
+												<option value="家长3">教师3</option>
+												</select> 
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
 
 							<div class="panel panel-warning">
 								<div class="panel-heading">
@@ -165,6 +202,31 @@
 	<script src="js/jquery.metisMenu.js"></script>
 	<!-- Custom Js -->
 	<script src="js/custom-scripts.js"></script>
+	
+<script type="text/javascript">
+	$(function(){
+		alert("aaaa");
+		var obj=window.location; 
+		var contextPath=obj.pathname.split("/")[1]; 
+		
+		$.ajax({
+			type:"POST",
+			url:"getAllParents.do",
+			contentType:"application/json",
+			dataType:"json",
+			success:function(data){
+			var str="";
+			str+="<option selected></option>";
+			$.each(data,function(i,val){
+				//alert(val.deptnum);
+				str+="<option value='"+val.parentname+"'>"+val.parentname+"</option>";
+			});	
+			$("#parent_select").html(str);
+		}
+	});
+})
+	
+</script>
 
 </body>
 </html>

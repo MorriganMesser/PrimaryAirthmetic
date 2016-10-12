@@ -1,5 +1,7 @@
 package edu.tju.goliath.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +61,11 @@ public class ParentServiceImpl implements ParentServiceI {
 	@Override
 	public Parent getParentByEmail(String parentemail) {
 		return parentMapper.selectByParentEmail(parentemail);
+	}
+
+	@Override
+	public List<Parent> getAllParent() {
+		return parentMapper.getAllParent();
 	}
 
 }

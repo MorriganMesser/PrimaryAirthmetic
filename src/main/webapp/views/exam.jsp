@@ -34,10 +34,22 @@
                     <a name="exam-anchor" id="exam-anchor" > </a>
                         <h3 class="title">答题入口</h3>
                         <p class="summary">考试说明：考试难度分别为初级、中级、高级。请选择考试级别后进入考试答题系统。</p>
-                        <form class="signup-form" action = "getExpressions.do">
+                        <form id="selectgradeForm" class="signup-form" action = "getExpressions.do">
+                        	 <div class="form-group">
+                        	 <input name="gradename" id="gradename" type="text" class="sel" placeholder="请填写考试名称：">
+                            </div>
+                             <div class="form-group">
+	                            <select id="expnum" class="sel" name="expnum">
+									<option value="10">请选择考试题数,默认：10</option>
+									<option value="10">10</option>
+									<option value="20">20</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+                            </div>
                             <div class="form-group">
-	                            <select class="sel" name="graderank">
-									<option value="0">请选择考试级别</option>
+	                            <select id="graderank" class="sel" name="graderank">
+									<option value="0">请选择考试级别,默认：一级-青铜</option>
 									<option value="1">一级-青铜</option>
 									<option value="2">二级-白银</option>
 									<option value="3">三级-黄金</option>
@@ -55,5 +67,37 @@
 </header>
 
 <%@ include file="indextemplatefooter.jsp"%>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script>
+/* $.validator.setDefaults({
+    //submitHandler: function() {
+     // alert("提交事件!");
+    //}
+}); */
+$().ready(function() {
+	// 在键盘按下并释放及提交后验证提交表单
+	  $("#selectgradeForm").validate({
+	    rules: {
+	      gradename: {
+	        required: true,
+	      },
+	      graderank: {
+		    required: true,
+		  }
+	    },
+	    messages: {
+	      gradename: {
+	        required: "请输入考试名称",
+	      },
+	      graderank: {
+		    required: "请输入考试等级",
+		  }
+	    }
+	});
+});
+</script>
+
 </body>
 </html>

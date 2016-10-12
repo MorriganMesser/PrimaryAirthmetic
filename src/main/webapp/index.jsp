@@ -774,7 +774,8 @@
 									<input type="text" id="username" name="username" placeholder="用户名" onblur="validatorloginName()">
 									<span id="usermsg"></span> 
 									<td><div id="accDiv"></div></td>
-									<input type="text" id="email" name="email" placeholder="邮箱"> 
+									<input type="text" id="useremail" name="email" placeholder="邮箱" onblur="validatorloginEmail()"> 
+									<td><div id="accDivEmail"></div></td>
 									<input type="password" id="password" name="password" placeholder="密码">
 
 									<div class="row"></div>
@@ -863,20 +864,43 @@ function validatorloginName(){
 	         data: "loginName="+loginName,
 	         dataType:"json",//返会值的类型
 	         success: function(data){
+	        	// alert(data)
 			   if(data){
 				   //alert("用户名不可用") 
-			    	 document.getElementById("accDiv").innerHTML = "用户名已存在";
+			    	 document.getElementById("accDiv").innerHTML = "用户名可用";
 			    }else{   
 			    	//alert("用户名可用")
-			    	 document.getElementById("accDiv").innerHTML = "用户名可用";
+			    	 document.getElementById("accDiv").innerHTML = "用户名已被注册";
 		    	}  
 	  		}            
 	        });   
 	}		
-
-
+function validatorloginEmail(){
+	//alert("aaaaa");
+	 var loginEmail=document.getElementById("useremail").value;
+	 //alert(loginEmail)
+	 if(loginEmail == "")
+	 {
+		 document.getElementById("accDivEmail").innerHTML = "邮箱不能空";
+	 	return;
+	 }
+	 $.ajax({
+	 		type: "POST",    
+	         url: "validateEmail.do",    
+	         data: "loginEmail="+loginEmail,
+	         dataType:"json",//返会值的类型
+	         success: function(data){
+			   if(data){
+				   //alert("用户名不可用") 
+			    	 document.getElementById("accDivEmail").innerHTML = "邮箱可用";
+			    }else{   
+			    	//alert("用户名可用")
+			    	 document.getElementById("accDivEmail").innerHTML = "邮箱已被注册";
+		    	}  
+	  		}            
+	        });   
+	}		
 </script>
-
 	
 </body>
 
