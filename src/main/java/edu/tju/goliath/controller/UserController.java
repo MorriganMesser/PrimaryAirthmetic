@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.code.kaptcha.Constants;
 
 import edu.tju.goliath.entity.Parent;
@@ -146,7 +147,7 @@ public class UserController {
 			}else{
 				System.out.println("用户名或密码错误");
 			}
-				return "parent_login";
+				return "views/parentinfo";
 		} else if ("教师".equals(type)) {
 				if(!((null==teacherservice.getTeacherByEmail(nameoremail))&&(null==teacherservice.getTeacherByName(nameoremail)))){
 					if(!(null==teacherservice.getTeacherByEmail(nameoremail))){
@@ -169,7 +170,7 @@ public class UserController {
 				}else{
 					System.out.println("用户名或密码错误");
 				}
-				return "teacher_login";
+				return "views/teacherinfo";
 		} else {
 			if(!((null==stuservice.getStuByEmail(nameoremail))&&(null==stuservice.getStuByName(nameoremail)))){
 				if(!(null==stuservice.getStuByEmail(nameoremail))){
@@ -220,12 +221,15 @@ public class UserController {
 	@RequestMapping(value = "/validateName", method = RequestMethod.POST)
 	public String validateName(HttpServletRequest request,HttpServletResponse response,
 			@RequestParam("loginName") String loginName) throws IOException{
+		System.out.println(loginName);
+		
 		String q = "q";
 		if(q.equals(loginName)){
 			 response.getWriter().write("true");//此值jquery可以接收到  
+		}else{
+			 response.getWriter().write("eee");//此值jquery可以接收到  
 		}
 		
-		System.out.println(loginName);
-		return "";
+		return "testlogin";
 	}
 }

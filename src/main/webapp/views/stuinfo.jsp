@@ -24,6 +24,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h1 class="page-header">
+					
 						个人中心 <small>这里是你的个人空间</small>
 					</h1>
 				</div>
@@ -50,15 +51,15 @@
 									<table class="table">
 										<tr>
 											<td>用户名</td>
-											<td>xx</td>
+											<td>${student.stuname}</td>
 										</tr>
 										<tr>
-											<td>账户年龄</td>
-											<td>1</td>
+											<td>昵称</td>
+											<td>${student.stunick}</td>
 										</tr>
 										<tr>
-											<td>等级</td>
-											<td>1v0</td>
+											<td>邮箱</td>
+											<td>${student.stuemail}</td>
 										</tr>
 										<tr>
 											<td>在线时长</td>

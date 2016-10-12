@@ -86,14 +86,25 @@ public class TestMybatis {
 //		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
 //	}
 	
+//	@Test
+//	public void test3() {
+//		Student stu= stuService.getStuByName("tianhongce2888");
+////		List<Grade> gradelist = gradeService.getGradesByStuid(1);
+//		
+//		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
+//	}
+
+	//		stu.setStupwd(stupwd);
+	//		stuservice.updateStuByIdSelective(stu);
+	
 	@Test
-	public void test3() {
-		Student stu= stuService.getStuByName("tianhongce2888");
-//		List<Grade> gradelist = gradeService.getGradesByStuid(1);
+	public void test4() {
+		Student stu= stuService.getStuByName("qq");
+		stu.setStupwd("qq");
+		stuService.updateStuByIdSelective(stu);
 		
 		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
 	}
-
 }
 
 

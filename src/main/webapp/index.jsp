@@ -98,7 +98,7 @@
 					<li class="page-scroll"><a href="views/test.jsp#test-anchor">练习模块</a></li>
 					<li class="page-scroll"><a href="views/exam.jsp#exam-anchor">考试模块</a></li>
 					<li class="page-scroll"><a href="#portfolio">学习模块</a></li>
-					<li class="page-scroll"><a href="views/info.jsp">个人信息</a></li>
+					<li class="page-scroll"><a href="getStuMsg.do">个人信息</a></li>
 					<li class="page-scroll"><a href="#contact">联系我们</a></li>
 
 				</ul>

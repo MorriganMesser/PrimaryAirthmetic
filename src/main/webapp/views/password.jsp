@@ -37,7 +37,7 @@
 						<div class="panel-heading">修改密码</div>
 						<div class="panel-body">
 
-							<form class="form-horizontal" role="form">
+							<form class="form-horizontal" role="form" id="changePwdForm" action="changeStuPwd.do">
 								<div class="form-group">
 									<label for="firstname" class="col-sm-2 control-label">当前密码</label>
 									<div class="col-sm-10">
@@ -48,14 +48,14 @@
 								<div class="form-group">
 									<label for="lastname" class="col-sm-2 control-label">新密码</label>
 									<div class="col-sm-10">
-										<input type="password" class="form-control" id="lastname"
+										<input type="password" class="form-control" id="password" name="password"
 											placeholder="新密码">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="lastname" class="col-sm-2 control-label">确认密码</label>
 									<div class="col-sm-10">
-										<input type="password" class="form-control" id="lastname"
+										<input type="password" class="form-control" id="password_again" name="password_again"
 											placeholder="确认密码">
 									</div>
 								</div>
@@ -92,6 +92,22 @@
 	<script src="js/jquery.metisMenu.js"></script>
 	<!-- Custom Js -->
 	<script src="js/custom-scripts.js"></script>
-
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/additional-methods.js"></script>
+	<script>
+	// just for the demos, avoids form submit
+	jQuery.validator.setDefaults({
+	  debug: true,
+	  success: "valid"
+	});
+	$( "#changePwdForm" ).validate({
+	  rules: {
+	    password: "required",
+	    password_again: {
+	      equalTo: "#password"
+	    }
+	  }
+	});
+	</script>
 </body>
 </html>

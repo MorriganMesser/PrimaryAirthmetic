@@ -51,7 +51,7 @@
 			</table>
 					</form>
 
-<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="js/jquery.js"></script>
 <script type="text/javascript">
 function validatorloginName(){
 	 var loginName=document.getElementById("username").value;
@@ -60,20 +60,14 @@ function validatorloginName(){
 		 document.getElementById("accDiv").innerHTML = "用户名不能空";
 	 	return;
 	 }
-	// document.getElementById("accDiv").innerHTML = loginName;
 	 $.ajax({
 	 		type: "POST",    
 	         url: "validateName.do",    
-	         data: "loginName="+loginName, 
-	        /*  success: function(data){
-	        	 alert(data);    
-		    if(data=="true"){   
-		    	 //document.getElementById("accDiv").innerHTML = "用户名不可用";
-		   
-		    }else{   
-		    	 document.getElementById("accDiv").innerHTML = "用户名已存在";
-	    	} 
-	  		}            */
+	         data: "loginName="+loginName,
+	         dataType:"json",//返会值的类型
+	         success: function(data){
+	        	 alert(data)
+	  		}            
 	        });   
 	}		
 

@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.tju.goliath.dto.ExpResult;
+import edu.tju.goliath.entity.Grade;
 import edu.tju.goliath.entity.Student;
 import edu.tju.goliath.service.GradeServiceI;
+import edu.tju.goliath.service.StudentServiceI;
 import edu.tju.goliath.util.Expression;
 
 @Controller
@@ -29,6 +31,18 @@ public class ExpressionController {
 	@Autowired
 	public void setGradeservice(GradeServiceI gradeservice) {
 		this.gradeservice = gradeservice;
+	}
+	
+	private StudentServiceI stuservice;
+	
+
+	public StudentServiceI getStuservice() {
+		return stuservice;
+	}
+
+	@Autowired
+	public void setStuservice(StudentServiceI stuservice) {
+		this.stuservice = stuservice;
 	}
 
 	@RequestMapping(value = "/getExpressions", method = RequestMethod.GET)
@@ -121,6 +135,7 @@ public class ExpressionController {
 			@RequestParam("result") String result){
 		ArrayList<ExpResult> explistWithAnswer = new ArrayList<ExpResult>();
 		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
 		explistWithAnswer=(ArrayList<ExpResult>) session.getAttribute("explist");
 		int grade=0;
 		System.out.println(result);
@@ -135,6 +150,13 @@ public class ExpressionController {
 			}
 		}
 		session.setAttribute("grade", grade);
+		Grade gradegrade = new Grade();
+		gradegrade.setGrade(String.valueOf(grade));
+		gradegrade.setGradename("考试");
+		gradegrade.setGraderank("考试等级");
+		gradegrade.setGradestuid(stu.getStuid());
+		int addGradeResult=gradeservice.addGradeSelective(gradegrade);
+		
 		System.out.println(explistWithAnswer.get(0).getExpvalue());
 		System.out.println(explistWithAnswer.get(0).getUserresult());
 		System.out.println(explistWithAnswer.get(0).getExpresult());

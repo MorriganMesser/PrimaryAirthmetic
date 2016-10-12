@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.tju.goliath.entity.Grade;
 import edu.tju.goliath.entity.Student;
 import edu.tju.goliath.service.GradeServiceI;
+import edu.tju.goliath.service.StudentServiceI;
 
 @Controller
 public class StuController {
@@ -34,6 +35,17 @@ public class StuController {
 		this.gradeservice = gradeservice;
 	}
 	
+	private StudentServiceI stuservice;
+	
+	public StudentServiceI getStuservice() {
+		return stuservice;
+	}
+
+	@Autowired
+	public void setStuservice(StudentServiceI stuservice) {
+		this.stuservice = stuservice;
+	}
+
 	@RequestMapping(value = "/getStuGrade", method = RequestMethod.GET)
 	public String getStuGrade(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -49,9 +61,9 @@ public class StuController {
 	public String getStuMsg(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
-		System.out.println(stu);
+		System.out.println("显示个人信息:"+stu.getStuname());
 		session.setAttribute("student", stu);
-		return "views/info";
+		return "views/stuinfo";
 	}
 	
 	@RequestMapping(value = "/addParent", method = RequestMethod.GET)
@@ -76,6 +88,17 @@ public class StuController {
 		System.out.println(stu);
 		session.setAttribute("student", stu);
 		return "views/info";
+	}
+	
+	@RequestMapping(value = "/changeStuPwd", method = RequestMethod.GET)
+	public String changeStuPwd(HttpServletRequest request,
+			@RequestParam("password") String password) {
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		stu.setStupwd(password);
+		stuservice.updateStuByIdSelective(stu);
+		session.setAttribute("student", stu);
+		return "views/stuinfo";
 	}
 	
 
