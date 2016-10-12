@@ -1,6 +1,9 @@
 package edu.tju.goliath.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -267,6 +270,18 @@ public class UserController {
 		HttpSession session = request.getSession();
 		session.removeAttribute("student");
 		return "index";
+	}
+	
+	@RequestMapping(value = "/validateName", method = RequestMethod.POST)
+	public String validateName(HttpServletRequest request,HttpServletResponse response,
+			@RequestParam("loginName") String loginName) throws IOException{
+		String q = "q";
+		if(q.equals(loginName)){
+			 response.getWriter().write("true");//此值jquery可以接收到  
+		}
+		
+		System.out.println(loginName);
+		return "";
 	}
 
 }

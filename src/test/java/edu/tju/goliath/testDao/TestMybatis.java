@@ -88,10 +88,10 @@ public class TestMybatis {
 	
 	@Test
 	public void test3() {
-		Student stu= stuService.getStuByName("tianhongce2");
-		List<Grade> gradelist = gradeService.getGradesByStuid(1);
+		Student stu= stuService.getStuByName("tianhongce2888");
+//		List<Grade> gradelist = gradeService.getGradesByStuid(1);
 		
-		logger.info(JSON.toJSONStringWithDateFormat(gradelist, "yyyy-MM-dd HH:mm:ss"));
+		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
 	}
 
 }
