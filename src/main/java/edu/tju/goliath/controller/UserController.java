@@ -216,15 +216,16 @@ public class UserController {
 		return "index";
 	}
 	
-<<<<<<< HEAD
-=======
-	@RequestMapping(value = "/getUsername", method = RequestMethod.GET)
-	public String getUsername(HttpServletRequest request,
-			@RequestParam("username") String username){
-		HttpSession session = request.getSession();
-		System.out.println(username);
->>>>>>> master
+	
+	@RequestMapping(value = "/validateName", method = RequestMethod.POST)
+	public String validateName(HttpServletRequest request,HttpServletResponse response,
+			@RequestParam("loginName") String loginName) throws IOException{
+		String q = "q";
+		if(q.equals(loginName)){
+			 response.getWriter().write("true");//此值jquery可以接收到  
+		}
+		
+		System.out.println(loginName);
 		return "";
 	}
-
 }
