@@ -771,8 +771,9 @@
 								<form action="register.do" id="registerForm" method="post">
 									<h3>用户注册</h3>
 									<input type="text" id="nick" name="nick" placeholder="昵称"> 
-									<input type="text" id="username" name="username" placeholder="用户名" onblur="validate(this)">
+									<input type="text" id="username" name="username" placeholder="用户名" onblur="validatorloginName()">
 									<span id="usermsg"></span> 
+									<td><div id="accDiv"></div></td>
 									<input type="text" id="email" name="email" placeholder="邮箱"> 
 									<input type="password" id="password" name="password" placeholder="密码">
 
@@ -848,39 +849,34 @@ $().ready(function() {
 </script>
 
 <script type="text/javascript">
-function init(){
-    document.getElementById("username").focus();
-}
-function validate(userfield) {
-    { 
-    	alert(userfield.value);
-        var xmlHttpRequest = null;
-        var url = "getUsername.do?username=" + userfield.value;
-        var usermsg = document.getElementById("usermsg");
-        if (window.XMLHttpRequest) {//表示当前浏览器不是IE
-            xmlHttpRequest = new XMLHttpRequest();
-        } else if (window.ActiveXObject) {
-            xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlHttpRequest.open("GET", url, true);//设置请求方式为GET，设置请求的URL，设置为异步提交
-        xmlHttpRequest.onreadystatechange = function(){//将方法地址复制给onreadystatechange属性
-            if(xmlHttpRequest.readyState == 4){//Ajax引擎状态为成功
-                if(xmlHttpRequest.status == 200){//HTTP协议状态为成功
-                    if(trim(xmlHttpRequest.responseText) != ""){
-                        usermsg.innerHTML = "<font color='red'>" + trim(xmlHttpRequest.responseText) + "</font>";
-                        userfield.focus();
-                    }else{
-                        usermsg.innerHTML = "恭喜您，用户名可以使用。 ";
-                    }
-                }else{
-                    alert("请求失败，错误码=" + xmlHttp.status);
-                }
-            }
-        };
-        xmlHttpRequest.send(null);//将设置信息发送到Ajax引擎
-    }
-}
+function validatorloginName(){
+	//alert("aaaaa");
+	 var loginName=document.getElementById("username").value;
+	 if(loginName == "")
+	 {
+		 document.getElementById("accDiv").innerHTML = "用户名不能空";
+	 	return;
+	 }
+	 $.ajax({
+	 		type: "POST",    
+	         url: "validateName.do",    
+	         data: "loginName="+loginName,
+	         dataType:"json",//返会值的类型
+	         success: function(data){
+			   if(data){
+				   //alert("用户名不可用") 
+			    	 document.getElementById("accDiv").innerHTML = "用户名已存在";
+			    }else{   
+			    	//alert("用户名可用")
+			    	 document.getElementById("accDiv").innerHTML = "用户名可用";
+		    	}  
+	  		}            
+	        });   
+	}		
+
+
 </script>
+
 	
 </body>
 

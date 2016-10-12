@@ -219,17 +219,17 @@ public class UserController {
 	
 	
 	@RequestMapping(value = "/validateName", method = RequestMethod.POST)
-	public String validateName(HttpServletRequest request,HttpServletResponse response,
+	public void validateName(HttpServletRequest request,HttpServletResponse response,
 			@RequestParam("loginName") String loginName) throws IOException{
 		System.out.println(loginName);
 		
-		String q = "q";
+		String q = "qqq";
 		if(q.equals(loginName)){
+			System.out.println("true");
 			 response.getWriter().write("true");//此值jquery可以接收到  
 		}else{
-			 response.getWriter().write("eee");//此值jquery可以接收到  
+			System.out.println("eee");
+			 response.getWriter().write("false");//此值jquery可以接收到  
 		}
-		
-		return "testlogin";
 	}
 }

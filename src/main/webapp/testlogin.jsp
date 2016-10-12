@@ -66,7 +66,13 @@ function validatorloginName(){
 	         data: "loginName="+loginName,
 	         dataType:"json",//返会值的类型
 	         success: function(data){
-	        	 alert(data)
+			   if(data){
+				   //alert("用户名不可用") 
+			    	 document.getElementById("accDiv").innerHTML = "用户名已存在";
+			    }else{   
+			    	//alert("用户名可用")
+			    	 document.getElementById("accDiv").innerHTML = "用户名可用";
+		    	}  
 	  		}            
 	        });   
 	}		
