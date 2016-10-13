@@ -201,9 +201,10 @@
 	<!-- Metis Menu Js -->
 	<script src="js/jquery.metisMenu.js"></script>
 	<!-- Custom Js -->
-	<script src="js/custom-scripts.js"></script>
+<!-- 	<script src="js/custom-scripts.js"></script> -->
 	
 <script type="text/javascript">
+	//alert("asdfasdasd")
 	$(function(){
 		alert("aaaa");
 		var obj=window.location; 
@@ -223,7 +224,7 @@
 			});	
 			$("#parent_select").html(str);
 		}
-	});
+	}); 
 })
 	
 </script>
