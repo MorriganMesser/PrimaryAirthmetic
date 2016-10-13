@@ -1,6 +1,8 @@
 package edu.tju.goliath.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -158,6 +160,9 @@ public class ExpressionController {
 		gradegrade.setGradename("考试");
 		gradegrade.setGraderank("考试等级");
 		gradegrade.setGradestuid(stu.getStuid());
+		gradegrade.setGrademodel("考试");
+		gradegrade.setGradedate(new Date());
+		//gradegrade.setGradeexps(explistWithAnswer.toString());
 		int addGradeResult=gradeservice.addGradeSelective(gradegrade);
 		
 		System.out.println(explistWithAnswer.get(0).getExpvalue());

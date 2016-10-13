@@ -101,5 +101,18 @@ public class StuController {
 		return "views/stuinfo";
 	}
 	
+	//addParentAndTeacher.do
+	@RequestMapping(value = "/addParentAndTeacher", method = RequestMethod.POST)
+	public String addParentAndTeacher(HttpServletRequest request,
+			@RequestParam("stuteacherid") String stuteacherid,
+			@RequestParam("stuparentid") String stuparentid) {
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		stu.setStuteacherid(Integer.parseInt(stuteacherid));
+		stu.setStuparentid(Integer.parseInt(stuparentid));
+		stuservice.updateStuByIdSelective(stu);
+		session.setAttribute("student", stu);
+		return "views/stuinfo";
+	}
 
 }

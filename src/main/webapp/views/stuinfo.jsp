@@ -62,8 +62,16 @@
 											<td>${student.stuemail}</td>
 										</tr>
 										<tr>
-											<td>在线时长</td>
-											<td>0</td>
+											<td>年级</td>
+											<td>${student.stuage}</td>
+										</tr>
+										<tr>
+											<td>父母</td>
+											<td>${student.stuparentid}</td>
+										</tr>
+										<tr>
+											<td>老师</td>
+											<td>${student.stuteacherid}</td>
 										</tr>
 									</table>
 								</div>
@@ -72,16 +80,17 @@
 							<div class="panel panel-success">
 								<div class="panel-heading">
 									<h3 class="panel-title">
-										<span class="glyphicon glyphicon-user"></span> 相关
+										<span class="glyphicon glyphicon-user"></span>请选择相关联系人
 									</h3>
 								</div>
 								<div class="panel-body">
+								<form action="addParentAndTeacher.do" method="post">
 
 									<table class="table">
 										<tr>
 											<td>家长</td>
 											<td>
-												<select id="parent_select" class="form-control" name="parent">
+												<select id="parent_select" class="form-control" name="stuparentid">
 												<option ></option>
 												</select> 
 											</td>
@@ -89,12 +98,19 @@
 										<tr>
 											<td>教师</td>
 											<td>
-												<select id="teacher_select" class="form-control" name="teacher">
+												<select id="teacher_select" class="form-control" name="stuteacherid">
 												<option ></option>
 												</select> 
 											</td>
 										</tr>
+										<tr>
+											<td></td>
+											<td>
+												<input type="submit" value="确定">
+											</td>
+										</tr>
 									</table>
+									</form>
 								</div>
 							</div>
 
@@ -212,7 +228,7 @@
 			str+="<option selected></option>";
 			$.each(data,function(i,val){
 				//alert(val.parentname);
-				str+="<option value='"+val.parentname+"'>"+val.parentname+"</option>";
+				str+="<option value='"+val.parentid+"'>"+val.parentname+"</option>";
 			});	
 			$("#parent_select").html(str);
 		}
@@ -238,7 +254,7 @@
 			str+="<option selected></option>";
 			$.each(data,function(i,val){
 				//alert(val.teachername);
-				str+="<option value='"+val.teachername+"'>"+val.teachername+"</option>";
+				str+="<option value='"+val.teacherid+"'>"+val.teachername+"</option>";
 			});	
 			$("#teacher_select").html(str);
 		}
