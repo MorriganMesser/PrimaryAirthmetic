@@ -1,5 +1,7 @@
 package edu.tju.goliath.dao;
 
+import java.util.List;
+
 import edu.tju.goliath.entity.Teacher;
 
 public interface TeacherMapper {
@@ -18,4 +20,6 @@ public interface TeacherMapper {
     int updateByPrimaryKeySelective(Teacher record);
 
     int updateByPrimaryKey(Teacher record);
+    
+    List<Teacher> getAllTeacher();
 }

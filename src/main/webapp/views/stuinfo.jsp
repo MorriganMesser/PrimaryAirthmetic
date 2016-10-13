@@ -81,24 +81,16 @@
 										<tr>
 											<td>家长</td>
 											<td>
-												<select id="parent_select" name="dept.deptnum">
-															<option ></option>
-												</select>
-												
-												<select class="form-control" name="parent">
-												<option value="学生">家长1</option>
-												<option value="家长">家长2</option>
-												<option value="家长3">家长3</option>
+												<select id="parent_select" class="form-control" name="parent">
+												<option ></option>
 												</select> 
 											</td>
 										</tr>
 										<tr>
 											<td>教师</td>
 											<td>
-												<select class="form-control" name="parent">
-												<option value="学生">教师1</option>
-												<option value="家长">教师2</option>
-												<option value="家长3">教师3</option>
+												<select id="teacher_select" class="form-control" name="teacher">
+												<option ></option>
 												</select> 
 											</td>
 										</tr>
@@ -206,7 +198,7 @@
 <script type="text/javascript">
 	//alert("asdfasdasd")
 	$(function(){
-		alert("aaaa");
+		//alert("aaaa");
 		var obj=window.location; 
 		var contextPath=obj.pathname.split("/")[1]; 
 		
@@ -219,7 +211,7 @@
 			var str="";
 			str+="<option selected></option>";
 			$.each(data,function(i,val){
-				//alert(val.deptnum);
+				//alert(val.parentname);
 				str+="<option value='"+val.parentname+"'>"+val.parentname+"</option>";
 			});	
 			$("#parent_select").html(str);
@@ -229,5 +221,30 @@
 	
 </script>
 
+<script type="text/javascript">
+	//alert("asdfasdasd")
+	$(function(){
+		//alert("aaaa");
+		var obj=window.location; 
+		var contextPath=obj.pathname.split("/")[1]; 
+		
+		$.ajax({
+			type:"POST",
+			url:"getAllTeachers.do",
+			contentType:"application/json",
+			dataType:"json",
+			success:function(data){
+			var str="";
+			str+="<option selected></option>";
+			$.each(data,function(i,val){
+				//alert(val.teachername);
+				str+="<option value='"+val.teachername+"'>"+val.teachername+"</option>";
+			});	
+			$("#teacher_select").html(str);
+		}
+	}); 
+})
+	
+</script>
 </body>
 </html>

@@ -14,10 +14,12 @@ import com.alibaba.fastjson.JSON;
 import edu.tju.goliath.entity.Grade;
 import edu.tju.goliath.entity.Parent;
 import edu.tju.goliath.entity.Student;
+import edu.tju.goliath.entity.Teacher;
 import edu.tju.goliath.entity.User;
 import edu.tju.goliath.service.GradeServiceI;
 import edu.tju.goliath.service.ParentServiceI;
 import edu.tju.goliath.service.StudentServiceI;
+import edu.tju.goliath.service.TeacherServiceI;
 import edu.tju.goliath.service.UserServiceI;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -70,6 +72,18 @@ public class TestMybatis {
 		this.gradeService = gradeService;
 	}
 
+	private TeacherServiceI teacherservice;
+	
+	
+	public TeacherServiceI getTeacherservice() {
+		return teacherservice;
+	}
+
+	@Autowired
+	public void setTeacherservice(TeacherServiceI teacherservice) {
+		this.teacherservice = teacherservice;
+	}
+	
 //	@Test
 //	public void test1() {
 //		User u = userService.getUserById(1);
@@ -105,12 +119,18 @@ public class TestMybatis {
 //		System.out.println(null==stu);
 //		logger.info(JSON.toJSONStringWithDateFormat(stu, "yyyy-MM-dd HH:mm:ss"));
 //	}
-	
+
+
+	//	@Test
+//	public void test5() {
+//		List<Parent> parentlist = parentService.getAllParent();
+////		System.out.println(null==stu);
+//		logger.info(JSON.toJSONStringWithDateFormat(parentlist, "yyyy-MM-dd HH:mm:ss"));
+//	}
 	@Test
-	public void test5() {
-		List<Parent> parentlist = parentService.getAllParent();
-//		System.out.println(null==stu);
-		logger.info(JSON.toJSONStringWithDateFormat(parentlist, "yyyy-MM-dd HH:mm:ss"));
+	public void test6() {
+		List<Teacher> teacherlist = teacherservice.getAllTeacher();
+		logger.info(JSON.toJSONStringWithDateFormat(teacherlist, "yyyy-MM-dd HH:mm:ss"));
 	}
 }
 

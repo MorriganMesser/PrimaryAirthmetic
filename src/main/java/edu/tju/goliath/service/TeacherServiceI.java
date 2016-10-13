@@ -1,5 +1,7 @@
 package edu.tju.goliath.service;
 
+import java.util.List;
+
 import edu.tju.goliath.entity.Teacher;
 
 public interface TeacherServiceI {
@@ -16,5 +18,7 @@ public interface TeacherServiceI {
     int updateTeacherByIdSelective(Teacher record);
 
     int updateTeacherById(Teacher record);
+
+	List<Teacher> getAllTeacher();
 
 }

@@ -1,5 +1,7 @@
 package edu.tju.goliath.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +62,11 @@ public class TeacherServiceImpl implements TeacherServiceI {
 	@Override
 	public Teacher getTeacherByEmail(String teacheremail) {
 		return teacherMapper.selectByTeacherEmail(teacheremail);
+	}
+
+	@Override
+	public List<Teacher> getAllTeacher() {
+		return teacherMapper.getAllTeacher();
 	}
 
 }
