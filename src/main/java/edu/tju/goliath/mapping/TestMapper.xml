@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.tju.goliath.dao.TestMapper" >
+  <resultMap id="BaseResultMap" type="edu.tju.goliath.entity.Test" >
+    <id column="testid" property="testid" jdbcType="INTEGER" />
+    <result column="testname" property="testname" jdbcType="VARCHAR" />
+    <result column="testrank" property="testrank" jdbcType="VARCHAR" />
+    <result column="testgrade" property="testgrade" jdbcType="VARCHAR" />
+    <result column="testdate" property="testdate" jdbcType="TIMESTAMP" />
+    <result column="teststuid" property="teststuid" jdbcType="INTEGER" />
+    <result column="testexps" property="testexps" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    testid, testname, testrank, testgrade, testdate, teststuid, testexps
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_test
+    where testid = #{testid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_test
+    where testid = #{testid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.tju.goliath.entity.Test" >
+    insert into t_test (testid, testname, testrank, 
+      testgrade, testdate, teststuid, 
+      testexps)
+    values (#{testid,jdbcType=INTEGER}, #{testname,jdbcType=VARCHAR}, #{testrank,jdbcType=VARCHAR}, 
+      #{testgrade,jdbcType=VARCHAR}, #{testdate,jdbcType=TIMESTAMP}, #{teststuid,jdbcType=INTEGER}, 
+      #{testexps,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.tju.goliath.entity.Test" >
+    insert into t_test
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="testid != null" >
+        testid,
+      </if>
+      <if test="testname != null" >
+        testname,
+      </if>
+      <if test="testrank != null" >
+        testrank,
+      </if>
+      <if test="testgrade != null" >
+        testgrade,
+      </if>
+      <if test="testdate != null" >
+        testdate,
+      </if>
+      <if test="teststuid != null" >
+        teststuid,
+      </if>
+      <if test="testexps != null" >
+        testexps,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="testid != null" >
+        #{testid,jdbcType=INTEGER},
+      </if>
+      <if test="testname != null" >
+        #{testname,jdbcType=VARCHAR},
+      </if>
+      <if test="testrank != null" >
+        #{testrank,jdbcType=VARCHAR},
+      </if>
+      <if test="testgrade != null" >
+        #{testgrade,jdbcType=VARCHAR},
+      </if>
+      <if test="testdate != null" >
+        #{testdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teststuid != null" >
+        #{teststuid,jdbcType=INTEGER},
+      </if>
+      <if test="testexps != null" >
+        #{testexps,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.goliath.entity.Test" >
+    update t_test
+    <set >
+      <if test="testname != null" >
+        testname = #{testname,jdbcType=VARCHAR},
+      </if>
+      <if test="testrank != null" >
+        testrank = #{testrank,jdbcType=VARCHAR},
+      </if>
+      <if test="testgrade != null" >
+        testgrade = #{testgrade,jdbcType=VARCHAR},
+      </if>
+      <if test="testdate != null" >
+        testdate = #{testdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teststuid != null" >
+        teststuid = #{teststuid,jdbcType=INTEGER},
+      </if>
+      <if test="testexps != null" >
+        testexps = #{testexps,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where testid = #{testid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.tju.goliath.entity.Test" >
+    update t_test
+    set testname = #{testname,jdbcType=VARCHAR},
+      testrank = #{testrank,jdbcType=VARCHAR},
+      testgrade = #{testgrade,jdbcType=VARCHAR},
+      testdate = #{testdate,jdbcType=TIMESTAMP},
+      teststuid = #{teststuid,jdbcType=INTEGER},
+      testexps = #{testexps,jdbcType=VARCHAR}
+    where testid = #{testid,jdbcType=INTEGER}
+  </update>
+</mapper>

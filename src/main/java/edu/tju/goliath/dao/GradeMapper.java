@@ -5,17 +5,17 @@ import java.util.List;
 import edu.tju.goliath.entity.Grade;
 
 public interface GradeMapper {
-    int deleteByPrimaryKey(Integer gradeid);
+	 int deleteByPrimaryKey(Integer gradeid);
 
-    int insert(Grade record);
+	    int insert(Grade record);
 
-    int insertSelective(Grade record);
+	    int insertSelective(Grade record);
 
-    Grade selectByPrimaryKey(Integer gradeid);
+	    Grade selectByPrimaryKey(Integer gradeid);
 
-    int updateByPrimaryKeySelective(Grade record);
+	    int updateByPrimaryKeySelective(Grade record);
 
-    int updateByPrimaryKey(Grade record);
-    
-    List<Grade> getGradesByStuid(Integer stuid);
+	    int updateByPrimaryKey(Grade record);
+	    
+	    List<Grade> getGradesByStuid(Integer stuid);
 }

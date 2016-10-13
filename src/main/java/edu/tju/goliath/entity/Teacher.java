@@ -11,6 +11,8 @@ public class Teacher {
 
     private String teacherpwd;
 
+    private String teacherage;
+
     public Integer getTeacherid() {
         return teacherid;
     }
@@ -49,5 +51,13 @@ public class Teacher {
 
     public void setTeacherpwd(String teacherpwd) {
         this.teacherpwd = teacherpwd == null ? null : teacherpwd.trim();
+    }
+
+    public String getTeacherage() {
+        return teacherage;
+    }
+
+    public void setTeacherage(String teacherage) {
+        this.teacherage = teacherage == null ? null : teacherage.trim();
     }
 }

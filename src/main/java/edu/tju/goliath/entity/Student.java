@@ -15,6 +15,8 @@ public class Student {
 
     private Integer stuteacherid;
 
+    private String stuyear;
+
     public Integer getStuid() {
         return stuid;
     }
@@ -69,5 +71,13 @@ public class Student {
 
     public void setStuteacherid(Integer stuteacherid) {
         this.stuteacherid = stuteacherid;
+    }
+
+    public String getStuyear() {
+        return stuyear;
+    }
+
+    public void setStuyear(String stuyear) {
+        this.stuyear = stuyear == null ? null : stuyear.trim();
     }
 }

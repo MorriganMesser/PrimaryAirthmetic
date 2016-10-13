@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="edu.tju.goliath.dao.ParentMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.goliath.entity.Parent" >
-    <id column="parentid" property="parentid" jdbcType="INTEGER" />
-    <result column="parentname" property="parentname" jdbcType="VARCHAR" />
-    <result column="parentnick" property="parentnick" jdbcType="VARCHAR" />
-    <result column="parentemail" property="parentemail" jdbcType="VARCHAR" />
-    <result column="parentpwd" property="parentpwd" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.tju.goliath.dao.ParentMapper">
+  <resultMap id="BaseResultMap" type="edu.tju.goliath.entity.Parent">
+    <id column="parentid" jdbcType="INTEGER" property="parentid" />
+    <result column="parentname" jdbcType="VARCHAR" property="parentname" />
+    <result column="parentnick" jdbcType="VARCHAR" property="parentnick" />
+    <result column="parentemail" jdbcType="VARCHAR" property="parentemail" />
+    <result column="parentpwd" jdbcType="VARCHAR" property="parentpwd" />
+    <result column="parentage" jdbcType="VARCHAR" property="parentage" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    parentid, parentname, parentnick, parentemail, parentpwd
+  <sql id="Base_Column_List">
+    parentid, parentname, parentnick, parentemail, parentpwd, parentage
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_parent
     where parentid = #{parentid,jdbcType=INTEGER}
   </select>
-  
   <select id="getAllParent" resultMap="BaseResultMap" >
     select 
     <include refid="Base_Column_List" />
@@ -35,72 +35,173 @@
     from t_parent
     where parentemail = #{parentemail,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_parent
     where parentid = #{parentid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.tju.goliath.entity.Parent" >
+  <insert id="insert" parameterType="edu.tju.goliath.entity.Parent">
+    insert into t_parent (parentid, parentname, parentnick, 
+      parentemail, parentpwd, parentage
+      )
+    values (#{parentid,jdbcType=INTEGER}, #{parentname,jdbcType=VARCHAR}, #{parentnick,jdbcType=VARCHAR}, 
+      #{parentemail,jdbcType=VARCHAR}, #{parentpwd,jdbcType=VARCHAR}, #{parentage,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.tju.goliath.entity.Parent">
+    insert into t_parent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="parentid != null">
+        parentid,
+      </if>
+      <if test="parentname != null">
+        parentname,
+      </if>
+      <if test="parentnick != null">
+        parentnick,
+      </if>
+      <if test="parentemail != null">
+        parentemail,
+      </if>
+      <if test="parentpwd != null">
+        parentpwd,
+      </if>
+      <if test="parentage != null">
+        parentage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="parentname != null">
+        #{parentname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentnick != null">
+        #{parentnick,jdbcType=VARCHAR},
+      </if>
+      <if test="parentemail != null">
+        #{parentemail,jdbcType=VARCHAR},
+      </if>
+      <if test="parentpwd != null">
+        #{parentpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="parentage != null">
+        #{parentage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.goliath.entity.Parent">
+    update t_parent
+    <set>
+      <if test="parentname != null">
+        parentname = #{parentname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentnick != null">
+        parentnick = #{parentnick,jdbcType=VARCHAR},
+      </if>
+      <if test="parentemail != null">
+        parentemail = #{parentemail,jdbcType=VARCHAR},
+      </if>
+      <if test="parentpwd != null">
+        parentpwd = #{parentpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="parentage != null">
+        parentage = #{parentage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where parentid = #{parentid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.tju.goliath.entity.Parent">
+    update t_parent
+    set parentname = #{parentname,jdbcType=VARCHAR},
+      parentnick = #{parentnick,jdbcType=VARCHAR},
+      parentemail = #{parentemail,jdbcType=VARCHAR},
+      parentpwd = #{parentpwd,jdbcType=VARCHAR},
+      parentage = #{parentage,jdbcType=VARCHAR}
+    where parentid = #{parentid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.tju.goliath.entity.Parent">
+    <id column="parentid" jdbcType="INTEGER" property="parentid" />
+    <result column="parentname" jdbcType="VARCHAR" property="parentname" />
+    <result column="parentnick" jdbcType="VARCHAR" property="parentnick" />
+    <result column="parentemail" jdbcType="VARCHAR" property="parentemail" />
+    <result column="parentpwd" jdbcType="VARCHAR" property="parentpwd" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    parentid, parentname, parentnick, parentemail, parentpwd
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_parent
+    where parentid = #{parentid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_parent
+    where parentid = #{parentid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.tju.goliath.entity.Parent">
     insert into t_parent (parentid, parentname, parentnick, 
       parentemail, parentpwd)
     values (#{parentid,jdbcType=INTEGER}, #{parentname,jdbcType=VARCHAR}, #{parentnick,jdbcType=VARCHAR}, 
       #{parentemail,jdbcType=VARCHAR}, #{parentpwd,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.goliath.entity.Parent" >
+  <insert id="insertSelective" parameterType="edu.tju.goliath.entity.Parent">
     insert into t_parent
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="parentid != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="parentid != null">
         parentid,
       </if>
-      <if test="parentname != null" >
+      <if test="parentname != null">
         parentname,
       </if>
-      <if test="parentnick != null" >
+      <if test="parentnick != null">
         parentnick,
       </if>
-      <if test="parentemail != null" >
+      <if test="parentemail != null">
         parentemail,
       </if>
-      <if test="parentpwd != null" >
+      <if test="parentpwd != null">
         parentpwd,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="parentid != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="parentid != null">
         #{parentid,jdbcType=INTEGER},
       </if>
-      <if test="parentname != null" >
+      <if test="parentname != null">
         #{parentname,jdbcType=VARCHAR},
       </if>
-      <if test="parentnick != null" >
+      <if test="parentnick != null">
         #{parentnick,jdbcType=VARCHAR},
       </if>
-      <if test="parentemail != null" >
+      <if test="parentemail != null">
         #{parentemail,jdbcType=VARCHAR},
       </if>
-      <if test="parentpwd != null" >
+      <if test="parentpwd != null">
         #{parentpwd,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.goliath.entity.Parent" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.goliath.entity.Parent">
     update t_parent
-    <set >
-      <if test="parentname != null" >
+    <set>
+      <if test="parentname != null">
         parentname = #{parentname,jdbcType=VARCHAR},
       </if>
-      <if test="parentnick != null" >
+      <if test="parentnick != null">
         parentnick = #{parentnick,jdbcType=VARCHAR},
       </if>
-      <if test="parentemail != null" >
+      <if test="parentemail != null">
         parentemail = #{parentemail,jdbcType=VARCHAR},
       </if>
-      <if test="parentpwd != null" >
+      <if test="parentpwd != null">
         parentpwd = #{parentpwd,jdbcType=VARCHAR},
       </if>
     </set>
     where parentid = #{parentid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.goliath.entity.Parent" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.goliath.entity.Parent">
     update t_parent
     set parentname = #{parentname,jdbcType=VARCHAR},
       parentnick = #{parentnick,jdbcType=VARCHAR},

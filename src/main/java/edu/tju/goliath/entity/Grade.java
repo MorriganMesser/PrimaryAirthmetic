@@ -1,5 +1,7 @@
 package edu.tju.goliath.entity;
 
+import java.util.Date;
+
 public class Grade {
     private Integer gradeid;
 
@@ -10,6 +12,14 @@ public class Grade {
     private String grade;
 
     private Integer gradestuid;
+
+    private String grademodel;
+
+    private Date gradedate;
+
+    private String gradetime;
+
+    private String gradeexps;
 
     public Integer getGradeid() {
         return gradeid;
@@ -49,5 +59,37 @@ public class Grade {
 
     public void setGradestuid(Integer gradestuid) {
         this.gradestuid = gradestuid;
+    }
+
+    public String getGrademodel() {
+        return grademodel;
+    }
+
+    public void setGrademodel(String grademodel) {
+        this.grademodel = grademodel == null ? null : grademodel.trim();
+    }
+
+    public Date getGradedate() {
+        return gradedate;
+    }
+
+    public void setGradedate(Date gradedate) {
+        this.gradedate = gradedate;
+    }
+
+    public String getGradetime() {
+        return gradetime;
+    }
+
+    public void setGradetime(String gradetime) {
+        this.gradetime = gradetime == null ? null : gradetime.trim();
+    }
+
+    public String getGradeexps() {
+        return gradeexps;
+    }
+
+    public void setGradeexps(String gradeexps) {
+        this.gradeexps = gradeexps == null ? null : gradeexps.trim();
     }
 }

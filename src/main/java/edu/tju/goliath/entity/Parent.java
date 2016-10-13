@@ -11,6 +11,8 @@ public class Parent {
 
     private String parentpwd;
 
+    private String parentage;
+
     public Integer getParentid() {
         return parentid;
     }
@@ -49,5 +51,13 @@ public class Parent {
 
     public void setParentpwd(String parentpwd) {
         this.parentpwd = parentpwd == null ? null : parentpwd.trim();
+    }
+
+    public String getParentage() {
+        return parentage;
+    }
+
+    public void setParentage(String parentage) {
+        this.parentage = parentage == null ? null : parentage.trim();
     }
 }
