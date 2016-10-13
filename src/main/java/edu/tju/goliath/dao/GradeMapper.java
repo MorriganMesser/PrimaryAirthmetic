@@ -5,7 +5,7 @@ import java.util.List;
 import edu.tju.goliath.entity.Grade;
 
 public interface GradeMapper {
-	 int deleteByPrimaryKey(Integer gradeid);
+	 	int deleteByPrimaryKey(Integer gradeid);
 
 	    int insert(Grade record);
 

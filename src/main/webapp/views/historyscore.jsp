@@ -91,6 +91,8 @@
                                             <th>${grade.gradename}</th>
                                             <td>${grade.graderank}</td>
                                             <td>${grade.grade}</td>
+                                            <td>${grade.gradedate}</td>
+                                            <td>${grade.gradetime}</td>
                                         </tr>
                                     </c:forEach>
                                         
