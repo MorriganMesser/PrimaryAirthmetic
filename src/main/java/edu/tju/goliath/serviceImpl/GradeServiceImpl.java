@@ -59,4 +59,9 @@ public class GradeServiceImpl implements GradeServiceI {
 		return gradeMapper.getGradesByStuid(stuid);
 	}
 
+	@Override
+	public Grade getGradeByName(String gradename) {
+		return gradeMapper.getGradeByName(gradename);
+	}
+
 }

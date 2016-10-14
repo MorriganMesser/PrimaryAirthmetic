@@ -87,12 +87,13 @@
                                     
                                     <c:forEach var="grade" items="${gradelist}" varStatus="stat">
                                         <tr class="odd gradeX">
-                                            <td>1</td>
+                                            <th>${grade.gradeid}</th>
                                             <th>${grade.gradename}</th>
                                             <td>${grade.graderank}</td>
                                             <td>${grade.grade}</td>
+                                             <td>${grade.gradetime}</td>
                                             <td>${grade.gradedate}</td>
-                                            <td>${grade.gradetime}</td>
+                                           
                                         </tr>
                                     </c:forEach>
                                         

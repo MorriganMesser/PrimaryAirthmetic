@@ -11,16 +11,25 @@
     <result column="gradedate" property="gradedate" jdbcType="TIMESTAMP" />
     <result column="gradetime" property="gradetime" jdbcType="VARCHAR" />
     <result column="gradeexps" property="gradeexps" jdbcType="VARCHAR" />
+    <result column="graderightnum" property="graderightnum" jdbcType="INTEGER" />
+    <result column="gradeerrornum" property="gradeerrornum" jdbcType="INTEGER" />
+    <result column="graderate" property="graderate" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     gradeid, gradename, graderank, grade, gradestuid, grademodel, gradedate, gradetime, 
-    gradeexps
+    gradeexps, graderightnum, gradeerrornum, graderate
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from t_grade
     where gradeid = #{gradeid,jdbcType=INTEGER}
+  </select>
+  <select id="getGradeByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_grade
+    where gradename = #{gradename,jdbcType=VARCHAR}
   </select>
    <select id="getGradesByStuid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
   select 
@@ -35,11 +44,13 @@
   <insert id="insert" parameterType="edu.tju.goliath.entity.Grade" >
     insert into t_grade (gradeid, gradename, graderank, 
       grade, gradestuid, grademodel, 
-      gradedate, gradetime, gradeexps
+      gradedate, gradetime, gradeexps, 
+      graderightnum, gradeerrornum, graderate
       )
     values (#{gradeid,jdbcType=INTEGER}, #{gradename,jdbcType=VARCHAR}, #{graderank,jdbcType=VARCHAR}, 
       #{grade,jdbcType=VARCHAR}, #{gradestuid,jdbcType=INTEGER}, #{grademodel,jdbcType=VARCHAR}, 
-      #{gradedate,jdbcType=TIMESTAMP}, #{gradetime,jdbcType=VARCHAR}, #{gradeexps,jdbcType=VARCHAR}
+      #{gradedate,jdbcType=TIMESTAMP}, #{gradetime,jdbcType=VARCHAR}, #{gradeexps,jdbcType=VARCHAR}, 
+      #{graderightnum,jdbcType=INTEGER}, #{gradeerrornum,jdbcType=INTEGER}, #{graderate,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="edu.tju.goliath.entity.Grade" >
@@ -72,6 +83,15 @@
       <if test="gradeexps != null" >
         gradeexps,
       </if>
+      <if test="graderightnum != null" >
+        graderightnum,
+      </if>
+      <if test="gradeerrornum != null" >
+        gradeerrornum,
+      </if>
+      <if test="graderate != null" >
+        graderate,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="gradeid != null" >
@@ -100,6 +120,15 @@
       </if>
       <if test="gradeexps != null" >
         #{gradeexps,jdbcType=VARCHAR},
+      </if>
+      <if test="graderightnum != null" >
+        #{graderightnum,jdbcType=INTEGER},
+      </if>
+      <if test="gradeerrornum != null" >
+        #{gradeerrornum,jdbcType=INTEGER},
+      </if>
+      <if test="graderate != null" >
+        #{graderate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -130,6 +159,15 @@
       <if test="gradeexps != null" >
         gradeexps = #{gradeexps,jdbcType=VARCHAR},
       </if>
+      <if test="graderightnum != null" >
+        graderightnum = #{graderightnum,jdbcType=INTEGER},
+      </if>
+      <if test="gradeerrornum != null" >
+        gradeerrornum = #{gradeerrornum,jdbcType=INTEGER},
+      </if>
+      <if test="graderate != null" >
+        graderate = #{graderate,jdbcType=VARCHAR},
+      </if>
     </set>
     where gradeid = #{gradeid,jdbcType=INTEGER}
   </update>
@@ -142,7 +180,10 @@
       grademodel = #{grademodel,jdbcType=VARCHAR},
       gradedate = #{gradedate,jdbcType=TIMESTAMP},
       gradetime = #{gradetime,jdbcType=VARCHAR},
-      gradeexps = #{gradeexps,jdbcType=VARCHAR}
+      gradeexps = #{gradeexps,jdbcType=VARCHAR},
+      graderightnum = #{graderightnum,jdbcType=INTEGER},
+      gradeerrornum = #{gradeerrornum,jdbcType=INTEGER},
+      graderate = #{graderate,jdbcType=VARCHAR}
     where gradeid = #{gradeid,jdbcType=INTEGER}
   </update>
 </mapper>

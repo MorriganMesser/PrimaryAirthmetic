@@ -21,6 +21,12 @@ public class Grade {
 
     private String gradeexps;
 
+    private Integer graderightnum;
+
+    private Integer gradeerrornum;
+
+    private String graderate;
+
     public Integer getGradeid() {
         return gradeid;
     }
@@ -91,5 +97,29 @@ public class Grade {
 
     public void setGradeexps(String gradeexps) {
         this.gradeexps = gradeexps == null ? null : gradeexps.trim();
+    }
+
+    public Integer getGraderightnum() {
+        return graderightnum;
+    }
+
+    public void setGraderightnum(Integer graderightnum) {
+        this.graderightnum = graderightnum;
+    }
+
+    public Integer getGradeerrornum() {
+        return gradeerrornum;
+    }
+
+    public void setGradeerrornum(Integer gradeerrornum) {
+        this.gradeerrornum = gradeerrornum;
+    }
+
+    public String getGraderate() {
+        return graderate;
+    }
+
+    public void setGraderate(String graderate) {
+        this.graderate = graderate == null ? null : graderate.trim();
     }
 }

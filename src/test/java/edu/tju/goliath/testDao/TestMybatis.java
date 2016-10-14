@@ -127,10 +127,15 @@ public class TestMybatis {
 ////		System.out.println(null==stu);
 //		logger.info(JSON.toJSONStringWithDateFormat(parentlist, "yyyy-MM-dd HH:mm:ss"));
 //	}
+//	@Test
+//	public void test6() {
+//		List<Teacher> teacherlist = teacherservice.getAllTeacher();
+//		logger.info(JSON.toJSONStringWithDateFormat(teacherlist, "yyyy-MM-dd HH:mm:ss"));
+//	}
 	@Test
-	public void test6() {
-		List<Teacher> teacherlist = teacherservice.getAllTeacher();
-		logger.info(JSON.toJSONStringWithDateFormat(teacherlist, "yyyy-MM-dd HH:mm:ss"));
+	public void test7() {
+		Grade grade = gradeService.getGradeByName("tataa");
+		logger.info(JSON.toJSONStringWithDateFormat(grade, "yyyy-MM-dd HH:mm:ss"));
 	}
 }
 

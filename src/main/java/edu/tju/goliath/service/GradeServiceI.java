@@ -19,4 +19,6 @@ public interface GradeServiceI {
     
     List<Grade> getGradesByStuid(Integer stuid);
 
+	Grade getGradeByName(String gradename);
+
 }

@@ -130,7 +130,13 @@ public class ExpressionController {
 			expresult.setExpresult(expression.getResult());
 			explist.add(expresult);
 		}
-		
+		Grade grade = new Grade();
+		grade.setGradeexps(expnum);
+		grade.setGradename(gradename);
+		grade.setGraderank(graderank);
+		gradeservice.addGrade(grade);
+		Grade grade_data=gradeservice.getGradeByName(gradename);
+		session.setAttribute("grade", grade_data);
 		session.setAttribute("explist", explist);
 		return "views/examcontent";
 	}
@@ -141,29 +147,24 @@ public class ExpressionController {
 		ArrayList<ExpResult> explistWithAnswer = new ArrayList<ExpResult>();
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
+		Grade grade_data = (Grade)session.getAttribute("grade");
 		explistWithAnswer=(ArrayList<ExpResult>) session.getAttribute("explist");
-		int grade=0;
+		int grade_right_num=0;
 		System.out.println(result);
 		String[] resultlist=result.split(",");
 		for(int i =0;i<10;i++){
 			explistWithAnswer.get(i).setUserresult(resultlist[i]);
 			if(explistWithAnswer.get(i).getExpresult().equals(resultlist[i])){
 				explistWithAnswer.get(i).setExpuserresult("正确");
-				grade=grade+1;
+				grade_right_num=grade_right_num+1;
 			}else{
 				explistWithAnswer.get(i).setExpuserresult("错误");
 			}
 		}
-		session.setAttribute("grade", grade);
-		Grade gradegrade = new Grade();
-		gradegrade.setGrade(String.valueOf(grade));
-		gradegrade.setGradename("考试");
-		gradegrade.setGraderank("考试等级");
-		gradegrade.setGradestuid(stu.getStuid());
-		gradegrade.setGrademodel("考试");
-		gradegrade.setGradedate(new Date());
-		//gradegrade.setGradeexps(explistWithAnswer.toString());
-		int addGradeResult=gradeservice.addGradeSelective(gradegrade);
+		grade_data.setGrade(String.valueOf(grade_right_num));
+		grade_data.setGradestuid(stu.getStuid());
+		grade_data.setGradedate(new Date());
+		gradeservice.updateGradeByIdSelective(grade_data);
 		
 		System.out.println(explistWithAnswer.get(0).getExpvalue());
 		System.out.println(explistWithAnswer.get(0).getUserresult());
