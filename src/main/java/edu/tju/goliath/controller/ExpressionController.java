@@ -131,11 +131,13 @@ public class ExpressionController {
 			explist.add(expresult);
 		}
 		Grade grade = new Grade();
-		grade.setGradeexps(expnum);
+		grade.setGrademodel("考试");
+		grade.setGradenums(expnumINT);
 		grade.setGradename(gradename);
 		grade.setGraderank(graderank);
-		gradeservice.addGrade(grade);
-		Grade grade_data=gradeservice.getGradeByName(gradename);
+		int grade_data_result=gradeservice.addGradeSelective(grade);
+		Grade grade_data = gradeservice.getGradeByName(gradename);
+		
 		session.setAttribute("grade", grade_data);
 		session.setAttribute("explist", explist);
 		return "views/examcontent";
@@ -161,7 +163,12 @@ public class ExpressionController {
 				explistWithAnswer.get(i).setExpuserresult("错误");
 			}
 		}
-		grade_data.setGrade(String.valueOf(grade_right_num));
+		int expnums = grade_data.getGradenums();
+		double weight = 100 / expnums;
+		grade_data.setGraderightnum(grade_right_num);
+		grade_data.setGradeerrornum(expnums-grade_right_num);
+		grade_data.setGrade(String.valueOf(grade_right_num*weight));
+		grade_data.setGraderate(String.valueOf(grade_right_num / expnums));
 		grade_data.setGradestuid(stu.getStuid());
 		grade_data.setGradedate(new Date());
 		gradeservice.updateGradeByIdSelective(grade_data);

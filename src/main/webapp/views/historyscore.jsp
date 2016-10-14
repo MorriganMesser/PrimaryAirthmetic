@@ -75,7 +75,9 @@
                                         <tr>
                                             <th>序号</th>
                                             <th>模式</th>
+                                            <th>名称</th>
                                             <th>难度</th>
+                                            <th>分数</th>
                                             <th>正确个数</th>
                                             <th>错误个数</th>
                                             <th>正确率</th>
@@ -88,35 +90,19 @@
                                     <c:forEach var="grade" items="${gradelist}" varStatus="stat">
                                         <tr class="odd gradeX">
                                             <th>${grade.gradeid}</th>
+                                            <th>${grade.grademodel}</th>
                                             <th>${grade.gradename}</th>
                                             <td>${grade.graderank}</td>
                                             <td>${grade.grade}</td>
+                                            <td>${grade.graderightnum}</td>
+                                            <td>${grade.gradeerrornum}</td>
+                                             <td>${grade.graderate}</td>
                                              <td>${grade.gradetime}</td>
                                             <td>${grade.gradedate}</td>
                                            
                                         </tr>
                                     </c:forEach>
                                         
-                                        <tr class="even gradeC">
-                                            <td>1</td>
-                                            <th>考试</th>
-                                            <td>一级-青铜</td>
-                                            <td>50</td>
-                                            <td>50</td>
-                                            <td>50%</td>
-                                            <td>20min</td>
-                                            <td>2016-02-18</td>
-                                        </tr>
-                                        <tr class="gradeU">
-                                            <td>1</td>
-                                            <th>考试</th>
-                                            <td>一级-青铜</td>
-                                            <td>50</td>
-                                            <td>50</td>
-                                            <td>50%</td>
-                                            <td>20min</td>
-                                            <td>2016-02-18</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

@@ -27,6 +27,8 @@ public class Grade {
 
     private String graderate;
 
+    private Integer gradenums;
+
     public Integer getGradeid() {
         return gradeid;
     }
@@ -121,5 +123,13 @@ public class Grade {
 
     public void setGraderate(String graderate) {
         this.graderate = graderate == null ? null : graderate.trim();
+    }
+
+    public Integer getGradenums() {
+        return gradenums;
+    }
+
+    public void setGradenums(Integer gradenums) {
+        this.gradenums = gradenums;
     }
 }

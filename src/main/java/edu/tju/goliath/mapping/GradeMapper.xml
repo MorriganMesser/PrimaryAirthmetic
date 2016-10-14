@@ -14,10 +14,11 @@
     <result column="graderightnum" property="graderightnum" jdbcType="INTEGER" />
     <result column="gradeerrornum" property="gradeerrornum" jdbcType="INTEGER" />
     <result column="graderate" property="graderate" jdbcType="VARCHAR" />
+    <result column="gradenums" property="gradenums" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     gradeid, gradename, graderank, grade, gradestuid, grademodel, gradedate, gradetime, 
-    gradeexps, graderightnum, gradeerrornum, graderate
+    gradeexps, graderightnum, gradeerrornum, graderate, gradenums
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -45,13 +46,13 @@
     insert into t_grade (gradeid, gradename, graderank, 
       grade, gradestuid, grademodel, 
       gradedate, gradetime, gradeexps, 
-      graderightnum, gradeerrornum, graderate
-      )
+      graderightnum, gradeerrornum, graderate, 
+      gradenums)
     values (#{gradeid,jdbcType=INTEGER}, #{gradename,jdbcType=VARCHAR}, #{graderank,jdbcType=VARCHAR}, 
       #{grade,jdbcType=VARCHAR}, #{gradestuid,jdbcType=INTEGER}, #{grademodel,jdbcType=VARCHAR}, 
       #{gradedate,jdbcType=TIMESTAMP}, #{gradetime,jdbcType=VARCHAR}, #{gradeexps,jdbcType=VARCHAR}, 
-      #{graderightnum,jdbcType=INTEGER}, #{gradeerrornum,jdbcType=INTEGER}, #{graderate,jdbcType=VARCHAR}
-      )
+      #{graderightnum,jdbcType=INTEGER}, #{gradeerrornum,jdbcType=INTEGER}, #{graderate,jdbcType=VARCHAR}, 
+      #{gradenums,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="edu.tju.goliath.entity.Grade" >
     insert into t_grade
@@ -92,6 +93,9 @@
       <if test="graderate != null" >
         graderate,
       </if>
+      <if test="gradenums != null" >
+        gradenums,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="gradeid != null" >
@@ -129,6 +133,9 @@
       </if>
       <if test="graderate != null" >
         #{graderate,jdbcType=VARCHAR},
+      </if>
+      <if test="gradenums != null" >
+        #{gradenums,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -168,6 +175,9 @@
       <if test="graderate != null" >
         graderate = #{graderate,jdbcType=VARCHAR},
       </if>
+      <if test="gradenums != null" >
+        gradenums = #{gradenums,jdbcType=INTEGER},
+      </if>
     </set>
     where gradeid = #{gradeid,jdbcType=INTEGER}
   </update>
@@ -183,7 +193,8 @@
       gradeexps = #{gradeexps,jdbcType=VARCHAR},
       graderightnum = #{graderightnum,jdbcType=INTEGER},
       gradeerrornum = #{gradeerrornum,jdbcType=INTEGER},
-      graderate = #{graderate,jdbcType=VARCHAR}
+      graderate = #{graderate,jdbcType=VARCHAR},
+      gradenums = #{gradenums,jdbcType=INTEGER}
     where gradeid = #{gradeid,jdbcType=INTEGER}
   </update>
 </mapper>
