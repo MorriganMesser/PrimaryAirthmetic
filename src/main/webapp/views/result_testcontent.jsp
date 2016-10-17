@@ -36,7 +36,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             	 当前级别：一级-青铜
-                            	 你的成绩：${grade}
+                            	满分：100分   你的分数：${grade.grade} 
                         </div>
                         
                         <div class="panel-body">

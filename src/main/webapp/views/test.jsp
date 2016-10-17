@@ -35,11 +35,12 @@
                     <a name="test-anchor" id="test-anchor" > </a>
                         <h3 class="title">答题入口</h3>
                         <p class="summary">说明：请填写练习名称，选择练习难度、模式后进入练习系统。</p>
-                        <form class="signup-form" action="testExp.do">
+                        <form class="signup-form" action="testExp.do" id="selecttestForm">
                             <div class="form-group">
-                            <input name="gradename" id="testname" type="text" class="sel" placeholder="请填写练习名称：">
+                            <input name="testname" id="testname" type="text" class="sel" placeholder="请填写练习名称：" onblur="validatorGradeName()">
+                            <td><div id="accDiv"></div></td>
 	                            <select class="sel" name="testrank">
-									<option value="0">请选择考试级别</option>
+									<option value="1">请选择练习级别,默认：一级-青铜</option>
 									<option value="1">一级-青铜</option>
 									<option value="2">二级-白银</option>
 									<option value="3">三级-黄金</option>
@@ -51,7 +52,7 @@
                             </div>
                             <div class="form-group">
 	                            <select class="sel" name="testmethod">
-									<option value="">请选择练习模式</option>
+									<option value="0">请选择练习模式,默认：加法</option>
 									<option value="0">加法</option>
 									<option value="1">减法</option>
 									<option value="2">乘法</option>
@@ -78,5 +79,64 @@
 </header>
 
 <%@ include file="indextemplatefooter.jsp"%>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script>
+/* $.validator.setDefaults({
+    //submitHandler: function() {
+     // alert("提交事件!");
+    //}
+}); */
+$().ready(function() {
+	// 在键盘按下并释放及提交后验证提交表单
+	  $("#selecttestForm").validate({
+	    rules: {
+	      testname: {
+	        required: true,
+	      },
+	      testrank: {
+		    required: true,
+		  }
+	    },
+	    messages: {
+	      testname: {
+	        required: "请输入考试名称",
+	      },
+	      testrank: {
+		    required: "请输入考试等级",
+		  }
+	    }
+	});
+});
+</script>
+<script type="text/javascript">
+function validateTestName(){
+	//alert("aaaaa");
+	 var gradename=document.getElementById("testname").value;
+	 if(testname == "")
+	 {
+		 document.getElementById("accDiv").innerHTML = "考试名称不能空";
+	 	return;
+	 }
+	 $.ajax({
+	 		type: "POST",    
+	         url: "valiGradeNames.do",    
+	         data: "gradename="+gradename,
+	         dataType:"json",//返会值的类型
+	         success: function(data){
+	        	// alert(data)
+			   if(data){
+				   //alert("用户名不可用") 
+			    	 document.getElementById("accDiv").innerHTML = "";
+			    }else{   
+			    	//alert("用户名可用")
+			    	 document.getElementById("accDiv").innerHTML = "练习名称已经使用";
+		    	}  
+	  		}            
+	        });   
+	}		
+</script>
+	
 </body>
 </html>

@@ -36,7 +36,8 @@
                         <p class="summary">考试说明：考试难度分别为初级、中级、高级。请选择考试级别后进入考试答题系统。</p>
                         <form id="selectgradeForm" class="signup-form" action = "getExpressions.do">
                         	 <div class="form-group">
-                        	 <input name="gradename" id="gradename" type="text" class="sel" placeholder="请填写考试名称：">
+                        	 <input name="gradename" id="gradename" type="text" class="sel" placeholder="请填写考试名称：" onblur="validatorGradeName()">
+                        	 <td><div id="accDiv"></div></td>
                             </div>
                              <div class="form-group">
 	                            <select id="expnum" class="sel" name="expnum">
@@ -98,6 +99,33 @@ $().ready(function() {
 	});
 });
 </script>
-
+<script type="text/javascript">
+function validatorGradeName(){
+	//alert("aaaaa");
+	 var gradename=document.getElementById("gradename").value;
+	 if(gradename == "")
+	 {
+		 document.getElementById("accDiv").innerHTML = "考试名称不能空";
+	 	return;
+	 }
+	 $.ajax({
+	 		type: "POST",    
+	         url: "valiGradeNames.do",    
+	         data: "gradename="+gradename,
+	         dataType:"json",//返会值的类型
+	         success: function(data){
+	        	// alert(data)
+			   if(data){
+				   //alert("用户名不可用") 
+			    	 document.getElementById("accDiv").innerHTML = "";
+			    }else{   
+			    	//alert("用户名可用")
+			    	 document.getElementById("accDiv").innerHTML = "考试名称已经使用";
+		    	}  
+	  		}            
+	        });   
+	}		
+</script>
+	
 </body>
 </html>

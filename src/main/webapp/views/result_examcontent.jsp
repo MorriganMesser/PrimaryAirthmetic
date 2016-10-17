@@ -36,20 +36,21 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            	 当前级别：一级-青铜
-                            	 你的成绩：${grade}
+                            	 当前级别：${grade.graderank}
+                            	满分：100分   你的分数：${grade.grade} 
                         </div>
                         
                         <div class="panel-body">
                             <div class="table-responsive" style="overflow-x:hidden;">
                             
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" >
+                               <!--  id="dataTables-example" -->
                                     <thead>
                                         <tr>
-                                            <th>题号</th>
-                                            <th>题目</th>
-                                            <th>答案</th>
-                                            <th>你的答案</th>
+                                            <th align="center">题号</th>
+                                            <th align="center">题目</th>
+                                            <th align="center">答案</th>
+                                            <th align="center">你的答案</th>
                                             <th>&nbsp;&nbsp;&nbsp;</th>
                                         </tr>
                                     </thead>

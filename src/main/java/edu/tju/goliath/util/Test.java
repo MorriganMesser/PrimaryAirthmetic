@@ -13,7 +13,7 @@ public class Test {
 			System.out.print(expression.getExpression() + " = ");
 			System.out.println(expression.getResult());
 		}
-		ArrayList<String> list = Split.split("a,b,c,d");
+		ArrayList<String> list = Split.split("a,,,");
 		for(String i : list) {
 			System.out.println(i);
 		}

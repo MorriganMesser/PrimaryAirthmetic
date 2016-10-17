@@ -1,6 +1,7 @@
 package edu.tju.goliath.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.tju.goliath.dto.ExpResult;
 import edu.tju.goliath.entity.Grade;
+import edu.tju.goliath.entity.Student;
 import edu.tju.goliath.service.GradeServiceI;
 import edu.tju.goliath.util.Expression;
+import edu.tju.goliath.util.Split;
 
 @Controller
 public class TestController {
@@ -46,7 +49,7 @@ public class TestController {
 		expression.setGrade(testmethodINT);
 		ArrayList<ExpResult> explist = new ArrayList<ExpResult>();
 		
-		for(int i = 0; i < 10; ++i) {
+		for(int i = 0; i < expnumINT; ++i) {
 			expression.createExpression();
 			ExpResult expresult =new ExpResult();
 			expresult.setExpid(i+1);
@@ -56,9 +59,52 @@ public class TestController {
 		}
 		Grade grade = new Grade();
 		grade.setGrademodel("练习");
+		switch (testrankINT) {
+		case 1:
+		{
+			grade.setGraderank("一级-青铜");
+		}
+			
+			break;
+		case 2:
+		{
+			grade.setGraderank("二级-白银");
+		}
+			break;
+		case 3:
+		{
+			grade.setGraderank("三级-黄金");
+		}
+			break;
+		case 4:
+		{
+			grade.setGraderank("四级-白金");
+		}
+			break;
+		case 5:
+		{
+			grade.setGraderank("五级-钻石");
+		}
+			break;
+		case 6:
+		{
+			grade.setGraderank("六级-最强王者");
+		}
+			break;
+		case 7:
+		{
+			grade.setGraderank("七级-超凡大师");
+		}
+			break;
+
+		default:
+		{
+			grade.setGraderank("一级-青铜");
+		}
+			break;
+		}
 		grade.setGradenums(expnumINT);
 		grade.setGradename(testname);
-		grade.setGraderank(testrank);
 		int grade_data_result=gradeservice.addGradeSelective(grade);
 		Grade grade_data = gradeservice.getGradeByName(testname);
 		
@@ -76,20 +122,32 @@ public class TestController {
 			@RequestParam("result") String result){
 		ArrayList<ExpResult> explistWithAnswer = new ArrayList<ExpResult>();
 		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		Grade grade_data = (Grade)session.getAttribute("grade");
 		explistWithAnswer=(ArrayList<ExpResult>) session.getAttribute("explist");
-		int grade=0;
+		int grade_right_num=0;
 		System.out.println(result);
-		String[] resultlist=result.split(",");
-		for(int i =0;i<10;i++){
-			explistWithAnswer.get(i).setUserresult(resultlist[i]);
-			if(explistWithAnswer.get(i).getExpresult().equals(resultlist[i])){
+//		String[] resultlist=result.split(",");
+		ArrayList<String> resultlist = Split.split(result);
+		for(int i =0;i<resultlist.size();i++){
+			explistWithAnswer.get(i).setUserresult(resultlist.get(i));
+			if(explistWithAnswer.get(i).getExpresult().equals(resultlist.get(i))){
 				explistWithAnswer.get(i).setExpuserresult("正确");
-				grade=grade+1;
+				grade_right_num=grade_right_num+1;
 			}else{
 				explistWithAnswer.get(i).setExpuserresult("错误");
 			}
 		}
-		session.setAttribute("grade", grade);
+		int expnums = grade_data.getGradenums();
+		double weight = 100 / expnums;
+		grade_data.setGraderightnum(grade_right_num);
+		grade_data.setGradeerrornum(expnums-grade_right_num);
+		grade_data.setGrade(String.valueOf(grade_right_num*weight));
+		grade_data.setGraderate(String.valueOf(grade_right_num / expnums));
+		grade_data.setGradestuid(stu.getStuid());
+		grade_data.setGradedate(new Date());
+		gradeservice.updateGradeByIdSelective(grade_data);
+		
 		System.out.println(explistWithAnswer.get(0).getExpvalue());
 		System.out.println(explistWithAnswer.get(0).getUserresult());
 		System.out.println(explistWithAnswer.get(0).getExpresult());

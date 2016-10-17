@@ -63,7 +63,7 @@
 										</tr>
 										<tr>
 											<td>年级</td>
-											<td>${student.stuage}</td>
+											<td>${student.stuyear}</td>
 										</tr>
 										<tr>
 											<td>父母</td>

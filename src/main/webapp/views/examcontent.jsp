@@ -116,21 +116,25 @@
     </script>
     
     <script>
-   function GetRTime(){
-       var EndTime= new Date('2016/10/01 00:00:00');
-       //结束时间，获取点击“开始考试”的系统时间。
-       var NowTime = new Date();
-       var t =EndTime.getTime() - NowTime.getTime();
-       var d=Math.floor(t/1000/60/60/24);
-       var h=Math.floor(t/1000/60/60%24);
-       var m=Math.floor(t/1000/60%60);
-       var s=Math.floor(t/1000%60);
+    var now = new Date();
+    function GetRTime(){
+    	 var NowTime = new Date();
+    	 
+        var EndTime= new Date(60*60*1000+now.getTime());
+        //结束时间，获取点击“开始考试”的系统时间。
+       
+        //alert(now);
+        var t =EndTime.getTime() - NowTime.getTime();
+        var d=Math.floor(t/1000/60/60/24);
+        var h=Math.floor(t/1000/60/60%24);
+        var m=Math.floor(t/1000/60%60);
+        var s=Math.floor(t/1000%60);
 
-       document.getElementById("t_h").innerHTML = h + "时";
-       document.getElementById("t_m").innerHTML = m + "分";
-       document.getElementById("t_s").innerHTML = s + "秒";
-   }
-   setInterval(GetRTime,0);
+        document.getElementById("t_h").innerHTML = h + "时";
+        document.getElementById("t_m").innerHTML = m + "分";
+        document.getElementById("t_s").innerHTML = s + "秒";
+    }
+    setInterval(GetRTime,0);
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 </script> 
