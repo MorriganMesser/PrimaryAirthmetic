@@ -38,6 +38,16 @@
   from t_grade
   where gradestuid = #{gradestuid,jdbcType=INTEGER}
   </select>
+  
+  <select id="getGradesByStuidAndRankAndModel" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  select 
+  <include refid="Base_Column_List" />
+  from t_grade
+  where gradestuid = #{gradestuid,jdbcType=INTEGER} 
+  	and graderank = #{graderank,jdbcType=VARCHAR}
+  	and grademodel = #{grademodel,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_grade
     where gradeid = #{gradeid,jdbcType=INTEGER}

@@ -36,7 +36,7 @@
                         <div class="panel-heading">
                             <form name="reg_testdate" class="signup-form">
 	                            <div class="form-group history">
-	                            	日期：
+	                            	开始日期：
 	                            	<select name="YYYY" onCFhange="YYYYDD(this.value)">
 									<option value="">请选择 年</option>
 									</select>
@@ -47,19 +47,34 @@
 										<option value="">选择 日</option>
 									</select>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									难度：
-		                            <select class="sel">
-										<option value="">请选择难度系数</option>
-										<option value="">一级-青铜</option>
-										<option value="">二级-白银</option>
-										<option value="">三级-黄金</option>
+									结束日期：
+	                            	<select name="endy" onCFhange="endyendm(this.value)">
+									<option value="">请选择 年</option>
+									</select>
+									<select name="endm" onChange="endmendd(this.value)">
+										<option value="">选择 月</option>
+									</select>
+									<select name="endd">
+										<option value="">选择 日</option>
 									</select>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									难度：
+		                            <select class="sel" name="difficult">
+										<option value="一级-青铜">请选择难度系数，默认：一级-青铜</option>
+										<option value="一级-青铜">一级-青铜</option>
+										<option value="二级-白银">二级-白银</option>
+										<option value="三级-黄金">三级-黄金</option>
+										<option value="四级-白金">四级-白金</option>
+										<option value="五级-钻石">五级-钻石</option>
+										<option value="六级-最强王者">六级-最强王者</option>
+										<option value="七级-超凡大师">七级-超凡大师</option>
+										</select>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									模式：
-		                            <select class="sel">
-										<option value="">请选择模式</option>
-										<option value="">考试</option>
-										<option value="">练习</option>
+		                            <select class="sel" name="model">
+										<option value="考试">请选择模式，默认：考试</option>
+										<option value="考试">考试</option>
+										<option value="练习">练习</option>
 									</select>
 	                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                           		<a href="#"><input type="button" class="btn " value="查询"></a>
