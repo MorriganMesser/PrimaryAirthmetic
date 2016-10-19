@@ -1,6 +1,7 @@
 package edu.tju.goliath.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,5 +64,17 @@ public class GradeServiceImpl implements GradeServiceI {
 	public Grade getGradeByName(String gradename) {
 		return gradeMapper.getGradeByName(gradename);
 	}
+
+	@Override
+	public List<Grade> getGradesByStuidAndRankAndModel(Map param) {
+		return gradeMapper.getGradesByStuidAndRankAndModel(param);
+	}
+
+	@Override
+	public List<Grade> getAllGrades() {
+		return gradeMapper.getAllGrades();
+	}
+
+
 
 }

@@ -1,10 +1,14 @@
 package edu.tju.goliath.controller;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -185,7 +189,13 @@ public class ExpressionController {
 		grade_data.setGraderightnum(grade_right_num);
 		grade_data.setGradeerrornum(expnums-grade_right_num);
 		grade_data.setGrade(String.valueOf(grade_right_num*weight));
-		grade_data.setGraderate(String.valueOf(grade_right_num / expnums));
+		System.out.println("正确个数"+grade_right_num );
+		System.out.println("总数"+expnums);
+		double reghtrate=((double)grade_right_num / (double)expnums);
+		String graderate = Double.toString(reghtrate);
+		System.out.println("答题正确率"+reghtrate);
+		System.out.println("答题正确率"+graderate);
+		grade_data.setGraderate(graderate);
 		grade_data.setGradestuid(stu.getStuid());
 		grade_data.setGradedate(new Date());
 		gradeservice.updateGradeByIdSelective(grade_data);
@@ -209,6 +219,70 @@ public class ExpressionController {
 			System.out.println("考试名称已经存在");
 			 response.getWriter().write("false");//此值jquery可以接收到  
 		}
+	}
+	
+	@RequestMapping(value = "/getGradeSelect", method = RequestMethod.POST)
+	public String getGradeSelect(HttpServletRequest request,HttpServletResponse response,
+			@RequestParam("starttime") String starttime,
+			@RequestParam("endtime") String endtime,
+			@RequestParam("graderank") String graderank,
+			@RequestParam("grademodel") String grademodel) throws IOException{
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		if((starttime=="")){
+			starttime = "2000-01-01 12:00:00";
+		}
+		if((endtime=="")){
+			Calendar now = Calendar.getInstance(); 
+			now.setTime(new Date());
+			now.add(Calendar.DATE, 1);  //加1天
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			endtime = sdf.format(now.getTime());
+		}
+		Timestamp starttimeTIME = new Timestamp(System.currentTimeMillis());  
+		Timestamp endtimeTIME = new Timestamp(System.currentTimeMillis());  
+        String tsStr = starttime;   
+        String tsStr2 = endtime; 
+        try {   
+        	starttimeTIME = Timestamp.valueOf(tsStr);
+        	endtimeTIME = Timestamp.valueOf(tsStr2);
+            System.out.println("时间"+starttime+"-------"+endtime);   
+        } catch (Exception e) {   
+            e.printStackTrace();   
+        }  
+		Map param = new HashMap();
+		//param.put("gradestuid", 1);
+		param.put("gradestuid", stu.getStuid());
+		param.put("graderank", graderank);
+		param.put("grademodel", grademodel);
+		param.put("starttime", starttimeTIME);
+		param.put("endtime", endtimeTIME);
+		List<Grade> gradelist = gradeservice.getGradesByStuidAndRankAndModel(param);
+		System.out.println(gradelist);
+		session.setAttribute("gradelist", gradelist);
+		return "views/historyscore";
+		
+	}
+	
+	@RequestMapping(value = "/getStuGrade2", method = RequestMethod.GET)
+	public String getGrade2(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		List<Grade> gradelist = gradeservice.getGradesByStuid(stu.getStuid());
+		System.out.println(gradelist);
+		session.setAttribute("gradelist", gradelist);
+		return "views/graphcontent";
+		
+	}
+	
+	@RequestMapping(value = "/getAllGrades", method = RequestMethod.POST)
+	public String getGradeSelect(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		List<Grade> gradelist = gradeservice.getGradesByStuid(stu.getStuid());
+		session.setAttribute("gradelist", gradelist);
+		return "views/historyscore";
+		
 	}
 
 }

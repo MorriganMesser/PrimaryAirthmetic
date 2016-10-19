@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="edu.tju.goliath.entity.Grade" import="java.util.List" import="java.text.SimpleDateFormat"%>
+	
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -28,48 +29,6 @@
 			</div>
 			<!-- /. ROW  -->
 
-			<div class="row">
-
-
-				<div class="col-md-6 col-sm-12 col-xs-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">Bar Chart</div>
-						<div class="panel-body">
-							<div id="morris-bar-chart"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-12 col-xs-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">Area Chart</div>
-						<div class="panel-body">
-							<div id="morris-area-chart"></div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<!-- /. ROW  -->
-			<div class="row">
-
-				<div class="col-md-6 col-sm-12 col-xs-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">Donut Chart</div>
-						<div class="panel-body">
-							<div id="morris-line-chart"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-12 col-xs-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">Line Chart</div>
-						<div class="panel-body">
-							<div id="morris-donut-chart"></div>
-						</div>
-					</div>
-				</div>
-
-			</div>
 			<!-- /. ROW  -->
 
 			<!-- /. 练习记录  -->
@@ -95,7 +54,7 @@
 			<!-- /. 考试记录  -->
 			<div class="row">
 				<div class="panel panel-default">
-					<div class="panel-heading">正确题型比例</div>
+					<div class="panel-heading">正确率</div>
 					<div class="panel-body">
 						<div id="donut-chart-type-percent"></div>
 					</div>
@@ -128,36 +87,95 @@
 	<!-- Custom Js -->
 	<script src="js/custom-scripts.js"></script>
 
-	<script>
+<%
+
+		List<Grade> grade=(List<Grade>)session.getAttribute("gradelist");
+
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		
+		//练习数据
+		String[] year=new String[grade.size()];
+		Integer[] sum=new Integer[grade.size()];
+		Integer[] right=new Integer[grade.size()];
+		int count=grade.size();
+		for(int i=1,j=1;i<grade.size();i++)
+		{
+			if(grade.get(i).getGrademodel().toString().equals("练习"))
+			{
+				year[j] = sdf.format(grade.get(i).getGradedate());
+				sum[j] = grade.get(i).getGradenums();
+				right[j] = grade.get(i).getGraderightnum();
+				
+				j++;
+				count=j;
+			}
+		}
+		
+		//考试数据
+		String[] eyear=new String[grade.size()];
+		Integer[] esum=new Integer[grade.size()];
+		Integer[] eright=new Integer[grade.size()];
+		int ecount=grade.size();
+		for(int i=1,j=1;i<grade.size();i++)
+		{
+			if(grade.get(i).getGrademodel().toString().equals("考试"))
+			{
+				eyear[j] = sdf.format(grade.get(i).getGradedate());
+				esum[j] = grade.get(i).getGradenums();
+				eright[j] = grade.get(i).getGraderightnum();
+				
+				j++;
+				ecount=j;
+			}
+		}
+		
+		//正确率
+		Integer rc=0;//正确的数量
+		Integer wc=0;
+		for(int i=1;i<grade.size();i++)
+		{
+
+			if(!"".equals(grade.get(i).getGraderightnum()) && null!=grade.get(i).getGraderightnum())
+				rc+=grade.get(i).getGraderightnum();
+			if(!"".equals(grade.get(i).getGradenums()) && null!=grade.get(i).getGradenums() && 
+					!"".equals(grade.get(i).getGraderightnum()) && null!=grade.get(i).getGraderightnum())
+				wc=(grade.get(i).getGradenums())-(grade.get(i).getGraderightnum())+wc;
+
+			
+		}
+%>
+<script type="text/javascript">
+
 		//折线图，练习记录
 		new Morris.Line({
 			// ID of the element in which to draw the chart.
 			element : 'line-chart-test',
 			// Chart data records -- each entry in this array corresponds to a point on
 			// the chart.
-			data : [ {
-				year : '2008-01-01',
-				sum : 10,
-				right : 8
-			}, {
-				year : '2009-01-01',
-				sum : 12,
-				right : 8
-			}, {
-				year : '2010-01-01',
-				sum : 22,
-				right : 15
-			}, {
-				year : '2011-01-01',
-				sum : 25,
-				right : 18
-			}, {
-				year : '2012-01-01',
-				sum : 32,
-				right : 29
-			} ],
+			data : [ 
+			
+			   	 <%
+				   if(year!=null)
+				   {
+				    for(int i=1;i<count;i++)
+				    {
+				  %>
+				 
+				  	{
+				  		minute : '<%=year[i]%>',
+				    	sum : <%=sum[i]%>,
+						right :<%=right[i]%>
+				  	},
+				  
+				  <%   
+				  } 
+				   }
+				  %>
+			
+			 ],
+
 			// The name of the data record attribute that contains x-values.
-			xkey : 'year',
+			xkey : 'minute',
 			// A list of names of data record attributes that contain y-values.
 			ykeys : [ 'sum', 'right' ],
 			// Labels for the ykeys -- will be displayed when you hover over the
@@ -176,29 +194,27 @@
 			element : 'line-chart-exam',
 			// Chart data records -- each entry in this array corresponds to a point on
 			// the chart.
-			data : [ {
-				year : '2008-01-01',
-				sum : 100,
-				right : 80
-			}, {
-				year : '2009-01-01',
-				sum : 120,
-				right : 80
-			}, {
-				year : '2010-01-01',
-				sum : 202,
-				right : 150
-			}, {
-				year : '2011-01-01',
-				sum : 205,
-				right : 108
-			}, {
-				year : '2012-01-01',
-				sum : 320,
-				right : 290
-			} ],
+			data : [ 
+			        <%
+					   if(year!=null)
+					   {
+					    for(int i=1;i<ecount;i++)
+					    {
+					  %>
+					 
+					  	{
+					  		minute : '<%=eyear[i]%>',
+					    	sum : <%=esum[i]%>,
+							right :<%=eright[i]%>
+					  	},
+					  
+					  <%   
+					  } 
+					   }
+					  %>   
+			 ],
 			// The name of the data record attribute that contains x-values.
-			xkey : 'year',
+			xkey : 'minute',
 			// A list of names of data record attributes that contain y-values.
 			ykeys : [ 'sum', 'right' ],
 			// Labels for the ykeys -- will be displayed when you hover over the
@@ -206,6 +222,8 @@
 			labels : [ '题量', '正确' ],
 
 			xLabels : "month",
+			
+			resize : true,
 		});
 	</script>
 	<script>
@@ -215,18 +233,14 @@
 		Morris.Donut({
 			element : 'donut-chart-type-percent',
 			data : [ {
-				label : "加法数量",
-				value : 30.5
+				label : "正确总数",
+				value : <%=rc%>
 			}, {
-				label : "减法数量",
-				value : 25.5
-			}, {
-				label : "乘法数量",
-				value : 20
-			}, {
-				label : "除法数量",
-				value : 20
-			} ]
+				label : "错误总数",
+				value : <%=wc%>
+			}, 
+ ]		
+		
 		});
 	</script>
 </body>

@@ -10,12 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import edu.tju.goliath.entity.Grade;
+import edu.tju.goliath.entity.Parent;
 import edu.tju.goliath.entity.Student;
+import edu.tju.goliath.entity.Teacher;
 import edu.tju.goliath.service.GradeServiceI;
+import edu.tju.goliath.service.ParentServiceI;
 import edu.tju.goliath.service.StudentServiceI;
+import edu.tju.goliath.service.TeacherServiceI;
 
 @Controller
 public class StuController {
@@ -25,6 +28,28 @@ public class StuController {
 	 * 	一个学生对应多个考试成绩，查询时list<Grade> getGradeByStuId()
 	 */
 	private GradeServiceI gradeservice;
+	private ParentServiceI parentservice;
+	private TeacherServiceI teacherservice;
+	
+	
+
+	public TeacherServiceI getTeacherservice() {
+		return teacherservice;
+	}
+
+	@Autowired
+	public void setTeacherservice(TeacherServiceI teacherservice) {
+		this.teacherservice = teacherservice;
+	}
+
+	public ParentServiceI getParentservice() {
+		return parentservice;
+	}
+
+	@Autowired
+	public void setParentservice(ParentServiceI parentservice) {
+		this.parentservice = parentservice;
+	}
 
 	public GradeServiceI getGradeservice() {
 		return gradeservice;
@@ -61,9 +86,17 @@ public class StuController {
 	public String getStuMsg(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
-		System.out.println("显示个人信息:"+stu.getStuname());
-		session.setAttribute("student", stu);
-		return "views/stuinfo";
+		if(null==stu){
+			return "views/error";
+		}else{
+			System.out.println("显示个人信息:"+stu.getStuname());
+			Parent parent = parentservice.getParentById(stu.getStuparentid());
+			Teacher teacher = teacherservice.getTeacherById(stu.getStuteacherid());
+			session.setAttribute("student", stu);
+			session.setAttribute("teacher", teacher);
+			session.setAttribute("parent", parent);
+			return "views/stuinfo";
+		}
 	}
 	
 	@RequestMapping(value = "/addParent", method = RequestMethod.GET)
@@ -115,4 +148,31 @@ public class StuController {
 		return "views/stuinfo";
 	}
 
+	@RequestMapping(value = "/exampage", method = RequestMethod.GET)
+	public String exam(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		System.out.println(stu);
+		if(null==stu){
+			return "views/error";
+		}
+		else{
+			session.setAttribute("student", stu);
+			return "views/exam";
+		}
+	}
+	
+	@RequestMapping(value = "/testpage", method = RequestMethod.GET)
+	public String test(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Student stu = (Student)session.getAttribute("student");
+		System.out.println(stu);
+		if(null==stu){
+			return "views/error";
+		}
+		else{
+			session.setAttribute("student", stu);
+			return "views/test";
+		}
+	}
 }

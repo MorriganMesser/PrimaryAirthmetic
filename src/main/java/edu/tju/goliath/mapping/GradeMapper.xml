@@ -39,13 +39,27 @@
   where gradestuid = #{gradestuid,jdbcType=INTEGER}
   </select>
   
-  <select id="getGradesByStuidAndRankAndModel" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="getAllGrades" resultMap="BaseResultMap">
   select 
   <include refid="Base_Column_List" />
   from t_grade
-  where gradestuid = #{gradestuid,jdbcType=INTEGER} 
-  	and graderank = #{graderank,jdbcType=VARCHAR}
-  	and grademodel = #{grademodel,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getGradesByStuidAndRankAndModel" resultMap="BaseResultMap" parameterType="map" >
+  select 
+  <include refid="Base_Column_List" />
+  from t_grade
+  	<trim prefix="WHERE" prefixOverrides="AND|OR">
+		<if test="gradestuid != null and gradestuid !='' "> AND gradestuid = #{gradestuid,jdbcType=INTEGER}</if>
+		<if test="graderank != null and graderank !='' "> AND graderank = #{graderank,jdbcType=VARCHAR}</if>
+		<if test="grademodel != null and grademodel !='' "> AND grademodel = #{grademodel,jdbcType=VARCHAR}</if>
+		<if test="starttime != null and starttime !='' and endtime != null and endtime !='' "> AND gradedate  between #{starttime,jdbcType=TIMESTAMP} and #{endtime,jdbcType=TIMESTAMP}</if>
+		
+		<!-- 
+		<if test="starttime != null and starttime !='' or endtime = null or endtime ='' "> AND gradedate  between #{starttime,jdbcType=TIMESTAMP} and #{endtime,jdbcType=TIMESTAMP}</if>
+		<if test="starttime = null or starttime ='' and endtime != null and endtime !='' "> AND gradedate  between '2000-01-01 12:00:00' and #{endtime,jdbcType=TIMESTAMP}</if>
+		 -->
+	</trim>
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

@@ -34,33 +34,18 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <form name="reg_testdate" class="signup-form">
+                            <form name="reg_testdate" class="signup-form" action="getGradeSelect.do" method="post">
 	                            <div class="form-group history">
-	                            	开始日期：
-	                            	<select name="YYYY" onCFhange="YYYYDD(this.value)">
-									<option value="">请选择 年</option>
-									</select>
-									<select name="MM" onChange="MMDD(this.value)">
-										<option value="">选择 月</option>
-									</select>
-									<select name="DD">
-										<option value="">选择 日</option>
-									</select>
+	                           		 开始日期：
+	                            	<input id="d11" name="starttime" type="text" onClick="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+	                            	
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									结束日期：
-	                            	<select name="endy" onCFhange="endyendm(this.value)">
-									<option value="">请选择 年</option>
-									</select>
-									<select name="endm" onChange="endmendd(this.value)">
-										<option value="">选择 月</option>
-									</select>
-									<select name="endd">
-										<option value="">选择 日</option>
-									</select>
+	                            	<input id="d11" name="endtime" type="text" onClick="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									难度：
-		                            <select class="sel" name="difficult">
-										<option value="一级-青铜">请选择难度系数，默认：一级-青铜</option>
+		                            <select class="sel" name="graderank">
+										<option value="">请选择难度系数</option>
 										<option value="一级-青铜">一级-青铜</option>
 										<option value="二级-白银">二级-白银</option>
 										<option value="三级-黄金">三级-黄金</option>
@@ -71,13 +56,13 @@
 										</select>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									模式：
-		                            <select class="sel" name="model">
-										<option value="考试">请选择模式，默认：考试</option>
+		                            <select class="sel" name="grademodel">
+										<option value="">请选择模式</option>
 										<option value="考试">考试</option>
 										<option value="练习">练习</option>
 									</select>
 	                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                           		<a href="#"><input type="button" class="btn " value="查询"></a>
+	                           		<input name="" type="submit" value="查询" class="btn">
 	                        	</div>
                        		</form>
                         </div>
@@ -138,6 +123,7 @@
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
+     <script src="My97DatePicker/WdatePicker.js"></script>
     <script src="js/jquery.js"></script>
       <!-- Bootstrap Js -->
     <script src="js/bootstrap.min.js"></script>

@@ -33,14 +33,14 @@
 
 					<li><a href="index.jsp" class="active-menu"><i
 							class="fa fa-table"></i>返回主页</a></li>
-					<li><a href="views/test.jsp#test-anchor"><i class="fa fa-edit"></i>练习系统</a></li>
+					<li><a href="testpage.do"><i class="fa fa-edit"></i>练习系统</a></li>
 
 
-					<li><a href="views/exam.jsp#exam-anchor"><i class="fa fa-sitemap"></i>考试系统</a></li>
+					<li><a href="exampage.do"><i class="fa fa-sitemap"></i>考试系统</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-file"></i>学习系统</a></li>
 					<li><a href="getStuGrade.do"><i class="fa fa-desktop"></i>成绩查询</a>
 					</li>
-					<li><a href="graphcontent.jsp"><i class="fa fa-bar-chart-o"></i>统计分析</a></li>
+					<li><a href="getStuGrade2.do"><i class="fa fa-bar-chart-o"></i>统计分析</a></li>
 					
 					<li><a href="getStuMsg.do"><i class="fa fa-qrcode"></i>用户<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">

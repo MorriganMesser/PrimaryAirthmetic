@@ -1,6 +1,7 @@
 package edu.tju.goliath.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import edu.tju.goliath.entity.Grade;
 
@@ -20,4 +21,8 @@ public interface GradeMapper {
 	List<Grade> getGradesByStuid(Integer stuid);
 
 	Grade getGradeByName(String gradename);
+	
+	List<Grade> getGradesByStuidAndRankAndModel(Map param);
+	
+	List<Grade> getAllGrades();
 }

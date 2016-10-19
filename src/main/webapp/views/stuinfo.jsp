@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="edu.tju.goliath.entity.Student" import="edu.tju.goliath.entity.Parent" import="edu.tju.goliath.entity.Teacher"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -47,7 +47,6 @@
 									</h3>
 								</div>
 								<div class="panel-body">
-
 									<table class="table">
 										<tr>
 											<td>用户名</td>
@@ -67,11 +66,11 @@
 										</tr>
 										<tr>
 											<td>父母</td>
-											<td>${student.stuparentid}</td>
+											<td>${parent.parentname}</td>
 										</tr>
 										<tr>
 											<td>老师</td>
-											<td>${student.stuteacherid}</td>
+											<td>${teacher.teachername}</td>
 										</tr>
 									</table>
 								</div>
