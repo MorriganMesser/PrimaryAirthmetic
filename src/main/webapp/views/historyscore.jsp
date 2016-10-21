@@ -73,7 +73,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>序号</th>
+                                            <th>编号</th>
                                             <th>模式</th>
                                             <th>名称</th>
                                             <th>难度</th>

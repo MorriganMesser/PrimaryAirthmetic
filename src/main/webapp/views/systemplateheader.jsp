@@ -37,7 +37,7 @@
 
 
 					<li><a href="exampage.do"><i class="fa fa-sitemap"></i>考试系统</a></li>
-					<li><a href="#"><i class="fa fa-fw fa-file"></i>学习系统</a></li>
+					<li><a href="index.jsp#portfolio"><i class="fa fa-fw fa-file"></i>学习系统</a></li>
 					<li><a href="getStuGrade.do"><i class="fa fa-desktop"></i>成绩查询</a>
 					</li>
 					<li><a href="getStuGrade2.do"><i class="fa fa-bar-chart-o"></i>统计分析</a></li>

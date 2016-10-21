@@ -49,20 +49,14 @@
 									<option value="6">六级-最强王者</option>
 									<option value="7">七级-超凡大师</option>
 								</select>
-                            </div>
-                            <div class="form-group">
+                          
 	                            <select class="sel" name="testmethod">
 									<option value="0">请选择练习模式,默认：加法</option>
-									<option value="0">加法</option>
-									<option value="1">减法</option>
-									<option value="2">乘法</option>
-									<option value="3">除法</option>
-									<option value="3">加减混合运算</option>
-									<option value="3">乘除混合运算</option>
+									<option value="0">加法运算</option>
+									<option value="1">加减混合运算</option>
+									<option value="2">加减乘混合运算</option>
 									<option value="3">加减乘除混合运算</option>
 								</select>
-                            </div>
-                            <div class="form-group">
 	                            <select id="expnum" class="sel" name="expnum">
 									<option value="10">请选择考试题数,默认：10</option>
 									<option value="10">10</option>
@@ -70,8 +64,8 @@
 									<option value="50">50</option>
 									<option value="100">100</option>
 								</select>
-                            </div>
                             <input type="submit" class="btn btn-cta btn-cta-primary" value="开始练习">
+                              </div>
                         </form><!--//signup-form-->
                     </div><!--//contianer-->
                 </div><!--//signup-->

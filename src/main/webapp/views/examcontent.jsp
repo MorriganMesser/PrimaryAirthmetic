@@ -36,7 +36,7 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            	 当前级别：一级-青铜
+                            	 当前级别：${grade.graderank}
                             	 <!-- 根据点击提交的级别，进行相应的修改 -->
                             	 <div class="time">
 							        <span id="t_d">倒计时：</span>
@@ -52,13 +52,12 @@
                             <div class="table-responsive" style="overflow-x:hidden;">
                             <form id="expresultForm" action="judgeExpressions.do">
                             
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="">
                                     <thead>
                                         <tr>
                                             <th>题号</th>
                                             <th>题目</th>
                                             <th>答案</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>

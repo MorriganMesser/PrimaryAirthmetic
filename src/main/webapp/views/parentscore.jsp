@@ -13,11 +13,11 @@
 <base href="<%=basePath%>"></base>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>学生信息</title>
+    <title>考试答题模式</title>
 	<script src="js/date.js"></script>
 </head>
 <body>
-<%@ include file="teacherheader.jsp"%>       
+<%@ include file="parentheader.jsp"%>       
         <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
@@ -34,33 +34,35 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <form name="reg_testdate" class="signup-form">
+                            <form name="reg_testdate" class="signup-form" action="getGradeSelect.do" method="post">
 	                            <div class="form-group history">
-	                            	日期：
-	                            	<select name="YYYY" onCFhange="YYYYDD(this.value)">
-									<option value="">请选择 年</option>
-									</select>
-									<select name="MM" onChange="MMDD(this.value)">
-										<option value="">选择 月</option>
-									</select>
-									<select name="DD">
-										<option value="">选择 日</option>
-									</select>
+	                           		 开始日期：
+	                            	<input id="d11" name="starttime" type="text" onClick="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+	                            	
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									学号：
-		                            <select class="sel">
-										<option value="">选择学生</option>
-										<option value="">2016218666  甜XX</option>
-									</select>
+									结束日期：
+	                            	<input id="d11" name="endtime" type="text" onClick="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									难度：
+		                            <select class="sel" name="graderank">
+										<option value="">请选择难度系数</option>
+										<option value="一级-青铜">一级-青铜</option>
+										<option value="二级-白银">二级-白银</option>
+										<option value="三级-黄金">三级-黄金</option>
+										<option value="四级-白金">四级-白金</option>
+										<option value="五级-钻石">五级-钻石</option>
+										<option value="六级-最强王者">六级-最强王者</option>
+										<option value="七级-超凡大师">七级-超凡大师</option>
+										</select>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									模式：
-		                            <select class="sel">
+		                            <select class="sel" name="grademodel">
 										<option value="">请选择模式</option>
-										<option value="">考试</option>
-										<option value="">练习</option>
+										<option value="考试">考试</option>
+										<option value="练习">练习</option>
 									</select>
 	                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                           		<a href="testcontent.jsp"><input type="button" class="btn " value="查询"></a>
+	                           		<input name="" type="submit" value="查询" class="btn">
 	                        	</div>
                        		</form>
                         </div>
@@ -71,20 +73,36 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>学号</th>
-                                            <th>姓名</th>
-                                            <th>年级</th>
+                                            <th>编号</th>
+                                            <th>模式</th>
+                                            <th>名称</th>
+                                            <th>难度</th>
+                                            <th>分数</th>
+                                            <th>正确个数</th>
+                                            <th>错误个数</th>
+                                            <th>正确率</th>
+                                            <th>答题时间</th>
+                                            <th>日期</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     
-                                    <c:forEach var="student" items="${stulist}" varStatus="stat">
+                                    <c:forEach var="grade" items="${gradelist}" varStatus="stat">
                                         <tr class="odd gradeX">
-                                            <td>${student.stuid }</td>
-                                            <th>${student.stuname}</th>
-                                            <td>${student.stuyear}</td>
+                                            <th>${grade.gradeid}</th>
+                                            <th>${grade.grademodel}</th>
+                                            <th>${grade.gradename}</th>
+                                            <td>${grade.graderank}</td>
+                                            <td>${grade.grade}</td>
+                                            <td>${grade.graderightnum}</td>
+                                            <td>${grade.gradeerrornum}</td>
+                                             <td>${grade.graderate}</td>
+                                             <td>${grade.gradetime}</td>
+                                            <td>${grade.gradedate}</td>
+                                           
                                         </tr>
                                     </c:forEach>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -105,6 +123,7 @@
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
+     <script src="My97DatePicker/WdatePicker.js"></script>
     <script src="js/jquery.js"></script>
       <!-- Bootstrap Js -->
     <script src="js/bootstrap.min.js"></script>

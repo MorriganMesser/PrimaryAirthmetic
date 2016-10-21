@@ -38,29 +38,29 @@
                         	 <div class="form-group">
                         	 <input name="gradename" id="gradename" type="text" class="sel" placeholder="请填写考试名称：" onblur="validatorGradeName()">
                         	 <td><div id="accDiv"></div></td>
-                            </div>
-                             <div class="form-group">
-	                            <select id="expnum" class="sel" name="expnum">
+                        	 
+                        	 <select id="expnum" class="sel" name="expnum">
 									<option value="10">请选择考试题数,默认：10</option>
 									<option value="10">10</option>
 									<option value="20">20</option>
 									<option value="50">50</option>
 									<option value="100">100</option>
-								</select>
+							</select>
+								
+							 <select id="graderank" class="sel" name="graderank">
+								<option value="0">请选择考试级别,默认：一级-青铜</option>
+								<option value="1">一级-青铜</option>
+								<option value="2">二级-白银</option>
+								<option value="3">三级-黄金</option>
+								<option value="4">四级-白金</option>
+								<option value="5">五级-钻石</option>
+								<option value="6">六级-最强王者</option>
+								<option value="7">七级-超凡大师</option>
+							</select>
+							
+							<input type="submit" class="btn btn-cta btn-cta-primary" value="开始考试">
                             </div>
-                            <div class="form-group">
-	                            <select id="graderank" class="sel" name="graderank">
-									<option value="0">请选择考试级别,默认：一级-青铜</option>
-									<option value="1">一级-青铜</option>
-									<option value="2">二级-白银</option>
-									<option value="3">三级-黄金</option>
-									<option value="4">四级-白金</option>
-									<option value="5">五级-钻石</option>
-									<option value="6">六级-最强王者</option>
-									<option value="7">七级-超凡大师</option>
-								</select>
-                            </div>
-                            <input type="submit" class="btn btn-cta btn-cta-primary" value="开始考试">
+                            
                         </form><!--//signup-form-->
                     </div><!--//contianer-->
                 </div><!--//signup-->
@@ -71,7 +71,7 @@
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
-<script>
+<!-- <script>
 /* $.validator.setDefaults({
     //submitHandler: function() {
      // alert("提交事件!");
@@ -92,13 +92,14 @@ $().ready(function() {
 	      gradename: {
 	        required: "请输入考试名称",
 	      },
-	      graderank: {
+	    graderank: {
 		    required: "请输入考试等级",
 		  }
 	    }
 	});
 });
 </script>
+ -->  
 <script type="text/javascript">
 function validatorGradeName(){
 	//alert("aaaaa");

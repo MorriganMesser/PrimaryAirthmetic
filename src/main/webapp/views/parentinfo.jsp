@@ -16,7 +16,7 @@
 <title>用户信息</title>
 </head>
 <body>
-	<%@ include file="teacherheader.jsp"%>
+	<%@ include file="parentheader.jsp"%>
 
 	<!-- /. NAV SIDE  -->
 	<div id="page-wrapper">
@@ -50,11 +50,15 @@
 									<table class="table">
 										<tr>
 											<td>用户名</td>
-											<td>xx</td>
+											<td>${parent.parentname}</td>
+										</tr>
+										<tr>
+											<td>昵称</td>
+											<td>${parent.parentnick}</td>
 										</tr>
 										<tr>
 											<td>账户年龄</td>
-											<td>1</td>
+											<td>${parent.parentage}</td>
 										</tr>
 									</table>
 								</div>
@@ -70,8 +74,8 @@
 								<div class="panel-body">
 									<table class="table table-hover">
 										<tr>
-											<td>學生人數</td>
-											<td>0</td>
+											<td>儿子个数</td>
+											<td>1</td>
 										</tr>
 									</table>
 								</div>

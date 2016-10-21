@@ -1,5 +1,7 @@
 package edu.tju.goliath.testDao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -173,7 +175,12 @@ public class TestMybatis {
 		Integer b = 4;
 		System.out.println(a+b);
 		List<Grade> gradelist = gradeService.getAllGrades();
-		logger.info(JSON.toJSONStringWithDateFormat(gradelist, "yyyy-MM-dd HH:mm:ss"));
+		Date str = new Date();
+		SimpleDateFormat sdf =   new SimpleDateFormat( "MMddHHmmss" );
+		String end = sdf.format(str);
+		int cc = Integer.parseInt(end);
+		int ii = 1234567890;
+		logger.info(JSON.toJSONStringWithDateFormat(cc, "yyyy-MM-dd HH:mm:ss"));
 	}
 }
 

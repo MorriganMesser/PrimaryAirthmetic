@@ -50,11 +50,15 @@
 									<table class="table">
 										<tr>
 											<td>用户名</td>
-											<td>xx</td>
+											<td>${teacher.teachername}</td>
+										</tr>
+										<tr>
+											<td>昵称</td>
+											<td>${teacher.teachernick}</td>
 										</tr>
 										<tr>
 											<td>账户年龄</td>
-											<td>1</td>
+											<td>${teacher.teacherage } </td>
 										</tr>
 									</table>
 								</div>
@@ -70,7 +74,7 @@
 								<div class="panel-body">
 									<table class="table table-hover">
 										<tr>
-											<td>學生人數</td>
+											<td>学生人数</td>
 											<td>0</td>
 										</tr>
 									</table>

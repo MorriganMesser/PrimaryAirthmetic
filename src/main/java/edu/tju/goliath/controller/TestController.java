@@ -1,5 +1,6 @@
 package edu.tju.goliath.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,7 +37,7 @@ public class TestController {
 
 	@RequestMapping(value = "/testExp", method = RequestMethod.GET)
 	public String testExp(HttpServletRequest request,
-			@RequestParam("testname") String testname,
+			//@RequestParam("testname") String testname,
 			@RequestParam("testrank") String testrank,
 			@RequestParam("expnum") String expnum,
 			@RequestParam("testmethod") String testmethod){
@@ -103,10 +104,16 @@ public class TestController {
 		}
 			break;
 		}
+		Date stuididid = new Date();
+		SimpleDateFormat sdfsdf =   new SimpleDateFormat( "MMddHHmmss" );
+		String stuidididid = sdfsdf.format(stuididid);
+		int numid = Integer.parseInt(stuidididid);
+		grade.setGradeid(numid);
 		grade.setGradenums(expnumINT);
-		grade.setGradename(testname);
+		//grade.setGradename(testname);
 		int grade_data_result=gradeservice.addGradeSelective(grade);
-		Grade grade_data = gradeservice.getGradeByName(testname);
+		//Grade grade_data = gradeservice.getGradeByName(testname);
+		Grade grade_data = gradeservice.getGradeById(numid);
 		
 		session.setAttribute("grade", grade_data);
 		session.setAttribute("explist", explist);

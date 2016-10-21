@@ -63,7 +63,10 @@ public class ExpressionController {
 			@RequestParam("graderank") String graderank,
 			@RequestParam("gradename") String gradename,
 			@RequestParam("expnum") String expnum){
-		
+		Date str = new Date();
+		SimpleDateFormat sdf =   new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss " );
+		String end = sdf.format(str);
+		//gradename=gradename+"++"+end;
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
 		int graderankINT = Integer.parseInt(graderank);
@@ -151,13 +154,21 @@ public class ExpressionController {
 			expresult.setExpresult(expression.getResult());
 			explist.add(expresult);
 		}
-		
+		Date stuididid = new Date();
+		SimpleDateFormat sdfsdf =   new SimpleDateFormat( "MMddHHmmss" );
+		String stuidididid = sdfsdf.format(stuididid);
+		int numid = Integer.parseInt(stuidididid);
+		grade.setGradeid(numid);
 		grade.setGrademodel("考试");
 		grade.setGradenums(expnumINT);
-		grade.setGradename(gradename);
+		grade.setGradestuid(stu.getStuid());
+		//grade.setGradename(gradename);
 		int grade_data_result=gradeservice.addGradeSelective(grade);
-		Grade grade_data = gradeservice.getGradeByName(gradename);
+		System.out.println("存储考试结果"+grade_data_result);
+		//Grade grade_data = gradeservice.getGradeByName(gradename);
+		Grade grade_data = gradeservice.getGradeById(numid);
 		
+		//session.setAttribute("grade", grade);
 		session.setAttribute("grade", grade_data);
 		session.setAttribute("explist", explist);
 		return "views/examcontent";
@@ -170,6 +181,7 @@ public class ExpressionController {
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
 		Grade grade_data = (Grade)session.getAttribute("grade");
+		System.out.println("test判决grade"+grade_data.toString());
 		explistWithAnswer=(ArrayList<ExpResult>) session.getAttribute("explist");
 		int grade_right_num=0;
 		System.out.println(result);
@@ -188,6 +200,8 @@ public class ExpressionController {
 		double weight = 100 / expnums;
 		grade_data.setGraderightnum(grade_right_num);
 		grade_data.setGradeerrornum(expnums-grade_right_num);
+		System.out.println("更新记录的ID为"+grade_data.getGradeid());
+		grade_data.setGradeid(grade_data.getGradeid());
 		grade_data.setGrade(String.valueOf(grade_right_num*weight));
 		System.out.println("正确个数"+grade_right_num );
 		System.out.println("总数"+expnums);
@@ -198,8 +212,8 @@ public class ExpressionController {
 		grade_data.setGraderate(graderate);
 		grade_data.setGradestuid(stu.getStuid());
 		grade_data.setGradedate(new Date());
-		gradeservice.updateGradeByIdSelective(grade_data);
-		
+		int judgegrade_result = gradeservice.updateGradeByIdSelective(grade_data);
+		System.out.println("判卷存储结果"+judgegrade_result);
 		System.out.println(explistWithAnswer.get(0).getExpvalue());
 		System.out.println(explistWithAnswer.get(0).getUserresult());
 		System.out.println(explistWithAnswer.get(0).getExpresult());

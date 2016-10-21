@@ -1,5 +1,7 @@
 package edu.tju.goliath.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +59,15 @@ public class StudentServiceImpl implements StudentServiceI {
 	@Override
 	public Student getStuByEmail(String stuemail) {
 		return stuMapper.selectByStuEmail(stuemail);
+	}
+	@Override
+	public List<Student> getStudentByTeacherid(Integer teacherid) {
+		return stuMapper.getStudentByTeacherid(teacherid);
+	}
+	@Override
+	public List<Student> getStudentByParentid(Integer parentid) {
+		// TODO Auto-generated method stub
+		return stuMapper.getStudentByParentid(parentid);
 	}
 
 }

@@ -88,7 +88,7 @@
 					<a href="views/exam.jsp#exam-anchor">考试模块</a>
 				</li>
 				<li class="page-scroll">
-					<a href="views/index.jsp#portfolio">学习模块</a>
+					<a href="index.jsp#portfolio">学习模块</a>
 				</li>
 					<li class="page-scroll">
 					<a href="getStuMsg.do">个人信息</a>

@@ -1,5 +1,7 @@
 package edu.tju.goliath.service;
 
+import java.util.List;
+
 import edu.tju.goliath.entity.Student;
 
 public interface StudentServiceI {
@@ -19,5 +21,10 @@ public interface StudentServiceI {
     Student getStuByName(String stuname);
     
     Student getStuByEmail(String stuemail);
+    
+    //getStudentByTeacherid
+    List<Student> getStudentByTeacherid(Integer teacherid);
+    //getStudentByParentid
+    List<Student> getStudentByParentid(Integer parentid);
 
 }

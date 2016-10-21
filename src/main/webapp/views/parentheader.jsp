@@ -28,8 +28,8 @@
 		<nav class="navbar navbar-default top-navbar" role="navigation">
 				<div class="login_top">
 			<ul class="nav navbar-nav navbar-right">
-			<c:if test="${teacher!=null}"> 
-  				<li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span>${teacher.teachernick}</a></li>
+			<c:if test="${parent!=null}"> 
+  				<li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span>${parent.parentnick}</a></li>
 				<li><a href="signup.do" >退出</a></li>
 				<li><a href="#">&nbsp;</a></li>
 			</c:if>
@@ -43,12 +43,13 @@
 
 					<li><a href="#" class="active-menu"><i
 							class="fa fa-table"></i>主页</a></li>
-					<li><a href="getStuByTeacher.do"><i class="fa fa-desktop"></i>学生查询</a>
-					<li><a href="getStuAllGrades.do"><i class="fa fa-desktop"></i>成绩查询</a>
+					<li><a href="getStuByParent.do"><i class="fa fa-desktop"></i>查看儿子</a>
+					<li><a href="getAllStuGrades.do"><i class="fa fa-desktop"></i>查看所有</a>
 					</li>
-					<li><a href="getTeacherMsg.do"><i class="fa fa-qrcode"></i>用户<span class="fa arrow"></span></a>
+					<li><a href="getStuGradeGraphByParent.do"><i class="fa fa-bar-chart-o"></i>查看儿子成绩统计</a></li>
+					<li><a href="getParentMsg.do"><i class="fa fa-qrcode"></i>用户<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="getTeacherMsg.do">个人中心</a></li>
+							<li><a href="getParentMsg.do">个人中心</a></li>
 						</ul></li>
 
 				</ul>

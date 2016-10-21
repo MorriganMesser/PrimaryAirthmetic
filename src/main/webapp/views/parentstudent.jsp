@@ -17,7 +17,7 @@
 	<script src="js/date.js"></script>
 </head>
 <body>
-<%@ include file="teacherheader.jsp"%>       
+<%@ include file="parentheader.jsp"%>       
         <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
@@ -68,7 +68,7 @@
                          
                         <div class="panel-body">
                             <div class="table-responsive" style="overflow-x:hidden;">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                              <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
                                             <th>学号</th>

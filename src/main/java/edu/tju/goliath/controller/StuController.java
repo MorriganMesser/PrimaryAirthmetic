@@ -141,11 +141,21 @@ public class StuController {
 			@RequestParam("stuparentid") String stuparentid) {
 		HttpSession session = request.getSession();
 		Student stu = (Student)session.getAttribute("student");
-		stu.setStuteacherid(Integer.parseInt(stuteacherid));
-		stu.setStuparentid(Integer.parseInt(stuparentid));
-		stuservice.updateStuByIdSelective(stu);
-		session.setAttribute("student", stu);
-		return "views/stuinfo";
+		if(("".equals(stuteacherid)||null==stuteacherid)&&("".equals(stuparentid)||null==stuparentid)){
+			session.setAttribute("student", stu);
+			return "views/stuinfo";
+		}else if("".equals(stuteacherid)||null==stuteacherid&&(!"".equals(stuparentid)||null!=stuparentid)){
+			stu.setStuparentid(Integer.parseInt(stuparentid));
+			stuservice.updateStuByIdSelective(stu);
+			session.setAttribute("student", stu);
+			return "views/stuinfo";
+		}else{
+			stu.setStuteacherid(Integer.parseInt(stuteacherid));
+			stu.setStuparentid(Integer.parseInt(stuparentid));
+			stuservice.updateStuByIdSelective(stu);
+			session.setAttribute("student", stu);
+			return "views/stuinfo";
+		}
 	}
 
 	@RequestMapping(value = "/exampage", method = RequestMethod.GET)

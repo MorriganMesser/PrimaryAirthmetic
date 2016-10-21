@@ -20,6 +20,21 @@
     from t_student
     where stuid = #{stuid,jdbcType=INTEGER}
   </select>
+  
+   <select id="getStudentByTeacherid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_student
+    where stuteacherid = #{stuteacherid,jdbcType=INTEGER}
+  </select>
+  
+   <select id="getStudentByParentid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_student
+    where stuparentid = #{stuparentid,jdbcType=INTEGER}
+  </select>
+  
   <select id="selectByStuName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />

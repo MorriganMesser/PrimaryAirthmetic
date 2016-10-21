@@ -366,70 +366,6 @@
 		</div>
 	</section>
 
-	<!-- Contact Section -->
-	<section id="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2>联系我们</h2>
-					<hr class="star-primary">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					<form name="sentMessage" id="contactForm" novalidate>
-						<div class="row control-group">
-							<div
-								class="form-group col-xs-12 floating-label-form-group controls">
-								<label>姓名</label> <input type="text" class="form-control"
-									placeholder="姓名" id="name" required
-									data-validation-required-message="Please enter your name.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="row control-group">
-							<div
-								class="form-group col-xs-12 floating-label-form-group controls">
-								<label>电子邮箱</label> <input type="email" class="form-control"
-									placeholder="电子邮箱" id="email" required
-									data-validation-required-message="Please enter your email address.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="row control-group">
-							<div
-								class="form-group col-xs-12 floating-label-form-group controls">
-								<label>电话号码</label> <input type="tel" class="form-control"
-									placeholder="电话号码" id="phone" required
-									data-validation-required-message="Please enter your phone number.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="row control-group">
-							<div
-								class="form-group col-xs-12 floating-label-form-group controls">
-								<label>信息</label>
-								<textarea rows="5" class="form-control" placeholder="信息"
-									id="message" required
-									data-validation-required-message="Please enter a message."></textarea>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<br>
-						<div id="success"></div>
-						<div class="row">
-							<div class="form-group col-xs-12">
-								<button type="submit" class="btn btn-success btn-lg">发送</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-
 
 	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 	<div class="scroll-top page-scroll visible-xs visible-sm">
@@ -736,12 +672,9 @@
 										<option value="教师">教师</option>
 										<option value="家长">家长</option>
 									</select>
-									<h4>
-										<a href="#">忘记密码</a> / <a href="#">创建新密码</a>
-									</h4>
 									<div class="single-bottom">
-										<input type="checkbox" id="brand" value=""> <label
-											for="brand"><span></span>记住我</label>
+									 
+										<span></span>&nbsp;</label>
 									</div>
 									<input type="submit" value="确认">
 								</form>
