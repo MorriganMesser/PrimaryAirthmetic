@@ -2,13 +2,13 @@ package edu.tju.goliath.util;
 import java.lang.Math;
 
 public class Fraction {
-    private int numerator;
-    private int denominator;
+    private long numerator;
+    private long denominator;
     
     /*
      * 求最大公约数
      */
-    private int gcd(int x, int y) {
+    private long gcd(long x, long y) {
         if(x % y == 0) {
             return y;
         }
@@ -28,7 +28,7 @@ public class Fraction {
             this.denominator = 1;
         }
         else {
-            int _gcd = this.gcd(Math.abs(numerator), Math.abs(denominator));
+            long _gcd = this.gcd(Math.abs(numerator), Math.abs(denominator));
             this.numerator /= _gcd;
             this.denominator /= _gcd;
         }
@@ -37,7 +37,7 @@ public class Fraction {
     /*
      * 构造函数，初始化分数时，让分子决定分数的正负
      */
-    public Fraction(int nume, int deno) {
+    public Fraction(long nume, long deno) {
     	if(deno < 0) {
     		deno = -deno;
     		nume = - nume;
@@ -49,7 +49,7 @@ public class Fraction {
     /*
      * 构造函数，初始化整数
      */
-    public Fraction(int nume) {
+    public Fraction(long nume) {
         this(nume, 1);
     }
     /*
@@ -65,10 +65,10 @@ public class Fraction {
         this(0);
     }
     
-    public int getNumerator() {
+    public long getNumerator() {
         return this.numerator;
     }
-    public int getDenominator() {
+    public long getDenominator() {
         return this.denominator;
     }
     
