@@ -132,22 +132,27 @@ public class UserController {
 					if(password.equals(parent.getParentpwd())){
 						session.setAttribute("parent", parent);
 						System.out.println("家长"+parent.getParentname()+"登陆成功");
+						return "views/parentinfo";
 					}else{
 						System.out.println("家长"+parent.getParentname()+"密码错误");
+						return "views/errorpwd";
 					}
 				}else {
 					Parent parent=parentservice.getParentByName(nameoremail);
 					if(password.equals(parent.getParentpwd())){
 						session.setAttribute("parent", parent);
 						System.out.println("家长"+parent.getParentname()+"登陆成功");
+						return "views/parentinfo";
 					}else{
 						System.out.println("家长"+parent.getParentname()+"密码错误");
+						return "views/errorpwd";
 					}
 				}
 			}else{
 				System.out.println("用户名或密码错误");
+				return "views/errorpwd";
 			}
-				return "views/parentinfo";
+				
 		} else if ("教师".equals(type)) {
 				if(!((null==teacherservice.getTeacherByEmail(nameoremail))&&(null==teacherservice.getTeacherByName(nameoremail)))){
 					if(!(null==teacherservice.getTeacherByEmail(nameoremail))){
@@ -155,22 +160,27 @@ public class UserController {
 						if(password.equals(teacher.getTeacherpwd())){
 							session.setAttribute("teacher", teacher);
 							System.out.println("教师"+teacher.getTeachername()+"登陆成功");
+							return "views/teacherinfo";
 						}else{
 							System.out.println("教师"+teacher.getTeachername()+"密码错误");
+							return "views/errorpwd";
 						}
 					}else {
 						Teacher teacher=teacherservice.getTeacherByName(nameoremail);
 						if(password.equals(teacher.getTeacherpwd())){
 							session.setAttribute("teacher", teacher);
 							System.out.println("教师"+teacher.getTeachername()+"登陆成功");
+							return "views/teacherinfo";
 						}else{
 							System.out.println("教师"+teacher.getTeachername()+"密码错误");
+							return "views/errorpwd";
 						}
 					}
 				}else{
 					System.out.println("用户名或密码错误");
+					return "views/errorpwd";
 				}
-				return "views/teacherinfo";
+				//return "views/teacherinfo";
 		} else {
 			if(!((null==stuservice.getStuByEmail(nameoremail))&&(null==stuservice.getStuByName(nameoremail)))){
 				if(!(null==stuservice.getStuByEmail(nameoremail))){
@@ -184,6 +194,7 @@ public class UserController {
 						System.out.println("学生"+stu.getStuname()+"登陆成功");
 					}else{
 						System.out.println("学生"+stu.getStuname()+"密码错误");
+						return "views/errorpwd";
 					}
 				}else {
 					Student stu=stuservice.getStuByName(nameoremail);
@@ -198,10 +209,12 @@ public class UserController {
 						
 					}else{
 						System.out.println("学生"+stu.getStuname()+"密码错误");
+						return "views/errorpwd";
 					}
 				}
 			}else{
 				System.out.println("用户名或密码错误");
+				return "views/errorpwd";
 			}
 			return "index";
 		}

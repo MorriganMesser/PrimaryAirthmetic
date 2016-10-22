@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -98,7 +99,8 @@
                                             <td>${grade.gradeerrornum}</td>
                                              <td>${grade.graderate}</td>
                                              <td>${grade.gradetime}</td>
-                                            <td>${grade.gradedate}</td>
+                                             <td><fmt:formatDate value='${grade.gradedate}' pattern='yyyy-MM-dd HH:mm:ss'/></td>
+                                            <%-- <td>${grade.gradedate}</td> --%>
                                            
                                         </tr>
                                     </c:forEach>

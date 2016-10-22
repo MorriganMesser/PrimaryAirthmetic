@@ -161,7 +161,11 @@ public class ExpressionController {
 		grade.setGradeid(numid);
 		grade.setGrademodel("考试");
 		grade.setGradenums(expnumINT);
+		grade.setGraderightnum(0);
+		grade.setGradeerrornum(expnumINT-0);
 		grade.setGradestuid(stu.getStuid());
+		grade.setGradedate(new Date());
+		grade.setGrade("0");
 		//grade.setGradename(gradename);
 		int grade_data_result=gradeservice.addGradeSelective(grade);
 		System.out.println("存储考试结果"+grade_data_result);
