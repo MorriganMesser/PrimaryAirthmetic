@@ -721,10 +721,6 @@
 							</div>
 							<div class="clearfix"></div>
 						</div>
-						<p>
-							By logging in you agree to our <a href="#">Terms</a> and <a
-								href="#">Conditions</a> and <a href="#">Privacy Policy</a>
-						</p>
 					</div>
 				</div>
 			</div>

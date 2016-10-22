@@ -51,7 +51,7 @@
 				<li><a href="#">&nbsp;</a></li>
 			</c:if> 
 			<c:if test="${student!=null}"> 
-    			<li><a href="#" >aaa欢迎！</a></li>
+    			<li><a href="#" >欢迎！</a></li>
 				<li><a href="#" >学生：</a></li>
 				<li><a href="#" >${student.stunick}</a></li>
 				<li><a href="signup.do" >退出</a></li>
@@ -118,10 +118,8 @@
 											<h3>用户登录</h3>
 											<input type="text" name="Email" value="请输入用户名或邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名或邮箱';}" required="">	
 											<input type="password" name="Password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<h4><a href="#">忘记密码</a> / <a href="#">创建新密码</a></h4>
 											<div class="single-bottom">
-												<input type="checkbox"  id="brand" value="">
-												<label for="brand"><span></span>记住我</label>
+												<label for="brand"><span></span></label>
 											</div>
 											<input type="submit" value="确认" >
 										</form>
