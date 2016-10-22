@@ -45,10 +45,82 @@ public class TestController {
 		int testrankINT = Integer.parseInt(testrank);
 		int testmethodINT = Integer.parseInt(testmethod);
 		int expnumINT = Integer.parseInt(expnum);
-		Expression expression = new Expression(10, 10);
-		expression.setFractionNumber(testrankINT);
+		Expression expression = new Expression(20, 10);
+		expression.setFractionNumber(testrankINT + 1);
 		expression.setGrade(testmethodINT);
 		ArrayList<ExpResult> explist = new ArrayList<ExpResult>();
+
+		Grade grade = new Grade();
+		grade.setGrademodel("练习");
+		switch (testrankINT) {
+		case 1:
+		{
+			expression.setFractionRatio(0);
+			expression.setScale(10);
+			expression.setFractionScale(0);
+			grade.setGraderank("一级-青铜");
+		}
+			
+			break;
+		case 2:
+		{
+			expression.setFractionRatio(10);
+			expression.setScale(10);
+			expression.setFractionScale(5);
+			grade.setGraderank("二级-白银");
+		}
+			break;
+		case 3:
+		{
+			expression.setFractionRatio(20);
+			expression.setScale(10);
+			expression.setFractionScale(5);
+			grade.setGraderank("三级-黄金");
+		}
+			break;
+		case 4:
+		{
+			expression.setFractionRatio(30);
+			expression.setScale(40);
+			expression.setFractionScale(10);
+			grade.setGraderank("四级-白金");
+		}
+			break;
+		case 5:
+		{
+			expression.setFractionRatio(40);
+			expression.setScale(50);
+			expression.setFractionScale(10);
+			grade.setGraderank("五级-钻石");
+		}
+			break;
+		case 6:
+		{
+			expression.setFractionRatio(40);
+			expression.setScale(60);
+			expression.setFractionScale(10);
+			grade.setGraderank("六级-最强王者");
+		}
+			break;
+		case 7:
+		{
+			expression.setFractionRatio(50);
+			expression.setScale(90);
+			expression.setFractionScale(10);
+			grade.setGraderank("七级-超凡大师");
+		}
+			break;
+
+		default:
+		{
+			expression.setFractionRatio(0);
+			expression.setScale(10);
+			expression.setFractionScale(0);
+			grade.setGraderank("一级-青铜");
+		}
+			break;
+		}
+		
 		
 		for(int i = 0; i < expnumINT; ++i) {
 			expression.createExpression();
@@ -58,52 +130,7 @@ public class TestController {
 			expresult.setExpresult(expression.getResult());
 			explist.add(expresult);
 		}
-		Grade grade = new Grade();
-		grade.setGrademodel("练习");
-		switch (testrankINT) {
-		case 1:
-		{
-			grade.setGraderank("一级-青铜");
-		}
-			
-			break;
-		case 2:
-		{
-			grade.setGraderank("二级-白银");
-		}
-			break;
-		case 3:
-		{
-			grade.setGraderank("三级-黄金");
-		}
-			break;
-		case 4:
-		{
-			grade.setGraderank("四级-白金");
-		}
-			break;
-		case 5:
-		{
-			grade.setGraderank("五级-钻石");
-		}
-			break;
-		case 6:
-		{
-			grade.setGraderank("六级-最强王者");
-		}
-			break;
-		case 7:
-		{
-			grade.setGraderank("七级-超凡大师");
-		}
-			break;
-
-		default:
-		{
-			grade.setGraderank("一级-青铜");
-		}
-			break;
-		}
+		
 		Date stuididid = new Date();
 		SimpleDateFormat sdfsdf =   new SimpleDateFormat( "MMddHHmmss" );
 		String stuidididid = sdfsdf.format(stuididid);

@@ -80,7 +80,9 @@ public class ExpressionController {
 		{
 			System.out.println("考试等级1");
 			expression.setFractionNumber(2);
-			expression.setGrade(3);
+			expression.setGrade(1);
+			expression.setFractionRatio(0);
+			expression.setScale(10);
 			grade.setGraderank("一级-青铜");
 		}
 			
@@ -88,8 +90,11 @@ public class ExpressionController {
 		case 2:
 		{
 			System.out.println("考试等级2");
-			expression.setFractionNumber(4);
+			expression.setFractionNumber(3);
 			expression.setGrade(1);
+			expression.setFractionRatio(10);
+			expression.setScale(20);
+			expression.setFractionScale(10);
 			grade.setGraderank("二级-白银");
 		}
 			break;
@@ -97,15 +102,21 @@ public class ExpressionController {
 		{
 			System.out.println("考试等级3");
 			expression.setFractionNumber(4);
-			expression.setGrade(3);
+			expression.setGrade(2);
+			expression.setFractionRatio(20);
+			expression.setScale(30);
+			expression.setFractionScale(10);
 			grade.setGraderank("三级-黄金");
 		}
 			break;
 		case 4:
 		{
 			System.out.println("考试等级4");
-			expression.setFractionNumber(6);
-			expression.setGrade(0);
+			expression.setFractionNumber(5);
+			expression.setGrade(3);
+			expression.setFractionRatio(30);
+			expression.setScale(40);
+			expression.setFractionScale(10);
 			grade.setGraderank("四级-白金");
 		}
 			break;
@@ -114,22 +125,31 @@ public class ExpressionController {
 			System.out.println("考试等级5");
 			expression.setFractionNumber(6);
 			expression.setGrade(3);
+			expression.setFractionRatio(40);
+			expression.setScale(50);
+			expression.setFractionScale(10);
 			grade.setGraderank("五级-钻石");
 		}
 			break;
 		case 6:
 		{
 			System.out.println("考试等级6");
-			expression.setFractionNumber(9);
-			expression.setGrade(1);
+			expression.setFractionNumber(7);
+			expression.setGrade(3);
+			expression.setFractionRatio(50);
+			expression.setScale(70);
+			expression.setFractionScale(10);
 			grade.setGraderank("六级-最强王者");
 		}
 			break;
 		case 7:
 		{
 			System.out.println("考试等级7");
-			expression.setFractionNumber(9);
+			expression.setFractionNumber(8);
 			expression.setGrade(3);
+			expression.setFractionRatio(50);
+			expression.setScale(90);
+			expression.setFractionScale(10);
 			grade.setGraderank("七级-超凡大师");
 		}
 			break;
@@ -138,7 +158,9 @@ public class ExpressionController {
 		{
 			System.out.println("考试等级默认");
 			expression.setFractionNumber(2);
-			expression.setGrade(2);
+			expression.setGrade(1);
+			expression.setFractionRatio(0);
+			expression.setScale(10);
 			grade.setGraderank("一级-青铜");
 		}
 			break;
